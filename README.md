@@ -31,3 +31,8 @@ Le personnage est animé via la planche `assets/hero.png` (grille 4x3, cellules 
 - rangée 0 : idle (4 frames) · rangée 1 : course, dash, aura slow-mo, saut · rangée 2 : entaille horizontale, mort/hurt, entaille verticale, pose mur
 Les sprites font face à droite ; le jeu les retourne horizontalement selon la direction.
 Si l'image n'est pas chargée, le jeu retombe sur un rendu vectoriel de secours.
+
+## 13 secteurs
+Chaque secteur a son propre fond (`assets/bg/levelNN_*.jpg`, défilement parallaxe) et son thème de monstres (couleur + composition ennemis qui s'intensifie) :
+CITY, APARTMENT, ALLEY, SEWERS, SUBWAY, PENTHOUSE, ZEN GARDEN, LAB, DOJO, DOCKS, TRAINYARD, NIGHTCLUB, OVERPASS.
+Si un fond manque, le jeu retombe sur le décor procédural (skyline + soleil synthwave).

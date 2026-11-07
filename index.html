@@ -182,7 +182,16 @@ cv.addEventListener('contextmenu', e => e.preventDefault());
 /* ---------- STATE ---------- */
 let state = 'title';
 let paused = false;
-const LEVELS = 5;
+const LEVELS = 13;
+const LEVEL_NAMES = ['CITY','APARTMENT','ALLEY','SEWERS','SUBWAY','PENTHOUSE','ZEN GARDEN','LAB','DOJO','DOCKS','TRAINYARD','NIGHTCLUB','OVERPASS'];
+const LEVEL_TINTS = ['#ff2d78','#b967ff','#00e5ff','#ff9f1c','#ff2d78','#00e5ff','#ff9f1c','#b967ff','#ff2d78','#00e5ff','#ff9f1c','#b967ff','#ff2d78'];
+const BG_FILES = ['level01_city.jpg','level02_apartment.jpg','level03_alley.jpg','level04_sewers.jpg','level05_subway.jpg','level06_penthouse.jpg','level07_zen.jpg','level08_lab.jpg','level09_dojo.jpg','level10_docks.jpg','level11_trainyard.jpg','level12_nightclub.jpg','level13_overpass.jpg'];
+let bgImgs = [];
+try {
+  if (typeof Image !== 'undefined'){
+    for (const f of BG_FILES){ const im = new Image(); im.src = 'assets/bg/' + f; bgImgs.push(im); }
+  }
+} catch(e){}
 let level = 1, score = 0, combo = 0, comboT = 0, deaths = 0, runTime = 0;
 let meter = 100, slowmo = false, shake = 0;
 let solids = [], enemies = [], bullets = [], parts = [], floats = [], skyline = [];
@@ -222,7 +231,7 @@ function buildLevel(n){
   solids.push(...plats);
   exitDoor = { x: width - 118, y: groundY - 92, w: 46, h: 92 };
   const segOf = sx => segs.find(s => sx > s.x - 20 && sx < s.x + s.w + 20) || segs[0];
-  const nw = 3 + n;
+  const nw = 3 + Math.min(n, 8);
   for (let i = 0; i < nw; i++){
     const s = segs[1 + (rand() * (segs.length - 1) | 0)];
     const sx = s.x + 30 + rand() * Math.max(10, s.w - 90);
@@ -231,19 +240,21 @@ function buildLevel(n){
       face: -1, dir: rand() < 0.5 ? -1 : 1, minX: sg.x + 4, maxX: sg.x + sg.w - 32,
       onGround: false, hitWall: false, anim: rand() * 10, dead: false });
   }
-  const ns = 1 + Math.min(n, 3);
+  const ns = 1 + Math.min(n, 4);
   for (let i = 0; i < ns && i < plats.length; i++){
     const p = plats[i];
     enemies.push({ type:'shooter', x: p.x + p.w / 2 - 14, y: p.y - 36, w: 28, h: 36,
       vx: 0, vy: 0, fireT: 1 + rand() * 1.5, tel: 0, aim: 0, dead: false });
   }
-  const nd = n >= 3 ? n - 2 : 0;
+  const nd = n >= 3 ? Math.min(n - 2, 6) : 0;
   for (let i = 0; i < nd; i++){
     const s = segs[1 + (rand() * (segs.length - 1) | 0)];
     const sx = s.x + 40 + rand() * Math.max(10, s.w - 120);
     enemies.push({ type:'dasher', x: sx, y: groundY - 40, w: 30, h: 40, vx: 0, vy: 0,
       mode: 'idle', t: 1 + rand(), face: -1, onGround: false, hitWall: false, dead: false });
   }
+  const tint = LEVEL_TINTS[(n - 1) % LEVEL_TINTS.length];
+  for (const e of enemies) e.tint = tint;
   skyline = [];
   for (let L = 0; L < 2; L++){
     const r = mulberry32(500 + n * 31 + L);
@@ -551,6 +562,16 @@ function render(){
   }
   sc.setTransform(1, 0, 0, 1, 0, 0);
   sc.fillStyle = bgGrad; sc.fillRect(0, 0, W, H);
+  const bg = bgImgs[level - 1];
+  const bgReady = bg && bg.complete && bg.naturalWidth > 0;
+  if (bgReady){
+    const off = (cam * 0.35) % W;
+    sc.drawImage(bg, -off, 0, W, H);
+    sc.drawImage(bg, W - off, 0, W, H);
+    sc.fillStyle = 'rgba(5,3,10,0.45)';
+    sc.fillRect(0, 0, W, H);
+  }
+  if (!bgReady){
   // soleil néon
   const sunX = W * 0.72 - cam * 0.08, sunY = groundY - 130;
   const sg = sc.createRadialGradient(sunX, sunY, 10, sunX, sunY, 120);
@@ -582,6 +603,7 @@ function render(){
       sc.globalAlpha = 1;
     }
   }
+  }
   // sol + plateformes
   for (const s of solids){
     const x = s.x - cam;
@@ -612,10 +634,10 @@ function render(){
     if (e.type === 'walker'){
       const flash = Math.sin(e.anim) > 0.6 ? 1 : 0;
       sc.fillStyle = '#12060f';
-      sc.strokeStyle = flash ? '#ffffff' : '#ff2d78';
-      sc.lineWidth = 2; sc.shadowColor = '#ff2d78'; sc.shadowBlur = 10;
+      sc.strokeStyle = flash ? '#ffffff' : (e.tint || '#ff2d78');
+      sc.lineWidth = 2; sc.shadowColor = (e.tint || '#ff2d78'); sc.shadowBlur = 10;
       sc.fillRect(x, e.y, e.w, e.h); sc.strokeRect(x, e.y, e.w, e.h);
-      sc.fillStyle = flash ? '#ffffff' : '#ff2d78';
+      sc.fillStyle = flash ? '#ffffff' : (e.tint || '#ff2d78');
       sc.fillRect(x + (e.face > 0 ? e.w - 10 : 3), e.y + 8, 7, 4);
       const leg = Math.sin(e.anim) * 5;
       sc.fillRect(x + 4 + leg, e.y + e.h - 6, 6, 6);
@@ -624,13 +646,13 @@ function render(){
     } else if (e.type === 'shooter'){
       const glow = e.tel > 0 ? (0.5 + Math.sin(performance.now() / 50) * 0.5) : 0.2;
       sc.fillStyle = '#140b06';
-      sc.strokeStyle = '#ff9f1c'; sc.lineWidth = 2;
-      sc.shadowColor = '#ff9f1c'; sc.shadowBlur = 8 + glow * 14;
+      sc.strokeStyle = (e.tint || '#ff9f1c'); sc.lineWidth = 2;
+      sc.shadowColor = (e.tint || '#ff9f1c'); sc.shadowBlur = 8 + glow * 14;
       sc.fillRect(x, e.y + 12, e.w, e.h - 12); sc.strokeRect(x, e.y + 12, e.w, e.h - 12);
       sc.save();
       sc.translate(x + e.w / 2, e.y + 12);
       sc.rotate(e.aim);
-      sc.fillStyle = '#ff9f1c';
+      sc.fillStyle = (e.tint || '#ff9f1c');
       sc.fillRect(0, -3, 22, 6);
       sc.restore();
       sc.fillStyle = `rgba(255,159,28,${0.4 + glow * 0.6})`;
@@ -639,10 +661,10 @@ function render(){
     } else if (e.type === 'dasher'){
       const tel = e.mode === 'tel';
       sc.fillStyle = '#0f0618';
-      sc.strokeStyle = tel && Math.sin(performance.now() / 40) > 0 ? '#ffffff' : '#b967ff';
-      sc.lineWidth = 2; sc.shadowColor = '#b967ff'; sc.shadowBlur = tel ? 18 : 8;
+      sc.strokeStyle = tel && Math.sin(performance.now() / 40) > 0 ? '#ffffff' : (e.tint || '#b967ff');
+      sc.lineWidth = 2; sc.shadowColor = (e.tint || '#b967ff'); sc.shadowBlur = tel ? 18 : 8;
       sc.fillRect(x, e.y, e.w, e.h); sc.strokeRect(x, e.y, e.w, e.h);
-      sc.fillStyle = tel ? '#ffffff' : '#b967ff';
+      sc.fillStyle = tel ? '#ffffff' : (e.tint || '#b967ff');
       sc.fillRect(x + (e.face >= 0 ? e.w - 11 : 3), e.y + 8, 8, 4);
       sc.beginPath();
       sc.moveTo(x + 4, e.y); sc.lineTo(x - 4, e.y - 12); sc.lineTo(x + 10, e.y);
@@ -757,7 +779,7 @@ function fmtTime(t){
 function renderHUD(){
   sc.font = 'bold 16px monospace';
   sc.fillStyle = '#00e5ff'; sc.shadowColor = '#00e5ff'; sc.shadowBlur = 8;
-  sc.fillText('SECTOR 0' + level, 16, 26);
+  sc.fillText('SECTOR ' + String(level).padStart(2, '0') + ' · ' + (LEVEL_NAMES[level - 1] || ''), 16, 26);
   sc.shadowBlur = 0;
   sc.fillStyle = '#e8e8f0'; sc.fillText('SCORE ' + score, 16, 46);
   sc.fillStyle = '#ff2d78'; sc.shadowColor = '#ff2d78'; sc.shadowBlur = 6;
@@ -823,13 +845,13 @@ function renderOverlays(){
     if (deadT > 0.25){
       glitchText('SIGNAL LOST', W / 2 - 150, 220, 48, '#ff2d78', true);
       sc.font = '15px monospace'; sc.fillStyle = '#e8e8f0';
-      sc.fillText('SECTOR 0' + level + '   ·   SCORE ' + score + '   ·   MORTS ' + deaths + '   ·   ' + fmtTime(runTime), W / 2, 270);
+      sc.fillText('SECTOR ' + String(level).padStart(2, '0') + ' · ' + (LEVEL_NAMES[level - 1] || '') + '   ·   SCORE ' + score + '   ·   MORTS ' + deaths + '   ·   ' + fmtTime(runTime), W / 2, 270);
       if (deadT > 0.7 && Math.sin(deadT * 4) > -0.2)
         glitchText('R — RELANCER LE RUN', W / 2 - 110, 330, 20, '#00e5ff', true);
     }
   } else if (state === 'clear'){
     sc.fillStyle = 'rgba(0,20,25,0.45)'; sc.fillRect(0, 0, W, H);
-    glitchText('SECTOR 0' + level + ' CLEAR', W / 2 - 190, 240, 40, '#00e5ff', false);
+    glitchText('SECTOR ' + String(level).padStart(2, '0') + ' CLEAR', W / 2 - 190, 240, 40, '#00e5ff', false);
     sc.font = '15px monospace'; sc.fillStyle = '#e8e8f0';
     sc.fillText('SCORE ' + score + '   ·   ' + fmtTime(runTime), W / 2, 280);
   } else if (state === 'win'){
