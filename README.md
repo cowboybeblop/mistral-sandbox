@@ -41,3 +41,7 @@ Si un fond manque, le jeu retombe sur le décor procédural (skyline + soleil sy
 Les 3 types d'ennemis utilisent des planches de sprites extraites des images fournies (`assets/enemies/*.png`, 4 frames chacune, fond transparent) :
 - walker = personnage à l'épée, shooter = robots, dasher = créatures aquatiques rapides
 Retournement horizontal selon la direction, cadre blanc clignotant pendant le télégraphe. Fallback vectoriel si les images manquent.
+
+## Paramètres / remapping des touches
+Bouton **⚙ PARAMÈTRES** sur l'écran titre : cliquer une action puis appuyer sur la touche voulue (sauvegardé en localStorage, bouton RÉINITIALISER pour revenir aux défauts).
+Le perso est ancré au sol (ombre portée) et la planche est nettoyée de tout résidu de fond.
