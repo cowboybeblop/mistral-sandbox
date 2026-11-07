@@ -21,6 +21,7 @@
 <div id="wrap"><canvas id="game" width="960" height="540"></canvas></div>
 <div id="scan"></div>
 <div id="vig"></div>
+<script src="assets/atlas.js"></script>
 <script>
 (() => {
 "use strict";
@@ -43,15 +44,13 @@ const CELL = 128;
 /* ---------- ATLAS NOMMÉ (assets/atlas.png + atlas.json) ---------- */
 let atlas = null, atlasImg = null, atlasReady = false;
 try {
-  if (typeof fetch !== 'undefined' && typeof Image !== 'undefined'){
-    fetch('assets/atlas.json').then(r => r.json()).then(j => {
-      atlas = {};
-      for (const f of j) (atlas[f.group] = atlas[f.group] || []).push(f);
-      for (const g in atlas) atlas[g].sort((a, b) => a.id.localeCompare(b.id));
-      atlasImg = new Image();
-      atlasImg.onload = () => { atlasReady = true; };
-      atlasImg.src = 'assets/atlas.png';
-    }).catch(() => {});
+  if (typeof window !== 'undefined' && window.ATLAS_DATA && typeof Image !== 'undefined'){
+    atlas = { good: window.ATLAS_DATA.good || {} };
+    for (const f of window.ATLAS_DATA.frames) (atlas[f.group] = atlas[f.group] || []).push(f);
+    for (const g in atlas) if (Array.isArray(atlas[g])) atlas[g].sort((a, b) => a.id.localeCompare(b.id));
+    atlasImg = new Image();
+    atlasImg.onload = () => { atlasReady = true; };
+    atlasImg.src = 'assets/atlas.png';
   }
 } catch(e){}
 const HERO_GROUP = 'ninja-a';
@@ -68,8 +67,10 @@ function heroAtlasFrame(p, animT){
   else if (Math.abs(p.vx) > 40) key = 'run';
   else key = 'idle';
   const range = HERO_ANIMS[key];
-  const span = range[1] - range[0] + 1;
-  const idx = range[0] + (span > 1 ? Math.floor(animT * (key === 'idle' ? 6 : 8)) % span : 0);
+  const good = (atlas.good && atlas.good[HERO_GROUP]) || fr.map((_, i) => i);
+  const inRange = good.filter(i => i >= range[0] && i <= range[1]);
+  const pool = inRange.length ? inRange : good;
+  const idx = pool[Math.floor(animT * (key === 'idle' ? 6 : 8)) % pool.length];
   return fr[Math.min(idx, fr.length - 1)];
 }
 function drawAtlasFrame(g, frame, x, yFeet, face, dw, dh, alpha){
@@ -279,7 +280,8 @@ try {
 function drawEnemySprite(g, e, x){
   if (atlasReady && atlas[ENEMY_GROUPS[e.type]]){
     const fr = atlas[ENEMY_GROUPS[e.type]];
-    const f = fr[Math.floor((e.animT || 0) * 6) % fr.length];
+    const good = (atlas.good && atlas.good[ENEMY_GROUPS[e.type]]) || fr.map((_, i) => i);
+    const f = fr[good[Math.floor((e.animT || 0) * 6) % good.length]];
     drawAtlasFrame(g, f, x + e.w / 2, e.y + e.h + Math.sin((e.animT || 0) * 5) * 2, e.face || 1, 52, 52, 1);
     if (e.tel > 0 && Math.sin(performance.now() / 40) > 0){
       g.strokeStyle = '#ffffff'; g.lineWidth = 2;
