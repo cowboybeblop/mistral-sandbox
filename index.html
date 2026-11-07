@@ -573,7 +573,7 @@ function updateParts(dt){
 }
 
 function update(dt){
-  if (state === 'title'){ titleT += dt; return; }
+  if (state === 'title' || state === 'settings'){ titleT += dt; return; }
   if (paused){ return; }
   if (state === 'dead'){ deadT += dt; updateParts(dt); return; }
   if (state === 'clear'){ clearT -= dt; updateParts(dt); if (clearT <= 0) nextLevel(); return; }
