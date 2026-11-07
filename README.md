@@ -36,3 +36,8 @@ Si l'image n'est pas chargée, le jeu retombe sur un rendu vectoriel de secours.
 Chaque secteur a son propre fond (`assets/bg/levelNN_*.jpg`, défilement parallaxe) et son thème de monstres (couleur + composition ennemis qui s'intensifie) :
 CITY, APARTMENT, ALLEY, SEWERS, SUBWAY, PENTHOUSE, ZEN GARDEN, LAB, DOJO, DOCKS, TRAINYARD, NIGHTCLUB, OVERPASS.
 Si un fond manque, le jeu retombe sur le décor procédural (skyline + soleil synthwave).
+
+## Ennemis (vrais sprites)
+Les 3 types d'ennemis utilisent des planches de sprites extraites des images fournies (`assets/enemies/*.png`, 4 frames chacune, fond transparent) :
+- walker = personnage à l'épée, shooter = robots, dasher = créatures aquatiques rapides
+Retournement horizontal selon la direction, cadre blanc clignotant pendant le télégraphe. Fallback vectoriel si les images manquent.
