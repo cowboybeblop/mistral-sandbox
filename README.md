@@ -45,3 +45,10 @@ Retournement horizontal selon la direction, cadre blanc clignotant pendant le t�
 ## Paramètres / remapping des touches
 Bouton **⚙ PARAMÈTRES** sur l'écran titre : cliquer une action puis appuyer sur la touche voulue (sauvegardé en localStorage, bouton RÉINITIALISER pour revenir aux défauts).
 Le perso est ancré au sol (ombre portée) et la planche est nettoyée de tout résidu de fond.
+
+## Atlas de sprites nommé (assets/atlas.png + atlas.json)
+Le jeu charge l'atlas fourni (307 frames, 16 groupes) :
+- perso = groupe `ninja-a` (idle 01-04, course 05, dash 06-07, attaques 08-10, mort 11-12), retourné selon la direction
+- ennemis = `ninja-b` (walker), `robots-bleu-orange` (shooter), `ennemis-glace` (dasher), animés en boucle
+- si l'atlas est absent (fichier HTML seul), le jeu retombe sur la planche embarquée + strips d'ennemis
+`planche_complete.html` = visionneuse fournie de l'atlas complet.

@@ -40,6 +40,49 @@ try {
   }
 } catch(e){}
 const CELL = 128;
+/* ---------- ATLAS NOMMÉ (assets/atlas.png + atlas.json) ---------- */
+let atlas = null, atlasImg = null, atlasReady = false;
+try {
+  if (typeof fetch !== 'undefined' && typeof Image !== 'undefined'){
+    fetch('assets/atlas.json').then(r => r.json()).then(j => {
+      atlas = {};
+      for (const f of j) (atlas[f.group] = atlas[f.group] || []).push(f);
+      for (const g in atlas) atlas[g].sort((a, b) => a.id.localeCompare(b.id));
+      atlasImg = new Image();
+      atlasImg.onload = () => { atlasReady = true; };
+      atlasImg.src = 'assets/atlas.png';
+    }).catch(() => {});
+  }
+} catch(e){}
+const HERO_GROUP = 'ninja-a';
+const HERO_ANIMS = { idle:[0,3], run:[4,4], jump:[5,5], dash:[6,7], slashH:[8,8], slashV:[9,9], aura:[7,7], hurt:[10,11] };
+const ENEMY_GROUPS = { walker:'ninja-b', shooter:'robots-bleu-orange', dasher:'ennemis-glace' };
+function heroAtlasFrame(p, animT){
+  if (!atlasReady || !atlas[HERO_GROUP]) return null;
+  const fr = atlas[HERO_GROUP];
+  let key;
+  if (p.dead) key = 'hurt';
+  else if (p.slashT > 0) key = (Math.floor((0.18 - p.slashT) / 0.09) % 2 === 0) ? 'slashH' : 'slashV';
+  else if (p.dashT > 0) key = 'dash';
+  else if (!p.onGround) key = 'jump';
+  else if (Math.abs(p.vx) > 40) key = 'run';
+  else key = 'idle';
+  const range = HERO_ANIMS[key];
+  const span = range[1] - range[0] + 1;
+  const idx = range[0] + (span > 1 ? Math.floor(animT * (key === 'idle' ? 6 : 8)) % span : 0);
+  return fr[Math.min(idx, fr.length - 1)];
+}
+function drawAtlasFrame(g, frame, x, yFeet, face, dw, dh, alpha){
+  g.save();
+  g.globalAlpha = alpha;
+  g.translate(x, yFeet);
+  g.scale(face, 1);
+  g.imageSmoothingEnabled = false;
+  const s = Math.min(dw / frame.w, dh / frame.h);
+  const w = frame.w * s, h = frame.h * s;
+  g.drawImage(atlasImg, frame.x, frame.y, frame.w, frame.h, -w / 2, -h, w, h);
+  g.restore();
+}
 const FRAMES = {
   idle:  [[0,0],[0,1],[0,2],[0,3]],
   run:   [[1,0]],
@@ -62,6 +105,8 @@ function heroAnim(p, animT){
   return FRAMES.idle[Math.floor(animT * 6) % 4];
 }
 function drawHeroSprite(g, x, y, p, animT, alpha){
+  const af = heroAtlasFrame(p, animT);
+  if (af){ drawAtlasFrame(g, af, x, y + 22, p.face, 58, 58, alpha); return true; }
   if (!heroReady || !heroImg) return false;
   const rc = heroAnim(p, animT);
   const dw = 58, dh = 58;
@@ -232,6 +277,16 @@ try {
   }
 } catch(e){}
 function drawEnemySprite(g, e, x){
+  if (atlasReady && atlas[ENEMY_GROUPS[e.type]]){
+    const fr = atlas[ENEMY_GROUPS[e.type]];
+    const f = fr[Math.floor((e.animT || 0) * 6) % fr.length];
+    drawAtlasFrame(g, f, x + e.w / 2, e.y + e.h + Math.sin((e.animT || 0) * 5) * 2, e.face || 1, 52, 52, 1);
+    if (e.tel > 0 && Math.sin(performance.now() / 40) > 0){
+      g.strokeStyle = '#ffffff'; g.lineWidth = 2;
+      g.strokeRect(x - 3, e.y - 3, e.w + 6, e.h + 6);
+    }
+    return true;
+  }
   const img = enemyImgs[e.type];
   if (!img || !img.complete || !img.naturalWidth) return false;
   const cw = img.naturalWidth / 4;
@@ -756,13 +811,17 @@ function render(){
     sc.fillStyle = 'rgba(0,0,0,0.35)';
     sc.beginPath(); sc.ellipse(p.x - cam, p.y + 23, 14, 4, 0, 0, Math.PI * 2); sc.fill();
     if (slowmo && !p.dead){
-      const rc = FRAMES.aura[0];
       sc.save();
       sc.globalAlpha = 0.35 + Math.sin(performance.now() / 120) * 0.15;
-      sc.translate(p.x - cam, p.y + 22);
-      sc.scale(p.face, 1);
-      sc.imageSmoothingEnabled = false;
-      if (heroReady) sc.drawImage(heroImg, rc[1] * CELL, rc[0] * CELL, CELL, CELL, -34, -68, 68, 68);
+      const af = atlasReady && atlas[HERO_GROUP] ? atlas[HERO_GROUP][HERO_ANIMS.aura[0]] : null;
+      if (af) drawAtlasFrame(sc, af, p.x - cam, p.y + 22, p.face, 68, 68, sc.globalAlpha);
+      else if (heroReady){
+        const rc = FRAMES.aura[0];
+        sc.translate(p.x - cam, p.y + 22);
+        sc.scale(p.face, 1);
+        sc.imageSmoothingEnabled = false;
+        sc.drawImage(heroImg, rc[1] * CELL, rc[0] * CELL, CELL, CELL, -34, -68, 68, 68);
+      }
       sc.restore();
     }
     for (const t of p.trail){
