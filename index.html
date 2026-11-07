@@ -203,11 +203,12 @@ try {
 function drawEnemySprite(g, e, x){
   const img = enemyImgs[e.type];
   if (!img || !img.complete || !img.naturalWidth) return false;
-  const frames = 4, cw = img.naturalWidth / frames;
-  const f = Math.floor((e.animT || 0) * 6) % frames;
+  const cw = img.naturalWidth / 4;
+  const f = 0;
   const dw = 48, dh = 48;
+  const bob = Math.sin((e.animT || 0) * 5) * 2;
   g.save();
-  g.translate(x + e.w / 2, e.y + e.h);
+  g.translate(x + e.w / 2, e.y + e.h + bob);
   g.scale(e.face || 1, 1);
   g.imageSmoothingEnabled = false;
   g.drawImage(img, f * cw, 0, cw, img.naturalHeight, -dw / 2, -dh, dw, dh);
@@ -593,10 +594,15 @@ function render(){
   const bg = bgImgs[level - 1];
   const bgReady = bg && bg.complete && bg.naturalWidth > 0;
   if (bgReady){
-    const off = (cam * 0.35) % W;
-    sc.drawImage(bg, -off, 0, W, H);
-    sc.drawImage(bg, W - off, 0, W, H);
-    sc.fillStyle = 'rgba(5,3,10,0.45)';
+    const bh = 340, bw = bh * (bg.naturalWidth / bg.naturalHeight);
+    const off = (cam * 0.45) % bw;
+    for (let x = -off; x < W; x += bw) sc.drawImage(bg, x, H - bh, bw, bh);
+    const sh = sc.createLinearGradient(0, H - bh - 60, 0, H - bh);
+    sh.addColorStop(0, 'rgba(5,3,10,0)');
+    sh.addColorStop(1, 'rgba(5,3,10,0.55)');
+    sc.fillStyle = sh;
+    sc.fillRect(0, H - bh - 60, W, bh + 60);
+    sc.fillStyle = 'rgba(5,3,10,0.18)';
     sc.fillRect(0, 0, W, H);
   }
   if (!bgReady){
