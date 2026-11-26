@@ -127,3 +127,41 @@ Script `bsd/scripts/wan_lemma814.py`, avec p = 3, t₁ = 1, s = 2, t₂ = 3, et 
   - (L2) vecteurs de Hsieh, et alors la recette (iv) de CLW suffit.
   
   Dans les deux cas, **le cas supercuspidal admet un choix qui marche**. L'erreur du Lemme 8.14 pèse sur (L1) pour les places semistables publiées. Si (L2) est la bonne lecture, elle n'est qu'une imprécision de rédaction sans conséquence. Seul Wan, ou une relecture de la construction des vecteurs (CLW §7.6–7.7 et Wan §6.7), peut trancher.
+
+## 11. Points 1 et 2 : vecteurs de θ et h, et résolution dans les deux lectures
+
+### 11.1 Ce que dit CLW sur les vecteurs (ÉTABLI, lu sur l'image des p. 64-65)
+
+- CLW Prop. 7.7.3, pour v = 𝔳𝔳̄ ∈ Σ_s : φ_{θ,τ,v} = image par (7.1.6) de (y₁, y₂) ↦ 1_{O_{K,𝔳}}(y₁)·1_{O^×_{K,𝔳̄}}(y₂)·χ_{θ,𝔳̄}λ_{𝔳̄}(y₂). Ici « χ_{θ,𝔳} unramified » est **imposé** par cette forme.
+- CLW Prop. 7.7.1 : φ_{h,τ,v} = image par (7.1.6) de (y₁, y₂) ↦ 1_{ℤ_v}(y₁)·1_{ℤ_v^×}(y₂)·χ_{h,𝔳}χ_{h,𝔳̄}^{-1}λ_{𝔳̄}^{-1}(y₂), pour h₀. Ensuite h = h₀ tordu par χ_hχ_θ^c (Déf. 7.7.2 et (7.5.7)), ce qui est une torsion par un caractère du déterminant.
+- **Espaces.** θ ∈ V_{U(2),ξ}, alors que h₀ ∈ V′_{U(2),ξ^{-1}}, avec h′₀ ∈ V_{U(2),ξ}. Selon la preuve de la Prop. 7.7.1, h₀ s'obtient en restreignant à U(V) × U(V⁻) puis en évaluant en u_aux ∈ U(V), ce qui donne une famille sur U(V⁻). Les deux formes ne sont donc pas réalisées dans le même modèle de Weil.
+- **DÉDUCTION, calcul de Godement.** Dans le modèle linéaire de GL₁ × GL₂ sur S(F²), la fonction 1_O(x₁)·1_{O^×}(x₂)ξ(x₂) donne la section f(k) = c·ξ(d)·1[d ∈ O^×]. Elle est invariante par n⁻(O) et propre pour le groupe des matrices **triangulaires inférieures** modulo ϖ^{cond ξ}, c'est-à-dire le transposé de K₀ = wK₀w^{-1}. Deux fonctions de même forme réalisées dans le **même** modèle donnent donc la **même** orientation. Si le passage V ↔ V⁻ agit en v déployé par g ↦ ᵗg^{-1}, ou par la composante 𝔳̄ au lieu de 𝔳, l'orientation s'inverse. Je ne tranche pas ce point (conventions de (7.1.1) et (7.1.6)).
+- **Argument de cohérence (DÉDUCTION).** Supposons la même orientation. Le lemme du §4 et le contre-exemple au Lemme 8.14 annuleraient alors les intégrales locales de CLW **aussi aux places Steinberg déployées** du cas semistable publié (c = 1, a ≥ 4, s = a − 1, 2s > a). Supposons l'orientation opposée. Le critère devient 2·cond(ρ₁) ≤ 2a, toujours satisfait, et tout le cadre publié reste cohérent. **La lecture « orientations opposées » (L2) est la seule compatible avec la validité du cas semistable publié.** C'est un argument de cohérence, pas une preuve.
+
+### 11.2 Lecture (L1) (même orientation) : résolution par la recette de FW
+
+- Il suffit de remplacer, en v ∈ Σ_s supercuspidal, la seconde clause de (iv) par la condition de FW Cor. 7.28 (χ_{h,i}χ_{θ,i} non ramifiés, conducteurs a > c), et de prendre pour ϕ_v le vecteur nouveau de π_v.
+- **Compatibilité avec la forme imposée de φ_θ.** χ_{θ,𝔳} est non ramifié. On choisit χ_{h,𝔳} et χ_{h,𝔳̄} pour compenser χ_θ composante par composante. Les deux appariements possibles des indices 1 et 2 avec 𝔳 et 𝔳̄ restent compatibles avec la contrainte globale χ_hχ_θ|_{A_ℚ^×} = 1, qui donne χ_{h,𝔳}χ_{h,𝔳̄} = (χ_{θ,𝔳}χ_{θ,𝔳̄})^{-1} sur ℚ_v^× (vérifié dans les deux cas).
+- **Existence globale.** CLW choisissent χ_{θ,1}, χ_{h,1} vérifiant les conditions locales (1)-(5), puis tordent par ν de conducteur ℓ-primaire pour obtenir (6), « via mod p nonvanishing [Hsi14b, Hsi12] ». La condition modifiée en v ∈ Σ_s est locale et indépendante de ℓ ∉ Σ : l'argument s'applique tel quel. Les facteurs L locaux en v valent 1 (§9.4).
+- **Calcul local.** FW Cor. 7.28, démontré au §9.1 pour tout ℓ et confirmé numériquement sur le Lemme 8.13 au §9.2 : I_v = Vol(K_{t₁}) ≠ 0, indépendant de τ. **Résolu (DÉDUCTION vérifiée).**
+
+### 11.3 Lecture (L2) (orientations opposées) : résolution avec la recette (iv) de CLW telle quelle
+
+- **Vecteurs.** f_θ est le vecteur nouveau de σ_θ = π(χ_{θ,𝔳} non ramifié, χ_{θ,𝔳̄}) (conducteur a, type K₀(ϖ^a)). f_h est de type transposé. On tord le triplet par (μ, 1, μ^{-1}) avec μ = χ_{h,𝔳̄}, ce qui ne change pas ℓ (DN, (2)). On obtient π′ = π ⊗ μ, supercuspidale de conducteur 2s avec s = a − c > c/2 (Hsieh, Lemme 6.8), et σ′_h = π(ρ, 1) avec cond ρ = a. Alors f_h = π(w)ξ′_h ∝ π(diag(ϖ^a, 1))ξ′_h, où ξ′_h est le vecteur nouveau de σ′_h (relation d'Atkin–Lehner w = diag(1, ϖ^{-a})·AL_a). Ce vecteur est invariant par n⁻(O), donc par n⁻(ϖ^aO).
+- **Rankin–Selberg** (σ_θ en modèle induit, Ψ(W, W′, f) = ∫_{NZ\G}W(g)W′(Jg)f(g)dg, forme invariante non nulle, donc égale à ℓ à une constante près par unicité de Prasad). En coordonnées g = diag(y, 1)n⁻(x), avec f_θ(diag(y, 1)n⁻(x)) = χ_{θ,𝔳}|·|^{1/2}(y)·1_{ϖ^aO}(x) :
+  Ψ = vol(ϖ^aO)·∫ (P_aW_φ)(y)·W_h(−y)·χ_{θ,𝔳}|·|^{-1/2}(y) d^×y,
+  où W_h(y) = W_{ξ′}(ϖ^ay) = |ϖ^ay|^{1/2}·1_O(ϖ^ay), à un caractère non ramifié près, est porté par v(y) ≥ −a, et P_a est la moyenne sur n⁻(ϖ^aO).
+- **Choix de ϕ_v.** On prend φ₀ ∈ π′ de type trivial sur O^×, invariant par n⁻(ϖ^aO) et porté par **une seule couche** v(y) = m₀. Par l'équation fonctionnelle, avec γ monomial car π′ est supercuspidale, π(w) envoie une couche m de type trivial sur la couche −m − 2s. Un tel φ₀ existe pour tout m₀ ≤ a − 2s = 2c − a. On prend m₀ = 2c − a, qui est ≥ −a. Alors P_aφ₀ = φ₀, la couche m₀ rencontre le support de W_h, et
+  Ψ = (constante non nulle) × (paramètre non ramifié)^{m₀},
+  **non nul et monomial, donc non nul pour toute tordue non ramifiée.**
+- **Admissibilité de ϕ_v dans CLW.** φ₀ est lisse. Il est invariant par K_v (congruence principale mod q_v^{2c_v+…}) pour c_v assez grand, et (5.6.6) permet d'augmenter c_v. Il est aussi invariant par Y pour le calcul de Fourier–Jacobi (Wan, Lemme 6.20 : « for any ϕ invariant under Y »). Son type sur le tore est celui qui fait coïncider les nebentypus : c'est le rôle de la torsion (5.6.10), et c'est automatique par le choix isotypique. **Résolu (DÉDUCTION).** Ce calcul reprend celui du §4 avec l'orientation opposée.
+
+### 11.4 Bilan
+
+**Dans les deux lectures, le cas supercuspidal en v ∈ Σ_s admet un choix explicite de données (L1) ou de vecteur ϕ_v (L2) pour lequel l'intégrale locale est une constante non nulle indépendante de τ.** C'est ce qu'exige la preuve de CLW Prop. 7.11.3. Conformément à la décision de l'utilisateur, **A est considéré comme résolu en attente de validation** par un spécialiste (Wan), au même titre que B.
+
+**Pas à faire valider en priorité.**
+1. Laquelle des lectures (L1) ou (L2) est la bonne. Ce point n'affecte pas le résultat, seulement la recette.
+2. En (L2) : la forme exacte du vecteur de h (type transposé, à une translation près) et l'admissibilité du ϕ_v choisi dans l'espace (5.6.12).
+3. En (L1) : l'appariement des indices de FW.
+4. Indépendamment : le Lemme 8.14 de Wan, faux tel qu'énoncé.
