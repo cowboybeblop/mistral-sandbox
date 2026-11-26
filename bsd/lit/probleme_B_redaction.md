@@ -85,6 +85,28 @@ BSTW (p. 88) normalisent L°,ac_p par la période canonique (« in view of the i
 - *« La liberté peut échouer (multiplicité 2). »* Les échecs connus (Ribet, Manning, Böckle–Khare–Manning, note B2) demandent q | N⁻ avec ρ̄ non ramifiée en q, exclu par (ram), ou des premiers « vexants ». ℓ = 2 et 3 ne sont pas vexants pour p = 5 (ℓ ≢ −1 mod 5). Les autres ℓ | N⁺ avec ℓ ≡ 4 mod 5 et réduction additive sont à exclure ou à vérifier : **point 7 de la liste, ajouté par cette relecture.**
 - *« Kim–Pollack–Weston signalent une erreur dans PW et CH. »* Elle porte sur la liberté des groupes de Selmer, utilisée dans l'argument de système d'Euler (côté algébrique), pas sur μ analytique ni sur les périodes. Elle ne touche pas B tel que BSTW l'utilisent. KPW ajoutent aussi « a_p(f) ≢ ±1 (mod p) », automatique ici.
 
+## 9. Vérification des trois points résiduels (§6, points 1 à 3)
+
+**Point 1 : CH Lemmes 5.4 et 5.5 (lus).**
+- **Lemme 5.4** (cité de Vatsal 2003, Prop. 5.3). Si q ∤ N⁻, U ⊃ GL₂(ℤ_q) et R′ = 1 + β·ϱ(t_q) avec N(t_q) = q, alors R′ : S₂(U, A) → S₂(A) est injectif.
+  - Preuve refaite (DÉDUCTION, vérifiée). Si R′h = E est Eisenstein, alors h = E − β·ϱ(t_q)h. E est invariant par B¹(A_f) et ϱ(t_q)h par t_qSL₂(ℤ_q)t_q^{-1}, donc h l'est aussi. Il l'est par SL₂(ℤ_q) par hypothèse de niveau. Ces deux groupes engendrent SL₂(ℚ_q) (Ihara ; Serre, *Trees*, amalgame). L'approximation forte pour B¹ donne alors h Eisenstein.
+  - Ni p ni (ord) n'interviennent.
+  - Dans le Lemme 5.8, on l'applique en q | D_K, avec (D_K, N) = 1, à f, dont le niveau contient GL₂(ℤ_q). Les applications successives R′_{q₁} ∘ R′_{q₂} préservent le niveau maximal aux autres q_i.
+  - Remarque : Hamieh signale une erreur dans Vatsal 2003, Prop. 5.3 **(2)**, partie mod ℓ ≠ p. CH en redonnent une preuve autonome, celle refaite ci-dessus. L'erreur ne nous concerne donc pas.
+- **Lemme 5.5** (opérateur R = 1 + Σβ_iϱ(diag(q^{-i}, 1))). Il ne sert qu'à R_p, c'est-à-dire à la p-stabilisation, **absente de notre version**. Point clos.
+
+**Point 2 : normalisation de BSTW (Th. 6.17, lu).** La valeur interpolée est L(s, g, ψ_χ) = Σ_{(a, f_ψ)=1} a_g(N(a))ψ_χ(x_a)N(a)^{-s}.
+- DÉDUCTION, vérifiée sur l'énoncé. En ℓ = w w̄ décomposé avec ℓ | N, on a a_g(ℓ^{i+j}) = a_ℓ^{i+j}. Le facteur local vaut alors Σ_{i,j} a_ℓ^{i+j}ψ(w)^iψ(w̄)^jX^{i+j} = [(1 − a_ℓψ(w)X)(1 − a_ℓψ(w̄)X)]^{-1}, ce qui est le facteur automorphe L(π_ℓ ⊗ ψ_w)L(π_ℓ ⊗ ψ_w̄).
+- Pour π_ℓ supercuspidale, a_ℓ = 0 et les deux côtés valent 1. CH Th. 3.11 interpole L(1/2, π_K ⊗ χ) complet, sans facteur en N⁺. **Aucun facteur parasite en ℓ | N⁺.**
+- Reste : je l'ai fait pour L^Gr (Th. 6.17). Pour L° (cas ±), BSTW renvoient à la même série (Th. 6.16) ; c'est à confirmer, mais la même identité s'y applique.
+
+**Point 3 : décompte local en ℓ | N⁺ (ℓ ∈ {2, 3}, supercuspidal, minimal).** Hypothèse : p = 5 ∤ #ρ̄(I_ℓ) (image d'ordre divisant 24 ou 12).
+- **Côté Galois (DÉDUCTION standard).** Une représentation d'un groupe fini d'ordre premier à p se relève de manière rigide. Toute déformation minimale vérifie donc ρ|I_ℓ ≅ relevé de ρ̄|I_ℓ, et l'espace tangent est L_ℓ = H¹(G_ℓ/I_ℓ, (ad⁰ρ̄)^{I_ℓ}). Comme G_ℓ/I_ℓ ≅ Ẑ et M = (ad⁰ρ̄)^{I_ℓ} est fini, #H¹(Ẑ, M) = #M/(Frob − 1)M = #M^{Frob} = #H⁰(G_ℓ, ad⁰ρ̄). C'est exactement « ♯L_q = ♯H⁰(G_q, ad⁰ρ₀) » (cas minimal de CH, p. 32). C'est le cas « p ∤ #ρ̄(I_ℓ) » de [DDT] et de Diamond 1997a, non ouverts.
+- **Côté Hecke (DÉDUCTION).** Une forme de niveau divisant N dans 𝔪 a un conducteur en ℓ au moins égal à cond(ρ̄|I_ℓ) = c, donc exactement c. Si le conducteur ne baisse pas et que l'image de l'inertie résiduelle est d'ordre premier à p, alors ρ_{f′}|I_ℓ ≅ ρ̄|I_ℓ (Carayol 1989, non ouvert). T_∅ est donc un quotient de R_∅. CH Lemme 6.2(1) donne aussi U_ℓ = 0 en ℓ² | N.
+- **Bilan.** Point standard, ÉTABLI en littérature (DDT, Carayol), mais les références n'ont pas été ouvertes ici.
+
+**Mise à jour du §6.** Les points 1 et 2 sont **clos** (vérifiés sur texte). Le point 3 est **standard** (références classiques non ouvertes). Restent : point 4 (niveau non minimal, exclu à coût négligeable), point 7 (premiers vexants ℓ ≡ 4 mod 5 hors de {2, 3}), confirmation de L° (Th. 6.16), et le problème A.
+
 ## 8. Contrôle numérique possible (non fait)
 
 On prend une courbe de conducteur 2^a·q (q inerte dans K, multiplicative, (ram)), supersingulière en 5. Avec des matrices de Brandt pour B ramifiée en {q, ∞} et un ordre d'Eichler de niveau 2^a, on calcule θ_n mod 5 pour n = 1 à 4 et on vérifie θ_n ≢ 0. Il faut Sage ou Magma.
