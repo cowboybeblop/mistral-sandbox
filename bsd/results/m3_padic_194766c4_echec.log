@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/user/mistral-sandbox/bsd/scripts/padic_big.py", line 13, in <module>
+    t = time.time(); MS = pari.msfromell(E, 1); print(label, 'msfromell %.0fs' % (time.time() - t), flush=True)
+                          ~~~~~~~~~~~~~~^^^^^^
+  File "cypari/auto_instance.pxi", line 23677, in cypari._pari.Pari_auto.msfromell
+  File "cypari/handle_error.pyx", line 179, in cypari._pari._pari_err_handle
+cypari._pari.PariError: the PARI stack overflows (current size: 10000000000; maximum size: 10000003072)
+
+[exited with code 0]
