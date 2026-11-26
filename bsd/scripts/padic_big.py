@@ -4,6 +4,7 @@ import json, sys, time
 sys.path.insert(0, sys.path[0])
 import mission2_padic as m2
 m2.init()
+m2._pari.allocatemem(10 * 10**9)
 pari = m2._pari
 label = sys.argv[1]
 r = next(json.loads(l) for l in open(sys.path[0] + '/../results/m3_sha4_rank2.jsonl') if json.loads(l)['label'] == label)
