@@ -63,3 +63,32 @@ Les deux leviers restants ont été examinés (26 novembre 2026).
 - plafond ≈ 7/8 × 0,95990 ≈ **84,0 %** si de plus κ = 1.
 
 C'est le chiffre « > 80 % » anticipé par BSZ (§4). **La cible de recherche la plus rentable est donc précise :** étendre la conjecture principale de Kobayashi, ou seulement la divisibilité qui donne les réciproques, aux courbes de conducteur non sans facteur carré, en p ≥ 5 supersingulier. Il faudrait aussi comprendre pourquoi la méthode actuelle (congruences d'Eisenstein sur des groupes unitaires, schéma Skinner–Urban–Wan) exige la semistabilité. Je n'ai pas lu les preuves : l'origine exacte de l'hypothèse n'est pas établie ici.
+
+## 7. Où l'hypothèse « N sans facteur carré » sert-elle ? (B3, 26 novembre 2026)
+
+Lecture de BSTW (arXiv 2409.01350), §9.4 à §10.2 :
+- **Le sens de Kato** (Th. 10.4 : ξ(X°(g)) | L°_p(g), donc borne supérieure sur le Selmer) vaut **pour tout N**, sans hypothèse sur le conducteur. ÉTABLI (énoncé).
+- **Le sens qui donne les réciproques** (Th. 10.5, congruences d'Eisenstein sur GU(3,1), via Th. 9.24) exige N sans facteur carré. D'après BSTW (preuve du Th. 9.24) : « The square-free-ness was assumed in loc. cit. for explicit calculation of local triple product periods. However, at any prime dividing D_K, the local automorphic representation associated to g is principal series, and the computation of the local period has already appeared in [141, §8D]. » ÉTABLI (citation).
+- Les autres conditions de 10.5 et 9.24 ((spl), (def)/(indef) avec (ram) pour les premiers de N⁻) semblent satisfiables en choisissant K avec 2 décomposé et les premiers additifs dans N⁺. **À VÉRIFIER**, ainsi que les résultats de nullité d'invariants μ cités ([116], [21] chez BSTW), dont je n'ai pas lu les hypothèses.
+
+**Conséquence.** L'obstacle principal semble **local** : calculer les périodes locales de produit triple aux premiers de réduction additive. Ces premiers sont surtout 2 et 3, pour les modèles courts.
+
+**Types de composantes locales** (`scripts/local_types.py`, cellules mod 2⁸ et 3⁵, classes conservatrices) :
+
+| Type en l | l = 2 | l = 3 |
+|---|---|---|
+| semistable (non ramifiée ou Steinberg) | 0,0029 | 0,6667 |
+| Steinberg tordu (additive, v(j) < 0) | 0,0010 | 0,0027 |
+| série principale par tordue quadratique ramifiée | 0,0645 | 0,0082 |
+| autre (supercuspidale, ou série principale d'ordre 3, 4 ou 6) | **0,9313** | 0,3222 |
+
+**Gain selon les types traités** (`results/gain_table_types.json`) :
+
+| Types de composantes traités | Borne |
+|---|---|
+| semistable seulement (actuel) | 67,02 % |
+| + Steinberg tordu + série principale quadratique | 67,55 % |
+| tous types en 3 ; en 2, seulement ces trois types | 67,82 % |
+| **tous types en 2 et 3, supercuspidales comprises** | **79,03 %** |
+
+**Conclusion de B3.** Le saut de +12 points dépend presque entièrement des **composantes supercuspidales en 2**, celles de 93 % des courbes. La question précise à poser à un spécialiste est donc : *peut-on calculer, ou borner p-adiquement, les périodes locales de produit triple utilisées dans le Th. 9.24 de BSTW (via [39, Thm 8.2.3] et [141]) quand la composante en 2 de g est supercuspidale ?* Des calculs de ces intégrales locales existent dans la littérature analytique (intégrales d'Ichino) : c'est une piste de combinaison à vérifier, non lue ici.

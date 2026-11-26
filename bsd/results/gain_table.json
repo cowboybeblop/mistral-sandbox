@@ -1,0 +1,32 @@
+[
+ {
+  "cas": "semistable partout (situation actuelle)",
+  "densite_famille_ss": 0.0002971346342915318,
+  "gain": 0.00023523158548079603,
+  "borne": 0.6701773091504176
+ },
+ {
+  "cas": "semistable hors de 2",
+  "densite_famille_ss": 0.10132291029341235,
+  "gain": 0.08021397064895144,
+  "borne": 0.7501560482138883
+ },
+ {
+  "cas": "semistable hors de 2 et 3",
+  "densite_famille_ss": 0.1519817915715443,
+  "gain": 0.12031891832747256,
+  "borne": 0.7902609958924094
+ },
+ {
+  "cas": "semistable en 2 seulement",
+  "densite_famille_ss": 0.0004692082591906208,
+  "gain": 0.0003714565385259081,
+  "borne": 0.6703135341034627
+ },
+ {
+  "cas": "aucune condition sur le conducteur",
+  "densite_famille_ss": 0.1600000163840017,
+  "gain": 0.13400134705507127,
+  "borne": 0.8039434246200081
+ }
+]
