@@ -21,6 +21,7 @@ t2 = json.load(open(R + sys.argv[1])); t3 = json.load(open(R + sys.argv[2]))
 def mu(t, kinds): return mpf(sum(t[x] for x in kinds))
 scen = [("S_A : semistable + supercuspidal", ["semistable", "sc"]),
         ("S_A+SP : + séries principales ramifiées", ["semistable", "sc", "sp_quadratique", "ps_sup"]),
+        ("S_rep : réparation uniforme (+ Steinberg tordu)", ["semistable", "sc", "sp_quadratique", "ps_sup", "steinberg_tordu"]),
         ("référence : tous types (table d'origine)", None)]
 rows = []
 for name, kinds in scen:

@@ -95,3 +95,16 @@ Scripts : `bsd/scripts/local_types_v2.py` (raffinement de `local_types.py`) et `
   - La constante 19/24, la famille de base et P₇ (semistable en ℓ ≥ 7) sont repris tels quels de `gain_table.py`, sans nouvelle vérification ici.
   - Le classement ps_sup / sc repose sur un critère d'abélianité de l'inertie, vérifié seulement sur ces corps tests (DÉDUCTION : en ℓ = 3 l'inertie abélienne d'ordre 3 ou 6 provient de Q(ζ₉)⁺ ; en ℓ = 2 l'ordre 4 provient des deux quartiques de conducteur 16).
   - ε est une approximation.
+
+## 7. Mise à jour après la réparation uniforme (`probleme_A_note.md` §12-13)
+
+- **Correction.** Le scénario S_A (77,71 %) n'est **pas** indépendant des séries principales : le rang 1 passe par la tordue g′ = g ⊗ χ_L, qui est une série principale ramifiée aux ℓ | D_L (§12.2). Avec la seule recette de FW, le rang 1 n'était donc pas acquis.
+- **Avec la Proposition R (§13)**, A est réparé uniformément : supercuspidales, séries principales ramifiées, Steinberg et Steinberg tordu aux places décomposées. Le rang 1 (g′) est couvert, et le Steinberg tordu en 2 et 3 peut être réintégré.
+
+| Scénario | μ₂ | μ₃ | Borne |
+|---|---|---|---|
+| S_rep : tous les types en 2 et 3 (indéterminés et niveaux non minimaux exclus) | 0,9998 | 0,9999 | **79,02 %** |
+| Référence (table d'origine) | 1 | 1 | 79,03 % |
+
+- **Réserve propre au Steinberg tordu (B).** Le niveau est minimal pour ρ̄ si 5 ∤ v(j). Si 5 | v(j), le niveau n'est pas minimal (CH §6 avec Σ ≠ ∅, ou exclusion). C'est une fraction de 0,1 % et 0,27 % des modèles en 2 et 3, à soustraire ou à traiter. L'effet est inférieur à 0,01 point.
+- **Statut.** La borne de 79,02 % suppose : la validation de A (Prop. R, lecture (L1), élargissement de (5.6.12)), la validation de B, BSTW et Castella (base), et les réserves de chiffrage (objections 21 à 23).

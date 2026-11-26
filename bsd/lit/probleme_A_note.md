@@ -185,3 +185,35 @@ Script `bsd/scripts/wan_lemma814.py`, avec p = 3, t₁ = 1, s = 2, t₂ = 3, et 
    - C'est cohérent avec le contre-exemple numérique au Lemme 8.14 (§9.3, §10). **Cela indique une lacune possible dans CLW, et donc dans BSTW Th. 1.6 et 12.3, même dans le cas semistable**, aux premiers multiplicatifs décomposés dans le corps auxiliaire. C'est une DÉDUCTION à faire confirmer d'urgence (question 3 à Wan).
 3. **Impact sur notre raccord (correction importante).** Le rang 1 (BSTW Th. 12.3) utilise le Th. 10.1 **pour la tordue g′ = g ⊗ χ_L**. Aux ℓ | D_L, g′ est une **série principale ramifiée** (tordue quadratique d'une non ramifiée), placée à une place décomposée de L″. Ces ℓ ne peuvent pas être inertes dans L″ : CLW §5.2 n'y admet que les représentations non ramifiées et les Steinberg. **Notre rang 1 dépend donc du cas « série principale ramifiée », que la lecture (L1) met en défaut avec la recette (iv).** C'est vrai aussi pour BSTW dans le cas semistable. Le scénario S_A (77,71 %) **n'est donc pas indépendant** de ce point. Le rang 0 (Th. 1.6, seulement g) l'est.
 4. **Piste de réparation, à étudier.** Appliquer aux séries principales ramifiées et aux Steinberg la même idée qu'en 1, c'est-à-dire choisir (χ_hχ_θ^c)_𝔳 non ramifié pour satisfaire le critère. Le calcul de non-annulation n'est plus le cas « une seule cellule » de FW : Φ_π n'est pas à support compact. L'intégrale devient une série en paramètres de Satake. Il faut alors montrer qu'elle est non nulle et contrôlée en τ, éventuellement après une ℓ-stabilisation du vecteur de π, comme le fait le Lemme 8.16 de Wan pour les non ramifiées. **C'est le nouveau point bloquant**, pour nous comme pour la littérature.
+
+## 13. Réparation uniforme aux places décomposées (toute π_v) : proposition et vérification
+
+**Origine de l'échec.** Le vecteur f_{χ,ϑ} de Wan (Lemmes 8.14 et 8.16-8.18) prend ϑ de conducteur s **strictement supérieur** à la profondeur t du support (c ∈ ϖ^tO^×). Le vecteur obtenu n'est pas propre pour K₀(ϖ^{t+s}) : c'est le contre-exemple du §9.3. Avec la recette (iv) de CLW, le critère du §4 l'annule (§12).
+
+**Proposition R (DÉDUCTION, preuve ci-dessous, vérifiée numériquement).** Soient v une place décomposée, π_v générique de caractère central trivial, et A un caractère de ℚ_v^× avec **L(s, π_v ⊗ A^{±1}) = 1**. C'est le cas, A étant ramifié, pour π_v non ramifiée, Steinberg, Steinberg tordue St ⊗ χ₀ (avec χ₀A ramifié), série principale π(χν₁, χν₂) (avec χA ramifié), et pour toute supercuspidale, avec A quelconque, trivial compris (c'est FW). On pose n_A = c(π_v ⊗ A).
+- On prend pour ϕ_v le vecteur de Kirillov W = A^{-1}·1_{O^×}, c'est-à-dire le vecteur nouveau de π_v ⊗ A vu dans π_v. En modèle induit, f(n⁻(y)) = A^{-1}(y/ϖ^r)·1[v(y) = r] avec r = cond A, ce qui est le f_{χ,ϑ} de Wan **avec s = t**. Ce vecteur est propre pour K₀(ϖ^{n_A}), de type A^{-1}(a)A(d).
+- On choisit les données auxiliaires pour que f_θ ⊗ f_h ait sur K_{t₁} le type A(a)A^{-1}(d), avec t₁ ≥ n_A. D'après le §12.1, il suffit que (χ_hχ_θ^c)_𝔳 vaille A^{∓1} à un caractère non ramifié près. C'est compatible avec χ_{θ,𝔳} non ramifié (imposé), puisque A est porté par χ_h.
+
+Alors I_v = Vol(K_{t₁})³·⟨ϕ_v, ϕ̃_v⟩ ≠ 0 (à la normalisation de Wan près), **indépendant des tordues non ramifiées**.
+
+*Preuve.*
+- (1) Wan 8.13 : Φ_θΦ_h est porté par K_{t₁} et par les deux familles de cellules n ≥ 1, où il vaut Vol²·α^n q^{-n/2}·(type). Cette partie est vérifiée numériquement (§9.2).
+- (2) Φ_ϕ est nul sur les cellules diag(ℓⁿ, 1)n(y), n ≥ 1, car les supports O^× et ℓ^{-n}O^× sont disjoints.
+- (3) Φ_ϕ est nul sur les cellules diag(ℓ^{-n}, 1)n⁻(ϖ^iu), n ≥ 1. On écrit n⁻ = ω^{-1}nω. Par l'équation fonctionnelle de Jacquet–Langlands, γ(s, π ⊗ A^{±1}) est **monomial** puisque L = 1 : π(ω) envoie la couche 0 de type A^{-1} sur une seule couche (−n_A). Après multiplication par ψ, seule la composante de type A^{-1} revient sur la couche 0. Φ(diag(a, 1)n⁻) avec m = 0 est donc non nul seulement si v(a) = 0. On utilise uniquement le caractère monomial de γ, ce qui vaut aussi pour ℓ = 2.
+- (4) Sur K_{t₁}, Φ_ϕ(k) = A^{-1}(a)A(d)·Φ_ϕ(1), et ce type compense celui de Φ_θΦ_h.
+- Il ne reste que la cellule n = 0 : aucun α^n n'apparaît, d'où l'indépendance en τ. ∎
+
+**Vérification numérique** (`bsd/scripts/reparation_ps.py`, `reparation_ps2.py`, p = 3).
+
+| π_v | A | max\|Φ\| sur les cellules n = 1..3 | erreur de type sur K_{t₁} |
+|---|---|---|---|
+| non ramifiée, paramètres génériques | cond 1 | 0 (exact) | 1,1·10⁻¹³ |
+| Steinberg (sous-module de π(\|·\|^{1/2}, \|·\|^{-1/2})) | cond 1 | 0 | 1,6·10⁻¹³ |
+| série principale π(χν₁, χν₂), χ quadratique | cond 2 (χA ramifié) | 0 | 3,9·10⁻¹⁴ |
+
+**Conséquences (DÉDUCTION, sous validation).**
+1. A est réparé **uniformément**, pour les supercuspidales, les séries principales ramifiées, Steinberg et Steinberg tordu, en remplaçant la seconde clause de (iv) par « (χ_hχ_θ^c)_𝔳 = A^{∓1} × non ramifié, avec L(π_v ⊗ A^{±1}) = 1 et t₁ ≥ c(π_v ⊗ A) », et le vecteur ϕ_v par celui de la Prop. R (licite d'après l'objection 5).
+2. Cette réparation comble aussi la lacune possible de CLW et BSTW signalée au §12 (places Steinberg décomposées, tordue g′), **si** la lecture (L1) est la bonne.
+3. Le rang 1 (tordue g′, séries principales ramifiées aux ℓ | D_L) est couvert, ce qui lève l'objection 26.
+
+**Borne recalculée** (`bound_v2.py`, scénario S_rep : tous les types en 2 et 3, Steinberg tordu compris, cellules indéterminées et niveaux non minimaux exclus) : voir `raccord_A_B.md` §7.

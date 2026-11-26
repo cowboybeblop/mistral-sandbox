@@ -16,6 +16,14 @@
   "borne": 0.7897654755251983
  },
  {
+  "scenario": "S_rep : réparation uniforme (+ Steinberg tordu)",
+  "mu2": 0.9997708944281526,
+  "mu3": 0.9998814523777264,
+  "eps": 5.336052474181407e-05,
+  "gain": 0.12027067429029349,
+  "borne": 0.7902127518552303
+ },
+ {
   "scenario": "référence : tous types (table d'origine)",
   "mu2": 1.0,
   "mu3": 1.0,
