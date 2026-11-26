@@ -54,3 +54,10 @@ Notations. Les vecteurs f_θ et f_h de Wan sont supportés sur K_t (matrices tri
 3. Si non, refaire le §4 avec les vrais vecteurs. Le critère reste le même : un type compact de f_θ ⊗ f_h doit être réalisable dans π.
 
 **Statut global : aucune preuve. Une obstruction conditionnelle à la lecture des vecteurs, et un conflit avec Wan, Lemme 8.17, à arbitrer.**
+
+## 7. Lecture de Wan §6.7 et §8.1–8.2.1 (ajout)
+
+- **ÉTABLI (lu).** Aux places décomposées (« Case 2 », p. 71-72), la fonction de Schwartz de θ est φ′₂(x″, x‴) = (λη)_v(x″) si x″ ∈ ℤ_v^× et x‴ ∈ ℤ_v, et 0 sinon. Celle de h (§8.2.1, p. 76) est « chosen as before except replacing η_{z,v} by η′_{z,v} ». **θ et h ont donc des fonctions de même forme.** Le vecteur de π (f_ϑ) est en revanche de forme différente (Déf. 8.22).
+- **DÉDUCTION.** On suppose que le relèvement thêta local (GL₁ → GL₂, cas déployé) envoie φ′ sur la section de Godement f(g) = ∫ Φ((0, t)g)·(…)(t) d^×t. Dans ce cas, le vecteur associé à 1_{O^×}·ξ ⊗ 1_O est propre pour un sous-groupe de type K₀(ϖ^{cond ξ}). Les vecteurs de θ et h sont alors propres pour **le même** sous-groupe K₀(ϖ^a), et le lemme du §4 s'applique : obstruction.
+- **Point non tranché, et décisif.** Les opérateurs d'entrelacement δ_ψ (transformées de Fourier partielles entre les polarisations X′ et X) peuvent échanger les deux orientations, K₀ (coin inférieur gauche) et K₀ᵀ (coin supérieur droit). Si θ et h se retrouvent d'orientations **opposées**, le groupe qui fixe f_θ ⊗ f_h est de niveau total 2a. Le critère du §4 devient 2·cond(ρ₁) ≤ 2a, qui est satisfait, **et l'obstruction tombe**. Je ne peux pas trancher sans refaire les conventions de Weil de Wan §2 et §6, et elles sont elles-mêmes en partie implicites.
+- **Indice en faveur d'orientations opposées.** Sinon, le lemme du §4 annulerait aussi l'intégrale de CLW aux places où π_v est **non ramifiée** (Lemme 8.16 de Wan). Tout le cas semistable déjà publié serait faux. C'est peu probable, mais ce n'est pas une preuve.
