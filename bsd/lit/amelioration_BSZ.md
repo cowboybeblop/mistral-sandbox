@@ -49,3 +49,17 @@ Densité des déployées avec 5 | ord₅ Δ : la mesure des multiplicatives d'or
 - C'est une amélioration de niveau A au sens de la barre d'évaluation, mais **modeste** (+0,5 point) et **conditionnelle**. Pour comparaison, la note zêta d'Anthropic passait de 41,6 % à 67,2 %.
 - Le plafond de la méthode avec p = 5 seul reste ≈ 0,8 × 0,8375 ≈ 67 % tant que κ = 0,5501. **Le vrai levier restant est κ**, la part de la famille où l'on sait que les signes sont équirépartis : avec κ = 1, la part principale passerait de 0,6699 à 7/8 × 0,7999 ≈ 0,700. BSZ conjecturent μ_equi(F) = μ(F). Prouver l'équirépartition des signes dans ces familles est donc la cible suivante la plus rentable.
 - Il faudrait ensuite faire relire les étapes 3 et 4 par un spécialiste, et vérifier les preuves de BSTW 12.3 et Castella 1.1.
+
+## 6. Le verrou identifié : réciproques supersinguliers sans semistabilité
+
+Les deux leviers restants ont été examinés (26 novembre 2026).
+
+- **κ = 0,5501 (équirépartition des signes).** Il vient de Bhargava–Shankar (arXiv 1312.7859, §5, Props. 35 et 37 et éq. (32)) : on apparie E avec sa tordue E⁻¹ par −1, qui a la même hauteur. Seules les courbes avec d(E) = r(E)·r(E⁻¹) = −1 sont équiréparties par cet appariement, et elles forment environ 55 % de l'ensemble. Pour les autres, il faudrait contrôler Σ μ(4A³ + 27B²), dont les auteurs notent qu'on ne sait pas si elle est o(X^{5/6}). Aucune amélioration trouvée depuis (recherche arXiv). **Levier bloqué par un problème ouvert d'analyse.**
+- **Réduction supersingulière en 5 (densité 0,16).** Tous les réciproques et conjectures principales supersinguliers trouvés exigent un conducteur sans facteur carré : BSTW Thms 1.3, 1.6 et 12.3 ; Sprung (arXiv 1610.10017, Thm 1.1 : « Assume that E has square-free conductor ») ; Castella–Wan (arXiv 1607.02019 : « N is square-free »). La prépublication de Wan 1411.6352 est déclarée remplacée par BSTW (Remarque 1.4 de BSTW). Or la semistabilité en 2 n'a qu'une densité de 3/1023 pour les modèles y² = x³ + Ax + B.
+
+**Énoncé conditionnel.** Si l'on disposait, pour p = 5 supersingulier et **sans hypothèse sur le conducteur**, des réciproques « corang Sel_{5^∞} = 0 ⇒ L(E, 1) ≠ 0 » et « corang 1 et Ш[5^∞] fini ⇒ ord L = 1 » (E[5] irréductible), la famille utile deviendrait {réduction non additive en 5}, de densité 0,95990. Elle est définie par des conditions en 5 seulement, donc le Théorème 16 s'applique, et la même méthode donnerait :
+
+- borne ≈ 0,8375 × 0,95990 ≈ **80,39 %** (avec κ = 0,5501) ;
+- plafond ≈ 7/8 × 0,95990 ≈ **84,0 %** si de plus κ = 1.
+
+C'est le chiffre « > 80 % » anticipé par BSZ (§4). **La cible de recherche la plus rentable est donc précise :** étendre la conjecture principale de Kobayashi, ou seulement la divisibilité qui donne les réciproques, aux courbes de conducteur non sans facteur carré, en p ≥ 5 supersingulier. Il faudrait aussi comprendre pourquoi la méthode actuelle (congruences d'Eisenstein sur des groupes unitaires, schéma Skinner–Urban–Wan) exige la semistabilité. Je n'ai pas lu les preuves : l'origine exacte de l'hypothèse n'est pas établie ici.
