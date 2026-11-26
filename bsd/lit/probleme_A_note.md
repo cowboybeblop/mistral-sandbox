@@ -30,19 +30,27 @@ Notation : à v = w w̄ décomposé, a := ord cond(χ_{θ,w̄}) ≥ 2c + 2, où 
 - **Problème A′.** Soit π supercuspidale de conducteur c ≥ 2, à caractère central trivial, et φ_ϑ = Σ_n ϑ(−n) π((1, n/ϖ^s ; 0, 1)) φ_new. Il faut montrer que l'intégrale d'Ichino I_v(φ_ϑ ⊗ f_{χθ} ⊗ f_{χh}) est non nulle, pour toute tordue non ramifiée de σ_θ et σ_h. C'est le Lemme 8.17 de Wan avec π_f supercuspidale.
 - **DÉDUCTION (Kirillov).** Le vecteur nouveau de π est W = 1_{O^×}, et π((1, x ; 0, 1)) multiplie W(y) par ψ(xy). On obtient W_{φ_ϑ}(y) = G(ϑ) ϑ^{-1}(−y) 1_{O^×}(y), où G(ϑ) ≠ 0 est la somme de Gauss. φ_ϑ est donc le vecteur nouveau de π ⊗ ϑ. Comme s ≥ c + 2 > c/2, son conducteur est 2s (Hsieh, Lemme 6.8, lu, pour π minimale).
 
-## 4. Réduction partielle et point bloquant
+## 4. Critère de non-annulation (nouveau)
 
-Les Lemmes 8.13 à 8.15 de Wan fixent le support et les valeurs de Φ_θΦ_h. Ce support est la réunion de K_{t₂} et de cellules indexées par n ≥ 1, où apparaissent les paramètres de Satake α^n, donc la tordue non ramifiée. Ces deux lemmes ne dépendent pas de π_f (ÉTABLI : énoncés p. 81-82). Il reste deux conditions sur π, toutes deux de statut DÉDUCTION :
+Notations. Les vecteurs f_θ et f_h de Wan sont supportés sur K_t (matrices triangulaires supérieures modulo ϖ^t, c'est-à-dire K₀(ϖ^t)) et y valent χ₁(a)χ₂(d) (ÉTABLI : définition avant le Lemme 8.13, p. 81). Aux places décomposées, Wan prend g_{i,v} = 1 (ÉTABLI : Déf. 8.20, p. 85). Il n'y a donc aucun translaté, et les trois vecteurs sont « au même point ».
 
-- **(P1)** Φ_{φ_ϑ} est nulle sur les cellules n ≥ 1 où Φ_θΦ_h ≠ 0. Si (P1) est vraie, I_v ne dépend pas de la tordue non ramifiée, ce qui donne exactement la propriété voulue.
-- **(P2)** ∫_{ϖ^a O} Φ'_new(n⁻(x)) dx ≠ 0, où Φ'_new est le coefficient du vecteur nouveau de π' = π ⊗ ϑ. Cette intégrale vaut ‖P_a φ'‖², où P_a est la projection sur les invariants de n⁻(ϖ^a O). Elle est donc ≥ 0, et nulle si et seulement si P_a φ' = 0.
+**Lemme (DÉDUCTION, preuve complète ci-dessous).** Soit π une représentation irréductible lisse de GL₂(ℚ_v), et soient f_θ ∈ π(χ_{θ,1}, χ_{θ,2}), f_h ∈ π(χ_{h,1}, χ_{h,2}) les vecteurs de Wan de niveau K₀(ϖ^t). Posons ρ₁ = (χ_{θ,1}χ_{h,1})^{-1}. Si c(π ⊗ ρ₁^{-1}) > t, alors ℓ(φ ⊗ f_θ ⊗ f_h) = 0 **pour tout φ ∈ π**, et pour toute tordue non ramifiée.
 
-**Où l'argument naïf échoue (DÉDUCTION, vérifiée à la main).** φ' est fixé par n⁻(ϖ^{2s}O), donc P_aφ' = φ' ≠ 0 dès que a ≥ 2s, c'est-à-dire a ≤ 2c. Or CLW imposent a ≥ 2c + 2. On est **toujours dans le régime a < 2s**, où P_aφ' peut s'annuler. C'est précisément l'orthogonalité des caractères ramifiés que craignait le §5. Pour conclure, il faut l'action de w, donc la fonction de Bessel de π'.
+*Preuve.* Pour k ∈ K₀(ϖ^t), σ_θ(k)f_θ ⊗ σ_h(k)f_h = Ξ(k) f_θ ⊗ f_h, avec Ξ(k) = (χ_{θ,1}χ_{h,1})(a_k)(χ_{θ,2}χ_{h,2})(d_k). La forme ℓ est G-invariante, donc L(φ) := ℓ(φ ⊗ f_θ ⊗ f_h) vérifie L(π(k)φ) = Ξ(k)^{-1} L(φ). Ainsi L se factorise par la composante (K₀(ϖ^t), Ξ^{-1})-isotypique de π. Tordons par ρ₁^{-1} : cette composante devient l'espace des vecteurs de π ⊗ ρ₁^{-1} sur lesquels K₀(ϖ^t) agit par un caractère de d_k seul, c'est-à-dire les vecteurs fixes par K₁(ϖ^t). Par Casselman, cet espace est nul si t < c(π ⊗ ρ₁^{-1}). Les tordues non ramifiées ne changent ni Ξ sur K₀ ni les conducteurs. ∎
 
-## 5. Statut et suite
+*Pas non justifiés.* (a) La lecture des conventions de Wan : quel caractère est « 1 », et K_t triangulaire supérieur ou inférieur. Une permutation des indices donne le même verdict (vérifié à la main). (b) Le théorème de Casselman est cité de mémoire. Il n'est pas ouvert ici, mais il est confirmé numériquement ci-dessous.
 
-- **Obtenu.** (i) La correction du §5 (sources des vecteurs). (ii) L'obstruction de la route (1). (iii) L'énoncé A′ et sa réduction à (P1) et (P2). (iv) La raison précise pour laquelle l'argument de support ne suffit pas.
-- **Non obtenu.** La non-annulation. Aucun contre-exemple n'a été calculé.
-- **Étape suivante proposée.** Un test numérique en v = 3, c = 2 : supercuspidales de niveau zéro, induites de caractères de 𝔽₉^×, avec une fonction de Bessel explicite donnée par des sommes de Gauss. On calculerait P_a φ' pour s = a − 2 ≥ 4 et Φ_{φ_ϑ} sur les cellules n ≥ 1. PARI/GP n'est pas installé ; Python suffit.
-- **Relecture adverse.** (a) Le §1 repose sur une phrase de CLW. Il faut vérifier dans Wan §8.3 (p. 85 et suivantes) que les vecteurs utilisés en Σ_s pour π_E sont bien f_{χ,ϑ}. (b) Le calcul de conducteurs du §2 suppose la normalisation σ_h = π(χ_{h,w}, χ_{h,w̄}), à confirmer dans CLW §7.10. (c) L'égalité c(π ⊗ ϑ) = 2s demande que π soit minimale. Sinon, il faut prendre une tordue, ce qui ne change pas I_v.
-- **À faire relire par un spécialiste.** Le §3 (identification t₁ = c(π) avec Wan, Lemme 8.17) et la réduction (P1)–(P2).
+**Vérification numérique** (`bsd/scripts/k0_isotypic.py`, formule des caractères sur GL₂(ℤ/3^n)). On prend π = π(1, χ) avec χ quadratique de conducteur 1, ϑ de conducteur 2, et le type de Wan ρ₁ = χ_{f,1}ϑ, ρ₂ = χ_{f,2}ϑ^{-1}. La dimension de la composante isotypique vaut **0 en n = 2 et en n = 3**, puis **1 en n = 4**, égal à 2s. C'est exactement c(π ⊗ ρ₁^{-1}) = 2s. Le témoin sans ϑ donne les dimensions attendues 2 et 3, soit n − c + 1.
+
+## 5. Conséquences
+
+1. **Problème A, verdict négatif sous la lecture littérale (DÉDUCTION).** Sous CLW (iv), cond(ρ₁) vaut s = a − c ou a, selon l'appariement des indices, et ces deux valeurs dépassent c/2. On a donc c(π ⊗ ρ₁^{-1}) = 2 cond(ρ₁) ≥ 2a − 2c. C'est > a dès que a > 2c, ce que (iv) impose (a ≥ 2c + 2). Ici on utilise Hsieh, Lemme 6.8 (lu, pour π minimale) ; pour π non minimale, on se ramène à la tordue minimale. **Aucun vecteur de π, et donc aucun opérateur de torsion, ne rend ℓ non nulle.** La seule issue est de modifier les vecteurs de θ ou de h, par exemple par des translatés γ^k comme dans Dimitrov–Nyssen, Th. 4, ou la contrainte a ≥ 2c + 2. Les deux remontent dans la construction globale.
+2. **Tension avec la littérature, point le plus important.** Le même lemme, appliqué tel quel au Lemme 8.17 de Wan (π_f série principale, t₁ + s = t₂, t₁ < s), donne c(π_f ⊗ ρ₁^{-1}) = 2s > t₂. L'intégrale serait donc **nulle**, alors que Wan annonce une valeur non nulle, (q_v − 1)²/q_v^{2s+1} · Vol². Le contrôle numérique ci-dessus est précisément ce cas, avec t₁ = 1, s = 2, t₂ = 3. Le même argument atteindrait aussi le cas π_v non ramifiée de CLW (iv). Il y a donc **soit une erreur dans ma lecture des vecteurs de Wan et CLW, soit une erreur dans le Lemme 8.17 de Wan.** Je ne tranche pas. Dans le premier cas, le problème A est à reformuler avec les vrais vecteurs. Dans le second, le défaut dépasse les supercuspidales.
+
+## 6. À faire relire par un spécialiste (par priorité)
+
+1. Les vecteurs locaux exacts de θ et h aux places décomposées dans Wan §8.1–8.2 (construction par la correspondance thêta) et dans CLW §7.10. Sont-ils les f_χ de niveau K₀(ϖ^{t₂}), au même point que le vecteur de π ?
+2. Si oui, le Lemme 8.17 de Wan face au lemme du §4.
+3. Si non, refaire le §4 avec les vrais vecteurs. Le critère reste le même : un type compact de f_θ ⊗ f_h doit être réalisable dans π.
+
+**Statut global : aucune preuve. Une obstruction conditionnelle à la lecture des vecteurs, et un conflit avec Wan, Lemme 8.17, à arbitrer.**
