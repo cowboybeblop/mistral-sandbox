@@ -87,7 +87,7 @@ Je crois que cet argument est celui de Stein–Wuthrich, mais je n'ai pas pu ouv
 1. Quand le modèle `elltwist(E, D)` n'est pas minimal en 2 (changement de variable u = 2), Ш_p brut vaut exactement 2. C'est le rapport des périodes Ω_min/Ω_tordu = u. On divise donc par u, valeur gardée brute dans les résultats.
 2. Quand v_p(Reg_p) est grand, `ellpadicbsd` détecte à tort un ordre r = 4 (les coefficients d'ordre 2 et 3 tombent sous la précision). Règle : ne comparer que si r = 2 ; sinon remonter n de 2 puis de 4 (`scripts/twist_repair.py`) ; sinon compter le couple comme « précision insuffisante ». Les 4 désaccords apparents du premier lot venaient tous de là ; à n = 10 ou 12, les 4 donnent Ш_p = 1.
 Les débordements de la pile de 2 Go (grand |D|) sont relancés avec 6 Go.
-{{TW_CALIB}}
+Résultat du calibrage (`results/twists_bsd_final.jsonl`, fusion des passes de réparation, état du 26 novembre 2026) : 1588 tordues à Ш = 1, **4273 couples (E_D, p) comparés, aucun désaccord modulo p**, avec 1 à 7 chiffres p-adiques d'accord selon p. Ne sont comptés ni comme succès ni comme désaccords : 806 couples en échec mémoire et 468 couples en « précision insuffisante » (r ≠ 2). Une partie des deux groupes correspond aux 690 tordues que la seconde passe de réparation n'avait pas encore atteintes (calcul lent pour les grands |D|, arrêté par la limite de 2 h). Modèle `elltwist` non minimal en 2 (u = 2) : 223 tordues sur 1588.
 
 **Test : les 13 tordues à Ш > 1, jamais utilisées au calibrage (VÉRIFIÉ NUMÉRIQUEMENT, `results/twists_test_set_repaired.jsonl`).** 37 couples (E_D, p), **aucun désaccord**, aucun échec après réparation.
 
