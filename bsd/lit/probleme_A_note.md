@@ -72,3 +72,43 @@ Notations. Les vecteurs f_θ et f_h de Wan sont supportés sur K_t (matrices tri
 - **Ce que cela change pour le problème A (DÉDUCTION).** Le calcul local est fait dans la littérature, pour le vecteur nouveau de π et des données auxiliaires adaptées. BSTW citent Fouquet–Wan ([56], p. 10), mais seulement comme application, pas pour ce calcul. Le problème A devient : **dans CLW, peut-on remplacer la condition (iv) aux places supercuspidales par celle de Fouquet–Wan**, sans casser les autres usages de χ_θ et χ_h ? Ces usages sont : le Lemme 6.24 de Wan (cond(λ) < cond(χ_θ) < ord(yȳ)), la condition (vi) de CLW (valeurs L unités p-adiques), les fonctions L₁ à L₆, et la twist (5.6.10), qui n'est plus nécessaire avec le vecteur nouveau. Fouquet–Wan font ce remplacement dans le cadre de Wan (même méthode Klingen–Eisenstein, même §8D). C'est un fort indice que l'adaptation à CLW (cas supersingulier anticyclotomique) est routinière, mais **ce n'est pas vérifié**.
 - **Piste parallèle (SPÉCULATION).** Le Th. 7.32 de Fouquet–Wan pourrait peut-être remplacer directement l'entrée de CLW dans BSTW pour p = 5 supersingulier, puisque ρ̄|G_{ℚ_p} est irréductible quand a_p = 0. Ses exceptions (« pullbacks of primes in O[[Γ⁺]] ») rappellent l'étape d'inversion de Λ^cyc dans BSTW Th. 10.5, donc le problème B. À examiner.
 - **Statut de la source.** Fouquet–Wan est un preprint, sans journal-ref sur arXiv au moment de la lecture. La Prop. 7.27 s'appuie sur [60, Prop. 3.1], que je n'ai pas ouvert.
+
+## 9. Avancées du 26 novembre (suite) : vérification de Fouquet–Wan et test des lemmes de Wan
+
+### 9.1 FW Prop. 7.27 démontrée pour tout ℓ, y compris ℓ = 2 (DÉDUCTION, preuve complète)
+
+On travaille dans le modèle de Kirillov de π, supercuspidale de conducteur c et de caractère central trivial, avec le vecteur nouveau W₀ = 1_{O^×}. On utilise la formule de Hu (IMRN 2018, (2.66), lue dans la version publiée fournie) : π(ω)1_{χ,n} = C·1_{χ^{-1}w₀^{-1}, −n+n_χ}, avec n_1 = −c pour χ trivial.
+- **Cellules diag(ℓⁿ, 1)n(ℓ^{-n}y)K_t.** On a diag(ℓⁿ, 1)n(ℓ^{-n}y) = n(y)diag(ℓⁿ, 1), donc Φ = ∫ψ(yα)W₀(ℓⁿα)W₀(α)d^×α. Ce n'est non nul que si les supports O^× et ℓ^{-n}O^× se rencontrent, c'est-à-dire n = 0. Pour n = 0, Φ = ∫_{O^×}ψ(yα) = 1 si y ∈ O.
+- **Cellules diag(1, ℓⁿ)n⁻(ℓ^{t−n}x)K_t.** À un élément central près, c'est diag(ℓ^{-n}, 1)n⁻(ϖ^iu) avec i = t − n et m = 0.
+  - On écrit π(n⁻(ϖ^i)) = π(ω^{-1})π(n(−ϖ^i))π(ω).
+  - π(ω)W₀ est porté par la couche v = −c. On le multiplie par ψ(−ϖ^ix), puis on décompose sur les caractères de O^×.
+  - Sous π(ω^{-1}), **seule la composante triviale** donne une composante triviale, sur la couche c + n_1 = 0. Les autres caractères χ restent non triviaux.
+  - Avec m = 0, Φ(diag(a, 1)n⁻(ϖ^i)) = ∫_{v(α)=0}W^{(i)}(aα)d^×α ne voit que la composante triviale. Elle est non nulle seulement si v(a) = 0, c'est-à-dire n = 0.
+- **Conclusion.** On n'utilise que n_1 = −c, qui est la définition du conducteur. **On n'utilise pas la Prop. 2.9 de Hu**, affaiblie pour p = 2 et i = c/2. La réserve du rapport (cas 2⁸) **tombe**.
+
+### 9.2 Le Lemme 8.13 de Wan, confirmé numériquement
+
+Script `bsd/scripts/wan_lemma813.py`, avec p = 3, t = 2, χ₁ non ramifié, cond χ₂ = 2, paramètres non ramifiés génériques. On calcule Φ par l'intégrale à une variable dans la carte n⁻(y) de B\G.
+- Sur K₁wσ_nK₁ et K₁σ_nwK₁, Φ = 0 pour n ≤ 3, à 10⁻¹⁵ près.
+- Sur K₁σ_nK₁ et K₁wσ_nwK₁, les valeurs coïncident avec Vol(K_t)·α_i^n·3^{-n/2} à 4 décimales : n = 1 : 0,0517 et 0,0844 ; n = 2 : 0,0641 ; n = 3 : 0,0112 et 0,0486.
+- **Avec 9.1, cela établit FW Cor. 7.28 (DÉDUCTION vérifiée).** Φ_π s'annule sur toutes les cellules n ≠ 0 où Φ_θΦ_h ≠ 0. Sur K_{t₁}, Φ_π = 1 (t₁ > t) et Φ_θΦ_h = Vol²·(χ_{θ,1}χ_{h,1})(a)(χ_{θ,2}χ_{h,2})(d), qui est trivial par la condition de FW. Donc I = Vol(K_{t₁}), **indépendant des tordues non ramifiées**.
+
+### 9.3 Le Lemme 8.14 de Wan, contredit numériquement
+
+Script `bsd/scripts/wan_lemma814.py`, avec p = 3, t₁ = 1, s = 2, t₂ = 3, et f = f_{χ,ϑ} défini par f(b·n⁻(y)) = χ(b)δ^{1/2}(b)ϑ(y/p^{t₁})·1[v(y) = t₁].
+- Lemme 8.14, énoncé : « if g ∈ K_{t+s} with Φ(g) ≠ 0, then its upper right entry is divisible by ϖ^{s−t} ».
+- Calcul : Φ_f(n(b)) = **−1/9 ≠ 0** pour b ∈ {1, 2, 4} (unités), et 2/9 pour v(b) ≥ 1.
+- La projection sur le type (K₀(p^{t₂}), Ξ^{-1}) vaut Σ_{b mod p^{s−t₁}} Φ_f(n(b)) = **0** exactement, comme le prédit le lemme du §4. On a vérifié par ailleurs que la dimension isotypique est nulle (`k0_isotypic.py`).
+- **Conséquence (DÉDUCTION).** Dans la configuration du Lemme 8.17 de Wan (vecteurs f_χ de θ et h au même point, type Ξ sur K₀(p^{t₂})), l'intégrale d'Ichino est **nulle**, contrairement à la valeur annoncée. Deux explications possibles :
+  - (a) les vecteurs locaux de θ et h produits par la construction globale (Schwartz de CLW Prop. 7.6.1 et Wan §6.7) ne sont pas ces f_χ, par exemple parce que leurs orientations sont opposées ;
+  - (b) le Lemme 8.17 (et 8.14) est erroné. L'enjeu dépasse alors le cas supercuspidal : les places déployées de CLW dans le cas semistable seraient touchées.
+  
+  Le fait que FW passent, pour les supercuspidales, à des données (vecteur nouveau, χ_{h,i}χ_{θ,i} non ramifiés) qui satisfont le critère est compatible avec les deux hypothèses.
+- **Réserve.** Ma lecture de f_{χ,ϑ} suppose le support c/ϖ^{t₁} unité, ce qu'impose la lissité en c = 0. Si Wan définit f_{χ,ϑ} autrement, le test ne s'applique pas.
+
+### 9.4 Compatibilité du remplacement de (iv) dans CLW (DÉDUCTION, sur lecture de CLW)
+
+- **Où sert (iv).** Les seules occurrences de la condition (iv) et de cond((χ_hχ_θ^c)_v) aux places de Σ_s sont la définition (p. 35) et l'intégrale triple locale (via Wan 8.13–8.17, p. 72). La relation « a − c » est exactement t₁ + s = t₂ du Lemme 8.17.
+- **Facteurs L locaux.** Les valeurs L de (vi) et de (5.6.1)–(5.6.5), comme le facteur global L(1/2, BC(π) × χ_hχ_θλ²)L(1/2, BC(π) × χ_hχ_θ^c) (7.5.12), n'ont en v ∈ Σ_s supercuspidal que des facteurs locaux égaux à 1, puisque π_v ⊗ (caractère) reste supercuspidale. La constante C₂ (p. 72-73) reste non nulle : L_v(1/2, Π) = 1 et L_v(1, Π, Ad) est fini non nul et indépendant de τ.
+- **Contraintes qui restent.** La première clause de (iv), « χ_{θ,v} non ramifié », est **imposée** par la fonction de Schwartz de θ (CLW Prop. 7.6.1 : 1_{O_{K,v}}(y₁)·1_{O^×}(y₂)χ_{θ,v̄}λ_{v̄}(y₂)). La condition de FW reste compatible avec elle : il suffit que χ_h compense χ_θ composante par composante. La torsion (5.6.10) devient inutile, puisque le vecteur nouveau est de nebentypus trivial et que le type de θ ⊗ h sur K_{t₁} est trivial.
+- **Reste à vérifier.** (i) L'appariement des indices 1 et 2 de FW avec w et w̄ (question 2 à Wan). (ii) La fonction de Schwartz de h dans CLW (p. 65 ; extraction texte confuse : 1_{ℤ_v}(y₁)·1_{ℤ_v^×}(y₂)·χ_{h,v}^{-1}χ_{h,v̄}^{-1}λ_{v̄}(y₂) ?). (iii) Le point (a)/(b) du §9.3.
