@@ -32,13 +32,13 @@ Types locaux en 2 pour ces modèles (calcul exact mod 2⁸) : semistable 0,3 % ;
 
 **Cadre.** F = ℚ_v, v = 2 ou 3, place décomposée dans le corps auxiliaire K. π = π_{E,v} supercuspidale, de caractère central trivial et de conducteur c(π) ≥ 2 ; σ_θ = π(χ_{θ,w}, χ_{θ,w̄}) avec χ_{θ,w} non ramifié et ord cond(χ_{θ,w̄}) ≥ 2c(π) + 2 ; σ_h = π(χ_{h,w}, χ_{h,w̄}), avec χ_hχ_θ|ℚ_v^× = 1 et la condition de conducteur de CLW §5.6 (iv). Par Prasad, une forme trilinéaire ℓ ≠ 0 existe (ε = −1 exigerait trois séries discrètes).
 
-**Vecteurs imposés.** Ceux du cas (Ia) de Hsieh (arXiv 1705.02717, §6) : φ* = ξ₁ ⊗ π₂(η^{c*−c₂})ξ₂ ⊗ π₃(η^{c*−c₃})ξ₃. Le calcul de Hsieh suppose (sf), ce qui force c₁ ≤ 1. À vérifier dans CLW §7.7–7.11 : quelle représentation joue quel rôle.
+**Vecteurs imposés (corrigé).** Ce sont ceux de Wan, Lemmes 8.13–8.17 (cités par CLW, preuve de la Prop. 7.11.2) : pour θ et h, des vecteurs supportés sur K_t se transformant par un caractère ; pour π, le vecteur nouveau tordu par (5.6.10) de CLW. La condition (iv) de CLW est t₁ + s = t₂ du Lemme 8.17, avec t₁ = c(π). Pour π série principale, ce lemme donne I_v = (q − 1)²/q^{2s+1}·Vol(K₁)·Vol(K_{t₂})² ≠ 0. **Le problème A est l'analogue du Lemme 8.17 pour π supercuspidale.**
 
 **À démontrer.** ℓ(φ*) ≠ 0 (de façon équivalente, l'intégrale d'Ichino est non nulle) pour toute tordue non ramifiée de σ_θ et σ_h. CLW travaillent dans Λ ⊗ ℚ (Prop. 7.11.3) : seule la non-annulation est requise.
 
 **Routes.**
-1. Rendre σ_h minimale par un autre choix de χ_h compatible avec CLW, puis appliquer Dimitrov–Nyssen (arXiv 1005.0724, Th. 4).
-2. Calcul direct par Frobenius et modèle de Kirillov (comme CLW (7.12.4)–(7.12.6)). Le vecteur nouveau supercuspidal est 1_{O^×}, et des orthogonalités de caractères ramifiés peuvent tout annuler.
+1. ~~Rendre σ_h minimale puis appliquer Dimitrov–Nyssen~~ : **bloqué**, car (iv) fixe les conducteurs des caractères de χ_h à a et a − c, donc σ_h n'est jamais minimale.
+2. Calcul direct : le vecteur de π est ϑ⁻¹(−y)·1_{O^×}(y) dans le modèle de Kirillov, soit le vecteur nouveau de π ⊗ ϑ, de conducteur 2s. L'argument de support exige a ≤ 2c, exclu par CLW (a ≥ 2c + 2) : il faut la fonction de Bessel de π ⊗ ϑ. Test numérique proposé : v = 3, c = 2, a = 6, s = 4, **calibré d'abord sur le Lemme 8.17 avec π série principale**.
 
 ## Problème B (global) : invariant μ anticyclotomique ± sans semistabilité
 
