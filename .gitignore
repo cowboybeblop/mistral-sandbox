@@ -1,0 +1,5 @@
+bsd/data/
+bsd/lit/raw/
+__pycache__/
+*.pyc
+bsd/results/test_*
