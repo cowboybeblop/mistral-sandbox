@@ -38,3 +38,20 @@
 ## Références
 
 [W] X. Wan, arXiv 1408.4044 (ANT 14, 2020). [CLW] Castella–Liu–Wan, arXiv 2109.08375 (Forum Math. Sigma 10, 2022). [BSTW] arXiv 2409.01350. [DN] Dimitrov–Nyssen, arXiv 1005.0724. [P] D. Prasad, Trilinear forms for representations of GL(2) and local ε-factors (cité par [DN], non ouvert). [Hsi19] M.-L. Hsieh, Hida families and p-adic triple product L-functions (cité par CLW, non ouvert). Hu, arXiv 1409.8173 : intégrales locales de produit triple en niveau général (non lu ; utile si l'on veut des valeurs explicites).
+
+## 5. Résultat des six vérifications (26 novembre 2026)
+
+| # | Vérification | Verdict | Détail |
+|---|---|---|---|
+| 1 | Vecteurs imposés en Σ_s compatibles avec Dimitrov–Nyssen | **OUVERT** | Les vecteurs de CLW en Σ_s sont ceux du cas (Ia) de Hsieh (1705.02717, §6, Hyp. 6.1) : ξ₁ ⊗ π₂(η^{c*−c₂})ξ₂ ⊗ π₃(η^{c*−c₃})ξ₃, **de même forme** que les vecteurs tests de [DN, Th. 4]. Mais [DN] exige que toutes les représentations non supercuspidales soient **minimales**, alors que Hsieh n'impose la minimalité qu'à π₁ et π₃. La recette de CLW (§5.6 (iv)) pour χ_h peut rendre σ_h = π(χ_h,w, χ_h,w̄) non minimale. Il faut soit modifier la recette (et revérifier ses autres usages : Lemme 6.24 de [W], conditions (vi) de CLW, fonctions L p-adiques CM L₁…L₆), soit prouver la non-annulation pour ces vecteurs précis. Le calcul direct (Frobenius et Kirillov, vecteur nouveau supercuspidal = 1_{O^×}) peut donner 0 par orthogonalité des caractères ramifiés : ce n'est pas immédiat. |
+| 2 | Fourier–Jacobi et pullback aux places ramifiées décomposées | ✓ | [W, Lemme 6.20] : le pullback vaut τ(yȳ)·|·|·Vol(Y)·ϕ pour **tout** ϕ invariant par Y. Les Lemmes 6.22 et 6.24 et le §5.7.3 de CLW ne dépendent pas du type de π_v (seulement de c_v > cond(π_v) + …). |
+| 3 | Normes locales (Hsieh Lemme 6.4) | ✓ | Elles sont non nulles pour tout vecteur non nul, et seule la non-annulation est requise. |
+| 4 | Invariants μ utilisés par BSTW Th. 10.5 | **OBSTACLE** | (def) : Pollack–Weston [116] (math/0610694) supposent « squarefree level N ». (indef) : Burungale [21] (1504.02342) suppose « (H1) The level N is square-free ». Chida–Hsieh (1204.2427, Th. C) autorisent N⁺ quelconque, mais en réduction **ordinaire** (A_p unité). Burungale–Büyükboduk–Lei (2211.03722, Remarque 7.11) évoquent une stratégie d'abaissement du niveau ([KPW17]) qui repose encore sur [PW11]. **Il manque une annulation de μ± anticyclotomique pour N⁺ non sans facteur carré en réduction supersingulière.** |
+| 5 | Autres usages de la semistabilité (BSTW §10.3) | ✓ (sauf via 1 et 4) | Le lemme de Ribet pour (ram) est remplaçable par le Lemme 20 de BSZ (100 % des courbes). Le reste passe par le Th. 10.5, donc par les points 1 et 4. Le Th. 10.4 (Kato) et la Prop. 10.7 (contrôle) n'ont pas d'hypothèse sur N. |
+| 6 | Hypothèses de Hsieh | ✓ pour [Hsi14b] ; lié à 1 pour [Hsi19] | [Hsi14b] (1112.1580, Th. A) demande « (sf) n⁻ square-free », satisfaite si les premiers additifs sont décomposés dans K. [Hsi19, §6] demande (sf) = pgcd(N₁, N₂, N₃) sans facteur carré, d'où c₁ ≤ 1 : c'est exactement l'endroit où les supercuspidales sont exclues, et il est remplacé par la non-annulation (point 1). |
+
+**Bilan.** Il reste **deux obstacles précis** pour lever la semistabilité dans les réciproques supersinguliers en 5 :
+- **(A) local** : la non-annulation de l'intégrale de produit triple aux places décomposées, pour les vecteurs de CLW, quand π_v est supercuspidale et σ_h éventuellement non minimale ;
+- **(B) global** : l'annulation de l'invariant μ± anticyclotomique (cas supersingulier, a_p = 0) quand N⁺ n'est pas sans facteur carré.
+
+Aucun des deux n'est résolu ici. La borne d'environ 79 % reste donc **conditionnelle à (A) et (B)**, et non à « six vérifications de routine ».
