@@ -217,3 +217,16 @@ Alors I_v = Vol(K_{t₁})³·⟨ϕ_v, ϕ̃_v⟩ ≠ 0 (à la normalisation de Wa
 3. Le rang 1 (tordue g′, séries principales ramifiées aux ℓ | D_L) est couvert, ce qui lève l'objection 26.
 
 **Borne recalculée** (`bound_v2.py`, scénario S_rep : tous les types en 2 et 3, Steinberg tordu compris, cellules indéterminées et niveaux non minimaux exclus) : voir `raccord_A_B.md` §7.
+
+### 13.1 Vérification en ℓ = 2 (`bsd/scripts/p2_tests.py`, caractères de ℤ₂^× = {±1} × ⟨5⟩)
+
+- **Wan, Lemme 8.13** (t = 3, χ₁ non ramifié, cond χ₂ = 3). Φ = 0 sur K₁wσ_nK₁ et K₁σ_nwK₁ pour n = 0, 1, 2. Sur les deux autres familles, les valeurs valent 0,125 ; 0,0713 ; 0,0406 et 0,125 ; 0,116 ; 0,108, contre 0,125 ; 0,0713 ; 0,0406 et 0,125 ; 0,1163 ; 0,1081 attendus. **Confirmé en ℓ = 2.**
+- **Proposition R.**
+
+  | π_v | A | max\|Φ\| sur les cellules n = 1..3 | erreur de type sur K_{t₁} |
+  |---|---|---|---|
+  | non ramifiée | cond 2, t₁ = 4 | 0 (exact) | 0 |
+  | Steinberg | cond 2, t₁ = 4 | 0 | 0 |
+  | série principale π(χν₁, χν₂), χ quadratique de conducteur 2 | cond 3 (χA de cond 3), t₁ = 6 | 0 | 1,2·10⁻¹⁴ |
+
+  **La Proposition R est confirmée en ℓ = 2 et ℓ = 3** pour les trois types non supercuspidaux. Le cas supercuspidal (A trivial) est la Prop. 7.27 et le Cor. 7.28 de FW, démontrés au §9.1 pour tout ℓ. Il n'est pas testé numériquement : il faudrait un modèle de Kirillov explicite d'une supercuspidale en 2.
