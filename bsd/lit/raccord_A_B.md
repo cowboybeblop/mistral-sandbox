@@ -67,3 +67,31 @@ Avec A et B validés et le raccord ci-dessus :
 - Recalculer la borne avec `bsd/scripts/gain_table.py` et `local_types.py` (branche `claude/artifact-review-prompt-pfjqwc`) en retirant les cas du §3.
 - Relire BSZ, Lemme 20 (existence de q).
 - Point 2 du §3, à ajouter à la validation par Wan.
+
+## 6. Premier chiffrage (26 novembre)
+
+Scripts : `bsd/scripts/local_types_v2.py` (raffinement de `local_types.py`) et `bsd/scripts/bound_v2.py` (même formule que `gain_table.py`). Résultats dans `bsd/results/`.
+
+- **Types locaux** (cellules (A, B) mod 2⁸ et mod 3⁵, normalisation de BSZ, cellules indéterminées exclues). La classe « autre » de l'ancien script est scindée :
+  - « ps_sup » : bonne réduction sur une extension cyclique ramifiée, Q(ζ₉)⁺ en 3 et les deux quartiques cycliques de conducteur 16 en 2, éventuellement après une tordue quadratique. Inertie abélienne, donc série principale ;
+  - « sc » : supercuspidale.
+
+  | | semistable | Steinberg tordu | SP quadratique | SP d'ordre > 2 | supercuspidale | indéterminé |
+  |---|---|---|---|---|---|---|
+  | ℓ = 2 (k = 8) | 0,29 % | 0,10 % | 6,45 % | 0,81 % | 92,33 % | 0,02 % |
+  | ℓ = 3 (k = 5) | 66,67 % | 0,27 % | 0,82 % | 2,75 % | 29,47 % | 0,01 % |
+
+- **Bornes (DÉDUCTION, A et B supposés validés).** ε ≈ 5,3·10⁻⁵ exclut les premiers multiplicatifs ≥ 7 de niveau non minimal.
+
+  | Scénario | μ₂ | μ₃ | Borne |
+  |---|---|---|---|
+  | **S_A** : semistable + supercuspidal (séries principales et Steinberg tordu exclus) | 0,926 | 0,961 | **77,71 %** |
+  | **S_A+SP** : + séries principales ramifiées (si le point 2 du §3 est validé) | 0,999 | 0,997 | **78,98 %** |
+  | Référence (tous types, table d'origine) | 1 | 1 | 79,03 % |
+  | Aujourd'hui (semistable partout) | | | 67,02 % |
+
+- **Lecture.** Le gain certain (S_A) est de **+10,7 points** sur 67,02 %. La part qui dépend de la validation des séries principales (point 2 du §3, Lemme 8.14 de Wan) est de 1,27 point. Le Steinberg tordu et les autres exclusions coûtent environ 0,05 point.
+- **Réserves.**
+  - La constante 19/24, la famille de base et P₇ (semistable en ℓ ≥ 7) sont repris tels quels de `gain_table.py`, sans nouvelle vérification ici.
+  - Le classement ps_sup / sc repose sur un critère d'abélianité de l'inertie, vérifié seulement sur ces corps tests (DÉDUCTION : en ℓ = 3 l'inertie abélienne d'ordre 3 ou 6 provient de Q(ζ₉)⁺ ; en ℓ = 2 l'ordre 4 provient des deux quartiques de conducteur 16).
+  - ε est une approximation.
