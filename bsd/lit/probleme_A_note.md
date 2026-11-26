@@ -165,3 +165,23 @@ Script `bsd/scripts/wan_lemma814.py`, avec p = 3, t₁ = 1, s = 2, t₂ = 3, et 
 2. En (L2) : la forme exacte du vecteur de h (type transposé, à une translation près) et l'admissibilité du ϕ_v choisi dans l'espace (5.6.12).
 3. En (L1) : l'appariement des indices de FW.
 4. Indépendamment : le Lemme 8.14 de Wan, faux tel qu'énoncé.
+
+## 12. Point 6 tranché : la lecture littérale de CLW donne (L1), même orientation
+
+### 12.1 Calcul (DÉDUCTION, à partir d'énoncés lus sur les images p. 53, 64 et 65 de CLW)
+
+- **Polarisation en v = 𝔳𝔳̄ décomposé (ÉTABLI, p. 53).** V_v⁻ ⊗ W_{β,v} = (𝒦_𝔳e₁⁻ ⊕ 𝒦_𝔳e₂⁻) ⊕ (𝒦_𝔳̄e₁⁻ ⊕ 𝒦_𝔳̄e₂⁻), et (7.1.6) : S(𝒦_𝔳e₁⁻ ⊕ 𝒦_𝔳e₂⁻) → S(ℚ_ve₁⁻ + ℚ_ve₂⁻).
+- **θ et h₀ passent tous deux par (7.1.6) (ÉTABLI, p. 64-65).** On a φ_θ = 1_O(y₁)·1_{O^×}(y₂)·ξ_θ(y₂), avec ξ_θ = χ_{θ,𝔳̄}λ_𝔳̄, et φ_h = 1_O(y₁)·1_{O^×}(y₂)·ξ_{h₀}(y₂), avec ξ_{h₀} = χ_{h,𝔳}χ_{h,𝔳̄}^{-1}λ_𝔳̄^{-1}. Ensuite h = h₀ ⊗ (χ_hχ_θ^c ∘ det).
+- **Vecteurs.** Dans le modèle linéaire, le vecteur associé à 1_O(y₁)1_{O^×}(y₂)ξ(y₂) est, à des caractères du déterminant près, f(k) = ξ(d_k)·1[d_k ∈ O^×]. Il est invariant par n⁻(O), et propre pour K₀ᵀ(ϖ^r) = {b ≡ 0 mod ϖ^r} avec r = cond ξ, de caractère ξ(δ) sur le tore. **θ et h ont donc la même orientation : c'est (L1).** Ce point est robuste : quelle que soit la convention d'action (Φ(Xg), Φ(Xᵗg^{-1}), composante 𝔳 ou 𝔳̄), elle est **la même** pour θ et h puisqu'ils utilisent la même application. La torsion de h par un caractère du déterminant ne change pas l'orientation.
+- **Critère du §4, en version transposée.** On a f_θ ⊗ f_h propre pour K₀ᵀ(ϖ^a), de caractère Ξ(k) = A(α_k)A^{-1}(δ_k) une fois normalisé le caractère central (ω_π = 1 force B = A^{-2}). Ici A² = (ξ_θξ_{h₀})^{-1} sur les unités, et les λ se simplifient : ξ_θξ_{h₀} = χ_{θ,𝔳̄}χ_{h,𝔳}χ_{h,𝔳̄}^{-1}. La contrainte globale χ_hχ_θ|_{A_ℚ^×} = 1 donne χ_{h,𝔳̄}^{-1} = χ_{h,𝔳}χ_{θ,𝔳}χ_{θ,𝔳̄}, d'où ξ_θξ_{h₀} = (χ_{h,𝔳}χ_{θ,𝔳̄})²·χ_{θ,𝔳} = ((χ_hχ_θ^c)_𝔳)²·(non ramifié). **Condition de non-annulation : c(π_v ⊗ A) ≤ a, avec cond(A) ≈ cond((χ_hχ_θ^c)_𝔳)** (égalité pour ℓ impair ; en ℓ = 2, il faut tenir compte du carré).
+
+### 12.2 Conséquences
+
+1. **Supercuspidales (notre A).** Il faut la recette de FW, qui revient ici à « (χ_hχ_θ^c)_𝔳 non ramifié en v ». Alors A est non ramifié, c(π ⊗ A) = c ≤ a, et FW Cor. 7.28 (démontré au §9) donne I_v = Vol(K_{t₁}) ≠ 0 indépendant de τ. **A est résolu, en lecture (L1).** La condition est compatible avec « χ_{θ,𝔳} non ramifié » (§11.2).
+2. **La recette (iv) de CLW donne une intégrale nulle aux places décomposées ramifiées.**
+   - Avec cond((χ_hχ_θ^c)_𝔳) = a − c, on a c(π ⊗ A) = 2(a − c) > a dès que a > 2c, ce que (iv) impose. La forme ℓ(· ⊗ f_θ ⊗ f_h) est donc identiquement nulle, **pour tout ϕ_v**.
+   - Cela vaut pour π_v Steinberg (c = 1, a ≥ 4) et pour les séries principales ramifiées.
+   - Exception : π_v non ramifiée avec a = 2 (alors s = 1 et 2s = a).
+   - C'est cohérent avec le contre-exemple numérique au Lemme 8.14 (§9.3, §10). **Cela indique une lacune possible dans CLW, et donc dans BSTW Th. 1.6 et 12.3, même dans le cas semistable**, aux premiers multiplicatifs décomposés dans le corps auxiliaire. C'est une DÉDUCTION à faire confirmer d'urgence (question 3 à Wan).
+3. **Impact sur notre raccord (correction importante).** Le rang 1 (BSTW Th. 12.3) utilise le Th. 10.1 **pour la tordue g′ = g ⊗ χ_L**. Aux ℓ | D_L, g′ est une **série principale ramifiée** (tordue quadratique d'une non ramifiée), placée à une place décomposée de L″. Ces ℓ ne peuvent pas être inertes dans L″ : CLW §5.2 n'y admet que les représentations non ramifiées et les Steinberg. **Notre rang 1 dépend donc du cas « série principale ramifiée », que la lecture (L1) met en défaut avec la recette (iv).** C'est vrai aussi pour BSTW dans le cas semistable. Le scénario S_A (77,71 %) **n'est donc pas indépendant** de ce point. Le rang 0 (Th. 1.6, seulement g) l'est.
+4. **Piste de réparation, à étudier.** Appliquer aux séries principales ramifiées et aux Steinberg la même idée qu'en 1, c'est-à-dire choisir (χ_hχ_θ^c)_𝔳 non ramifié pour satisfaire le critère. Le calcul de non-annulation n'est plus le cas « une seule cellule » de FW : Φ_π n'est pas à support compact. L'intégrale devient une série en paramètres de Satake. Il faut alors montrer qu'elle est non nulle et contrôlée en τ, éventuellement après une ℓ-stabilisation du vecteur de π, comme le fait le Lemme 8.16 de Wan pour les non ramifiées. **C'est le nouveau point bloquant**, pour nous comme pour la littérature.
