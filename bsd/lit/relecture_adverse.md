@@ -86,3 +86,31 @@ D'après `amelioration_BSZ.md` (branche d'origine), la base de 66,99 % repose su
 **Conséquence.** Notre amélioration hérite de **deux couches de conditionnalité**. Il y a d'abord celle de la base (BSTW et Castella, prépublications non publiées). Il y a ensuite celle de A + B (nos adaptations). Le gain propre de A + B (≈ +10,7 points en S_A) ne dépend que de BSTW, déjà nécessaire pour la base, et de A + B. Il ne dépend **pas** de Castella : la famille supersingulière n'utilise que BSTW.
 
 **Ce qu'il faudrait pour lever l'objection 2.** Attendre la publication de BSTW et de Castella, ou vérifier leurs preuves. C'est hors de notre portée et hors de notre contribution : on le signale comme hypothèse dans la formulation finale (« sous réserve de BSTW et Castella »).
+
+### Objection 5 : liberté de ϕ_v aux places décomposées. **RÉGLÉE (DÉDUCTION, chaque usage de ϕ relu dans CLW)**
+
+CLW fixent ϕ dans (5.6.12) = M_{GU(2)}(K_f^p GU(2)(ℤ_p); O_L) ∩ L[GU(2)(ℚ_{Σ_ns∪{ℓ′}})]·f^{GU(2)}_{χ_h}. On propose de **l'élargir** en
+(5.6.12′) M_{GU(2)}(K′_f^p GU(2)(ℤ_p); O_L) ∩ L[GU(2)(ℚ_{Σ∪{ℓ,ℓ′}})]·f^{GU(2)},
+c'est-à-dire d'autoriser l'algèbre de groupe aussi aux places décomposées, avec un niveau K′_v plus profond (c_v plus grand). Comme π_v est irréductible, tout ϕ_v ∈ π_v s'écrit Σ c_i π_v(g_i)f_v. Le vecteur φ₀ de la lecture (L2), comme le vecteur nouveau de la lecture (L1), est donc atteint.
+
+Relevé **exhaustif** des usages de ϕ dans CLW (recherche du symbole ϕ dans tout le texte, 29 blocs, relus) :
+
+| Usage | Où | Contrainte sur ϕ_v en v ∈ Σ_s | Avec (5.6.12′) |
+|---|---|---|---|
+| Famille de Klingen E^Kling_ϕ = ⟨E^Sieg⋆, ϕ⟩ | §5.10, (5.10.2)–(5.10.3) | ϕ fixe le long de la famille et sphérique en p | ✓ (ϕ_v fixé, indépendant de τ) |
+| Semi-ordinarité | Prop. 5.10.1, p. 46 | « Here we use the condition that ϕ has **trivial central character** » | ✓ : tout vecteur de π (ω_π = 1) |
+| Terme constant | Th. 6.1.1, (6.1.5) | Pour v ∈ Σ : Z_v = vol(Y_{c_v})·(…)·⟨ϕ_v, ϕ′_v⟩ « by [Wan20, Lemma 6.20] **for ϕ in the space (5.6.12)** ». Le lemme vaut pour tout ϕ_v invariant par Y_{c_v} ⊂ {k ≡ 1 mod q_v^{c_v}} | ✓ si c_v ≥ niveau de ϕ_v. (5.6.6) ne donne qu'une **borne inférieure** sur c_v, et K_v (5.6.7) suit c_v |
+| Lien avec θ (7.5.8) | §7.5 | « our ϕ is assumed to have the trivial central character » | ✓ |
+| Coefficient de Fourier–Jacobi et intégrale triple | Prop. 7.11.1–7.11.3 | ϕ et ϕ′ dans (5.6.12), des tenseurs purs ; intégrale locale en v | ✓ : c'est exactement le problème A, résolu en (L1) ou (L2) |
+| Torsion (5.6.10) | p. 36, Rem. 5.6.2 | « to make the nebentypus match those of the auxiliary CM families θ and h » | remplacée par le choix isotypique de ϕ_v (type assorti à θ ⊗ h), qui joue le même rôle |
+
+- **Fourier–Jacobi.** Le calcul (Wan, Lemmes 6.20–6.24, CLW §7.6) ne dépend que des sections de Siegel et des fonctions de Schwartz, pas du type de π_v. C'était déjà acquis au §5, point 2.
+- **Effet de c_v plus grand.** c_v intervient dans la section de Siegel (5.7.1), dans Y_{c_v} et dans K_v. Le Lemme 6.24 de Wan demande cond(λ) < cond(χ_θ) < ord(yȳ) : augmenter c_v (et y) conserve ces inégalités. **Aucune borne supérieure sur c_v n'a été trouvée.**
+- **Intégralité.** (5.6.12′) est intersecté avec les formes à valeurs dans O_L, comme (5.6.12). On multiplie par une constante si nécessaire.
+- **Statut.** DÉDUCTION, avec relevé exhaustif. **Reste à faire relire :** que l'élargissement de l'algèbre de groupe aux places décomposées ne touche aucun argument de CLW §8 (preuve du théorème principal, réseaux, idéal d'Eisenstein). Je n'ai pas relu le §8 en détail, mais ϕ n'y figure plus (aucune occurrence après la ligne 5937 du texte extrait, qui correspond à la fin du §7).
+
+### Objection 2 (fin) : conditions de la base
+
+- **Castella Th. 1.1 (lu, arXiv 2409.01360 v1).** Hypothèses : (i) E[p] irréductible ; (ii) « E has nonsplit multiplicative reduction at some prime q ≠ p where E[p] is ramified » ; (iii) E(ℚ_p)[p] = 0. Pour (ii), on reprend la preuve du Lemme 20 de BSZ en ne gardant que les premiers **non déployés**. La densité locale de {v_q(Δ) = 1, non déployée} est d'ordre 1/(2q), et la somme diverge. La proportion de courbes sans tel q tend donc vers 0, et **(ii) vaut pour 100 %** (DÉDUCTION, même crible que BSZ). Castella n'intervient que dans la base, pas dans notre gain.
+- **BSTW Th. 12.3, cas ordinaire.** Il passe par le Th. 9.21(c) : Skinner–Urban [131] (intégral, sous (ram)) et **Wan [140]** (*The Iwasawa main conjecture for Hilbert modular forms*, Forum Math. Sigma 2015) pour l'égalité dans Λ ⊗ ℚ_p. L'énoncé du Th. 9.21(c) demande seulement « p ∤ 6N ordinary such that (irr_ℚ) holds », **sans condition sur N** (ÉTABLI, énoncé lu). Les hypothèses de [140] n'ont pas été relues (NON VÉRIFIÉ).
+- **Bilan.** La base est conditionnelle à **BSTW et Castella**, deux prépublications sans référence de journal au 26/11/2026, et à Wan [140], publié mais non relu. Notre gain n'ajoute que A + B. Formulation finale proposée : « Sous réserve de BSTW (arXiv 2409.01350) et Castella (arXiv 2409.01360), et des adaptations A et B, la proportion est au moins de 77,71 % (78,98 % si …) ».
