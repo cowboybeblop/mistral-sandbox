@@ -186,3 +186,13 @@ python3 bsd/scripts/mission3_sha4.py bsd/results/m3_sha4_rank2.jsonl
 python3 bsd/scripts/stats_sha_torsion.py ; python3 bsd/scripts/test_absorption.py
 ```
 Les fichiers de données (`bsd/data/`) et les PDF (`bsd/lit/raw/`) ne sont pas versionnés.
+
+## 8. Suite : la borne de Bhargava–Skinner–Zhang (66,48 %) avec les réciproques actuels
+
+Détails, calcul et relecture adverse : `lit/inventaire_converses.md` et `lit/amelioration_BSZ.md` ; script `scripts/bsz_bound.py`, densités locales `scripts/local_densities.py`.
+
+- **Reproduction** du Corollaire 26 de BSZ : 0,664817.
+- **Mise à jour (CONDITIONNEL)** : en remplaçant le Théorème 9 de BSZ par BSTW Thm 12.3 (bonne réduction ordinaire en 5) et par Castella Thm 1.1 (réduction multiplicative en 5), la famille utile passe de 0,7918 à 0,7999, et la borne à **66,99 %**. Avec la part supersingulière (BSTW Thms 1.6 et 12.3, seulement pour les courbes semistables, dont la densité en 2 n'est que de 3/1023), on obtient **67,02 %**. Rang 1 seul : 20,90 % (BSZ : 20,68 %).
+- **Ce qui ne marche pas** : p = 3, car les modèles y² = x³ + Ax + B n'ont jamais bonne réduction ordinaire en 3. Quant au cas supersingulier en 5, il exige la semistabilité, qui est rare en 2.
+- **Statut** : deux prépublications, quatre déductions de ma part à faire vérifier, aucune relecture par un spécialiste. Gain modeste (+0,5 point) au niveau A de la barre d'évaluation.
+- **Levier suivant** : la constante κ = 0,5501 d'équirépartition des signes (Théorème 16 de BSZ). Avec κ = 1, la même méthode donnerait ≈ 70,0 %.
