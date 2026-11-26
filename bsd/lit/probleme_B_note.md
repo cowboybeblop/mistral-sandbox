@@ -45,3 +45,7 @@ Dans le cas (def), BSTW écrivent : « µ(L°_W(g/L)) = 0 by [116, Thm. 1.2] [..
 **À faire relire par un spécialiste.** Le remplacement ordinaire → plat dans CH §6 (Taylor–Wiles en définie, N⁺ minimal non sans facteur carré), et l'adaptation de CH §5 aux éléments thêta non stabilisés. Les deux sont du type « routine pour un expert », mais ni l'un ni l'autre n'est écrit à ma connaissance.
 
 **Références non ouvertes.** Vatsal (Duke 1999 et 2003), Darmon–Iovita (JIMJ 2008), Diamond (Invent. 1997), Taylor 2006, Terracini 2003.
+
+## 4. Coût de (CR⁺)(4) (DÉDUCTION, ordre de grandeur)
+
+L'échec de (4) demande un premier q ≡ 1 mod 5 de réduction multiplicative avec 5 | v_q(Δ), donc v_q(Δ) ≥ 5. L'approximation locale (q − 1)²/q^{m+2}, sommée sur m ∈ 5ℕ et sur les premiers q ≡ 1 mod 5 jusqu'à 2·10⁴, donne ≈ 5·10⁻⁶ ; le terme q = 11 domine. **Négligeable pour la borne BSZ** (moins de 0,001 %). La formule de densité exacte reste à recalculer avec `local_densities.py`, mais l'ordre de grandeur ne peut pas changer.
