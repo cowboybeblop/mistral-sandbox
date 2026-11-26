@@ -4,7 +4,7 @@ Diagnostic (jeu de calibrage, Ш = 1) : avec v_p(Reg_p) élevé, les coefficient
 de L_p tombent sous la précision et ellpadicbsd renvoie le coefficient d'ordre r = 4.
 Règle fixée a priori : on ne compare que si r = 2 ; sinon on remonte n de 2 puis de 4 ;
 si r reste != 2, le couple est « précision insuffisante » (ni succès ni désaccord).
-Usage : python3 twist_repair.py ENTREE.jsonl SORTIE.jsonl"""
+Usage : python3 twist_repair.py ENTREE.jsonl SORTIE.jsonl [pile_Go] [workers]"""
 import json, sys, multiprocessing as mp
 sys.path.insert(0, sys.path[0])
 import twist_bsd as tb
@@ -14,7 +14,7 @@ CAP = {3: 14, 5: 12, 7: 10, 11: 8, 13: 6}
 
 def init():
     from cypari import pari
-    pari.allocatemem(3 * 10**9)
+    pari.allocatemem(int(sys.argv[3]) * 10**9 if len(sys.argv) > 3 else 6 * 10**9)
     tb._pari = pari
 
 
@@ -25,11 +25,16 @@ def repair(r):
     E = pari.ellinit(pari(r["base"])); ED = pari.ellinit(r["ainv"]); W = pari(r["gens"])
     S = round(r["sha_real"])
     for i, x in enumerate(r["padic"]):
-        if x.get("r") == 2 or "agree_digits" not in x:
+        if x.get("r") == 2:
             continue
         p, n0 = x["p"], x["n"]
-        new = dict(p=p, first_pass=dict(n=n0, r=x["r"], sha_p=x["sha_p"]))
-        for n in (n0 + 2, n0 + 4):
+        if "error" in x:   # débordement de pile en première passe : même n, plus de mémoire
+            new = dict(p=p, first_pass=dict(n=n0, error=x["error"]))
+            levels = (n0, n0 + 2, n0 + 4)
+        else:              # r != 2 : précision insuffisante, on remonte n
+            new = dict(p=p, first_pass=dict(n=n0, r=x["r"], sha_p=x["sha_p"]))
+            levels = (n0 + 2, n0 + 4)
+        for n in levels:
             if n > CAP[p]:
                 break
             try:
@@ -49,11 +54,14 @@ def repair(r):
             new["insufficient_precision"] = True
         r["padic"][i] = new
     r["repaired"] = True
+    for x in r["padic"]:
+        if "error" in x and "agree_digits" not in x and "first_pass" in x:
+            x["insufficient_memory"] = True
     return r
 
 
 if __name__ == "__main__":
     R = [json.loads(l) for l in open(sys.argv[1])]
-    with mp.get_context("spawn").Pool(4, initializer=init) as pool, open(sys.argv[2], "w") as f:
+    with mp.get_context("spawn").Pool(int(sys.argv[4]) if len(sys.argv) > 4 else 2, initializer=init) as pool, open(sys.argv[2], "w") as f:
         for o in pool.imap(repair, R):
             f.write(json.dumps(o) + "\n")

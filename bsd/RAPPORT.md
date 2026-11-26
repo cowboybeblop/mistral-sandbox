@@ -70,10 +70,48 @@ Résultat (`results/m2_certify*.jsonl`) : la borne est satisfaite pour les **433
 Je crois que cet argument est celui de Stein–Wuthrich, mais je n'ai pas pu ouvrir leur article : ce n'est donc pas une source ici. Le résultat n'est pas nouveau en principe. Ce qui est fait ici, c'est son exécution sur cet échantillon avec un code indépendant de Sage.
 
 **Limites.**
-- **Biais de l'échantillon.** Toutes les courbes de rang 2 de conducteur < 194 040 ont Ш = 1 (mission 3). Le test confirme donc Ш_p = 1, mais ne peut pas détecter une erreur de formule qui ne se manifesterait qu'avec Ш non trivial. Tentative de lever ce biais sur 194766c4 (rang 2, Ш = 4, p = 5 et 7) : **échec**. `msfromell` dépasse la pile PARI de 10 Go à N = 194 766, sur une machine de 15 Go (`results/m3_padic_194766c4_echec.log`). Le test p-adique d'un Ш non trivial en rang 2 reste à faire : il faut soit plus de mémoire, soit un calcul du seul symbole de E qui évite l'espace complet de niveau N.
+- **Biais de l'échantillon.** Toutes les courbes de rang 2 de conducteur < 194 040 ont Ш = 1 (mission 3). Le test confirme donc Ш_p = 1, mais ne peut pas détecter une erreur de formule qui ne se manifesterait qu'avec Ш non trivial. Tentative de lever ce biais sur 194766c4 (rang 2, Ш = 4, p = 5 et 7) : **échec**. `msfromell` dépasse la pile PARI de 10 Go à N = 194 766, sur une machine de 15 Go (`results/m3_padic_194766c4_echec.log`). Ce biais est levé par la méthode des tordues quadratiques (section 3 bis) : 13 courbes de rang 2 avec Ш = 4 ou 9, aucun désaccord.
 - **Précision.** L'accord entre niveaux n et n − 1 surestime parfois la précision (3328f1, p = 7 : 8 chiffres d'accord entre niveaux, 5 avec la valeur 1). Je rapporte donc l'accord avec Ш = 1, pas l'accord entre niveaux.
 - **Cible ≥ 8 chiffres p-adiques.** Atteinte pour p = 3 seulement. À p = 5, 7, 11, 13, la limite est le coût en pⁿ.
 - **Échecs.** 12 courbes sur 151 ont fait déborder la pile de 2 Go de PARI dans `msfromell` (conducteurs très composés, de 7668 à 9390). Elles sont comptées comme échecs dans la première passe (`results/m2_padic_rank2.jsonl`), puis relancées avec 6 Go (`scripts/mission2_rerun.py`, `results/m2_padic_rank2_pass2.jsonl`) : les 12 passent, avec 30 couples, tous en accord avec Ш = 1.
+
+## 3 bis. BSD p-adique sur des tordues quadratiques de rang 2 (Ш non trivial)
+
+**Idée.** Pour une tordue quadratique E_D d'une courbe E de petit conducteur N, la fonction L p-adique de E_D se calcule avec les symboles modulaires de E au niveau N, et non au niveau N·D². `ellpadicbsd(E, p, n, D)` de PARI le fait directement et renvoie L_p ≈ Reg_p(E_D)·#Ш(E_D). La limite mémoire de la section 3 disparaît : les tordues testées ont des conducteurs de 10⁶ à 5·10⁹.
+
+**Recherche (`scripts/twist_scan.py`).** Courbes de base 11a1, 14a1, 15a1, 37b1 et 389a1, avec D fondamental, |D| ≤ 10 000 et pgcd(D, N) = 1. Le filtre est exact : signe de E_D = +1 (`ellrootno`), et L(E_D, 1) = 0 via la somme rationnelle Σ_b χ_D(b)·[b/|D|]^{signe D} des symboles de E. On obtient 1671 tordues, toutes de rang analytique 2 (`ellanalyticrank`).
+
+**BSD réelle (`scripts/twist_bsd.py`).** Modèle minimal de E_D, générateurs par `ellrank` (effort 4), saturation jusqu'à 100, Ш analytique par `ellbsd`. Points non trouvés pour 70 tordues, comptées comme échecs. Pour les 1601 autres, Ш analytique est entier à 10⁻⁶ près : Ш = 1 pour 1588, Ш = 4 pour 7, Ш = 9 pour 6.
+
+**Calibrage, uniquement sur les tordues à Ш = 1.** Deux normalisations y ont été fixées, puis appliquées telles quelles au jeu de test :
+1. Quand le modèle `elltwist(E, D)` n'est pas minimal en 2 (changement de variable u = 2), Ш_p brut vaut exactement 2. C'est le rapport des périodes Ω_min/Ω_tordu = u. On divise donc par u, valeur gardée brute dans les résultats.
+2. Quand v_p(Reg_p) est grand, `ellpadicbsd` détecte à tort un ordre r = 4 (les coefficients d'ordre 2 et 3 tombent sous la précision). Règle : ne comparer que si r = 2 ; sinon remonter n de 2 puis de 4 (`scripts/twist_repair.py`) ; sinon compter le couple comme « précision insuffisante ». Les 4 désaccords apparents du premier lot venaient tous de là ; à n = 10 ou 12, les 4 donnent Ш_p = 1.
+Les débordements de la pile de 2 Go (grand |D|) sont relancés avec 6 Go.
+{{TW_CALIB}}
+
+**Test : les 13 tordues à Ш > 1, jamais utilisées au calibrage (VÉRIFIÉ NUMÉRIQUEMENT, `results/twists_test_set_repaired.jsonl`).** 37 couples (E_D, p), **aucun désaccord**, aucun échec après réparation.
+
+| Base | D | N(E_D) | Ш réel | tors | ∏c | p : chiffres p-adiques d'accord avec Ш |
+|---|---|---|---|---|---|---|
+| 15a1 | 4268 | 273 237 360 | 4,000000 | 4 | 512 | 13 : 3 |
+| 15a1 | 4321 | 280 065 615 | 4,000000 | 4 | 128 | 11 : 4 ; 13 : 3 |
+| 15a1 | −6392 | 612 864 960 | 4,000000 | 4 | 256 | 11 : 4 ; 13 : 3 |
+| 15a1 | 6649 | 663 138 015 | 4,000000 | 4 | 128 | 11 : 4 ; 13 : 3 |
+| 15a1 | 8149 | 996 093 015 | 4,000000 | 4 | 128 | 11 : 4 ; 13 : 2 |
+| 15a1 | −9503 | 1 354 605 135 | 4,000000 | 4 | 256 | 11 : 3 |
+| 37b1 | −3299 | 402 685 837 | 9,000000 | 1 | 2 | **3 : 4 (v₃ = 2)** ; 7 : 4 ; 11 : 4 ; 13 : 3 |
+| 37b1 | −4027 | 600 018 973 | 9,000000 | 1 | 2 | **3 : 4 (v₃ = 2)** ; 7 : 5 ; 11 : 4 ; 13 : 3 |
+| 37b1 | 5477 | 1 109 908 573 | 9,000000 | 1 | 12 | **3 : 3 (v₃ = 2)** ; 7 : 5 ; 11 : 4 ; 13 : 3 |
+| 37b1 | −5703 | 1 203 395 733 | 9,000000 | 1 | 2 | 7 : 5 ; 11 : 4 ; 13 : 3 |
+| 37b1 | −8751 | 2 833 460 037 | 9,000000 | 1 | 2 | 7 : 5 ; 11 : 3 ; 13 : 3 |
+| 37b1 | −9748 | 3 515 869 648 | 9,000000 | 1 | 2 | **3 : 4 (v₃ = 2)** ; 7 : 5 ; 11 : 4 ; 13 : 3 |
+| 389a1 | 3644 | 5 165 428 304 | 4,000000 | 1 | 4 | 3 : 4 ; 5 : 5 ; 7 : 5 ; 11 : 4 ; 13 : 3 |
+
+Les quatre lignes en gras sont le test le plus fort : p = 3 divise Ш = 9. La méthode p-adique doit alors retrouver la 3-partie de Ш, et elle donne v₃(Ш_p) = 2 avec Ш_p ≡ 9 mod 3³ ou 3⁴. Pour p ∤ Ш, l'accord est Ш_p ≡ 4 ou 9 mod p^k avec k de 2 à 5, et non Ш_p ≡ 1 : une formule fausse d'un facteur Ш serait visible.
+
+**Ce que cela établit.** Sous l'étiquette VÉRIFIÉ NUMÉRIQUEMENT : la conjecture de Mazur–Tate–Teitelbaum en rang 2 est confirmée sur 13 courbes à Ш non trivial, par deux calculs indépendants (fonction L complexe d'un côté ; symboles modulaires de E et hauteurs p-adiques de l'autre). Ce n'est pas une preuve de BSD pour ces courbes : rien ne démontre ici que L_p, ou L, donne la taille exacte de Ш.
+
+**Effet sur la conjecture 2.** Les tordues de 37b1 à Ш = 9 et celle de 389a1 à Ш = 4 sont de rang 2, de **torsion triviale**, avec Ш ≠ 1. Ce sont de nouveaux contre-exemples à la forme naïve (« Ш ≠ 1 en rang 2 implique de la 2-torsion »), à des conducteurs de 4·10⁸ à 5·10⁹, en accord avec la LMFDB.
 
 ## 4. Mission 3 : Ш = 4 en rang 2
 
