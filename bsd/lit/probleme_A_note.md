@@ -49,7 +49,7 @@ Notations. Les vecteurs f_θ et f_h de Wan sont supportés sur K_t (matrices tri
 
 ## 6. À faire relire par un spécialiste (par priorité)
 
-1. Les vecteurs locaux exacts de θ et h aux places décomposées dans Wan §8.1–8.2 (construction par la correspondance thêta) et dans CLW §7.10. Sont-ils les f_χ de niveau K₀(ϖ^{t₂}), au même point que le vecteur de π ?
+1. Les vecteurs locaux exacts de θ et h aux places décomposées. Wan, Remarque 8.19 (lue) : « The reason why the local integrals at split primes [...] are the ones considered in this subsection is a consequence of the computations in Subsection 6.7. » C'est donc **Wan §6.7** (calculs de Weil et de Fourier–Jacobi) qu'il faut lire, ainsi que CLW §7.10 ; je ne l'ai pas fait. Noter aussi que ϑ est défini par ϑ|Z_v^× = χ_h|O_{K,w}^× (Wan, Déf. 8.12). Sont-ils les f_χ de niveau K₀(ϖ^{t₂}), au même point que le vecteur de π ?
 2. Si oui, le Lemme 8.17 de Wan face au lemme du §4.
 3. Si non, refaire le §4 avec les vrais vecteurs. Le critère reste le même : un type compact de f_θ ⊗ f_h doit être réalisable dans π.
 
