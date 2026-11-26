@@ -9,7 +9,7 @@ Rapport du programme « Programme de recherche BSD pour Opus », session du 26 n
 1. **Littérature.** Les trois pistes (Kolyvagin, Darmon–Rotger, Perrin-Riou) produisent des classes de **Selmer**, pas des points rationnels, et aucune ne relie une construction à L″(E, 1). Le verrou décrit dans le document est confirmé tel quel. Deux corrections au document : BCGS est une prépublication dont le cas inconditionnel dépend de deux autres prépublications, et arXiv 2601.16044 ne porte pas sur le comptage 97,78 % (qu'il cite en introduction). Détails : `lit/cartographie.md`.
 2. **BSD p-adique en rang 2.** Sur 151 courbes de rang 2 (N < 10 000) et 433 couples (E, p), Ш_p ≡ 1 = Ш partout, sans aucun désaccord modulo p, avec 2 à 16 chiffres p-adiques d'accord. Pour les 433 couples, ord_T L_p ≤ 2 est démontré par une borne d'erreur exacte ; pour 429 d'entre eux (151 courbes sur 151), E[p] est irréductible, d'où, conditionnellement à Wan (via BCGS) et au théorème de contrôle de Mazur, Ш(E/ℚ)[p^∞] fini.
 3. **Ш non trivial en rang 2.** Sur les 42 courbes de rang 2 avec Ш = 4 et N < 500 000 : rang = 2 démontré, Ш(E)[2^∞] ≅ (ℤ/2)² démontré par 2-descente, Ш analytique = 4,000000 par deux voies, et dans les 42 cas une unique courbe 2-isogène E′ avec Ш(E′) = 1 et Ш(E′)[2] = 0.
-4. **Conjectures.** Trois énoncés testés ; un est soutenu sur 152 courbes, un sur 3 millions de courbes (avec un contre-exemple à sa forme naïve, trouvé dans la LMFDB), un est réfuté hors du rang 2 (352 contre-exemples en rang 1).
+4. **Conjectures.** Trois énoncés testés ; un est soutenu sur 151 courbes, un sur 3 millions de courbes (avec un contre-exemple à sa forme naïve, trouvé dans la LMFDB), un est réfuté hors du rang 2 (352 contre-exemples en rang 1).
 
 ## 1 bis. Barre d'évaluation
 
@@ -42,7 +42,7 @@ Jugé à cette barre, le travail est aux niveaux B et C. Il ne déplace aucun ch
 
 **Méthode.** `ellpadicL` et `mspadicinit` de PARI demandent O(N²(n+k)²p) mémoire (documentation PARI). Mesuré : débordement de 6 Go à N = 9003 même à précision 5³. J'ai donc programmé les sommes de Riemann de Mazur–Tate–Teitelbaum sur le seul symbole modulaire x⁺ de E (`scripts/mtt.gp`) :
 μ(b + pⁿℤ_p) = α⁻ⁿ [b/pⁿ]⁺ − α⁻⁽ⁿ⁺¹⁾ [b/pⁿ⁻¹]⁺, avec α la racine unité de X² − a_pX + p.
-Coût : pⁿ évaluations de `mseval`, ~80 µs pièce à N ≈ 9000, aucune limite mémoire observée jusqu'à N = 10 000.
+Coût : pⁿ évaluations de `mseval`, ~80 µs pièce à N ≈ 9000. La seule limite mémoire rencontrée est `msfromell` : 2 Go ne suffisent pas pour 12 conducteurs très composés, 6 Go suffisent (voir Échecs).
 
 **Calibration (VÉRIFIÉ NUMÉRIQUEMENT, `scripts/calib.py`).** Sur 389a, 433a, 37a et 11a, p = 5 et 7, les dérivées obtenues coïncident chiffre à chiffre avec `ellpadicL` de PARI à toute la précision de PARI.
 
@@ -50,7 +50,7 @@ Coût : pⁿ évaluations de `mseval`, ~80 µs pièce à N ≈ 9000, aucune limi
 (1 − 1/α)⁻² · L*_p = c_∞ · ∏c_v · #Ш · Reg_p / #E(ℚ)²_tors,
 où L*_p est le coefficient de s² (variable cyclotomique, T = (1+p)^s − 1). Le facteur c_∞ (composantes réelles) vient de ce que x⁺ est normalisé par Ω⁺ = `E.omega[1]` ; c'est le « facteur 2 » observé à la session précédente.
 
-**Échantillon.** 151 courbes de rang 2 tirées au hasard (graine 20261126, `random.Random`) parmi les 1969 classes de rang 2 de conducteur < 10 000 (première courbe de chaque classe), plus 389a1 et 433a1. Pour chaque courbe, les 3 premiers premiers bons ordinaires parmi 3, 5, 7, 11, 13, aux niveaux n = 11, 8, 6, 5, 4 respectivement, et au niveau n − 1 pour estimer la précision.
+**Échantillon.** 150 courbes de rang 2 tirées au hasard (graine 20261126, `random.Random`) parmi les 1969 classes de rang 2 de conducteur < 10 000 (première courbe de chaque classe). 433a1 faisait partie du tirage ; 389a1 a été ajoutée, soit 151 courbes. Pour chaque courbe, les 3 premiers premiers bons ordinaires parmi 3, 5, 7, 11, 13, aux niveaux n = 11, 8, 6, 5, 4 respectivement, et au niveau n − 1 pour estimer la précision.
 
 **Résultats (VÉRIFIÉ NUMÉRIQUEMENT, `results/m2_padic_rank2.jsonl`).**
 | p | couples | chiffres d'accord avec Ш = 1 (min / médiane / max) | désaccord mod p | p anormal (a_p ≡ 1) |
@@ -101,7 +101,7 @@ Je crois que cet argument est celui de Stein–Wuthrich, mais je n'ai pas pu ouv
 ## 5. Mission 4 : conjectures
 
 **Conjecture 1 (Mazur–Tate–Teitelbaum et Schneider, rang 2 ; conjecture connue, pas nouvelle).** Pour E/ℚ de rang 2 et p ≥ 3 bon ordinaire, ord_T L_p(E, T) = 2, Reg_p ≠ 0, et (1 − 1/α)⁻² L*_p = c_∞ ∏c_v #Ш Reg_p / #tors².
-Test : 433 couples (E, p) sur 151 courbes, tous en accord (section 3), Reg_p ≠ 0 dans les 433 cas, ord_T L_p ≤ 2 démontré dans les 433 cas (et ≥ 2 car c_0 = 0 exactement et le Selmer est de corang ≥ 2). Échantillon biaisé : Ш = 1 partout.
+Test : 433 couples (E, p) sur 151 courbes, tous en accord (section 3), Reg_p ≠ 0 dans les 433 cas, ord_T L_p ≤ 2 démontré dans les 433 cas. L'égalité ord_T L_p = 2 est CONDITIONNELLE : elle suit de la conjecture principale rationnelle et du corang ≥ 2 du Selmer (deux points indépendants). Échantillon biaisé : Ш = 1 partout.
 
 **Conjecture 2 (effet de la 2-torsion, nouvelle sous cette forme ; `scripts/stats_sha_torsion.py`).** Notons ρ_r(X) le rapport entre la proportion de Ш ≠ 1 chez les courbes de rang r à torsion paire et la même proportion à torsion impaire, pour N < X. Alors ρ_r(X) croît avec r pour X fixé grand.
 Données (N < 500 000, 3 064 704 courbes) :
@@ -110,7 +110,7 @@ Données (N < 500 000, 3 064 704 courbes) :
 |---|---|---|---|
 | 0 | 134 285 / 555 350 (24,2 %) | 88 637 / 615 526 (14,4 %) | 1,7 |
 | 1 | 16 896 / 663 782 (2,55 %) | 3 667 / 871 887 (0,42 %) | 6,1 |
-| 2 | 42 / 108 558 (0,039 %) | **0 / 240 114** | ∞ (borne inférieure ≈ 15 à 95 % : SPÉCULATION, voir ci-dessous) |
+| 2 | 42 / 108 558 (0,039 %) | **0 / 240 114** | ∞ ; ρ ≥ 31 environ (borne de Poisson à 95 %, en traitant la proportion à torsion paire comme exacte) |
 | 3 | 0 / 986 | 0 / 8 501 | indéterminé |
 
 Si le rang 2 suivait le rapport du rang 1 (6,1), on attendrait ≈ 15 courbes à torsion impaire et Ш ≠ 1 ; en observer 0 a une probabilité ≈ e⁻¹⁵ sous un modèle de Poisson.
@@ -131,7 +131,7 @@ Ce qu'un rapporteur hostile attaquerait, et la réponse :
 2. **« La précision est surestimée. »** Oui pour l'accord entre niveaux ; d'où le choix de l'accord avec 1. La certification utilise une borne démontrée (n − 1 − v_p(D)), pas l'accord.
 3. **« La certification repose sur des boîtes noires. »** Oui : le théorème de contrôle de Mazur (non rouvert), la conjecture principale rationnelle telle qu'énoncée par BCGS (preuve attribuée à Wan, non ouverte), et la correction de PARI. C'est pourquoi elle est étiquetée CONDITIONNEL.
 4. **« Ш(E)[2^∞] ≅ (ℤ/2)² dépend de `ellrank`. »** Oui, sans second logiciel indépendant (mwrank n'est pas installé). Recoupements : Ш analytique = 4 calculé indépendamment de la descente, et Ш(E′)[2] = 0 du côté isogène, cohérent avec le quotient 4 de la formule de Cassels.
-5. **« Le rang analytique 2 n'est que numérique. »** La parité vient du signe +1 (`ellrootno`), qui annule les dérivées impaires. L(E, 1) = 0 est numérique dans la mission 3, exact (symbole modulaire x⁺(0) = 0) dans la mission 2. L″(E, 1) ≠ 0 est loin du bruit (≥ 0,1 dans tous les cas).
+5. **« Le rang analytique 2 n'est que numérique. »** Le signe est +1 pour les 193 courbes (`ellrootno`, vérifié), ce qui annule les dérivées impaires. L(E, 1) = 0 est numérique dans la mission 3, exact dans la mission 2 (symbole modulaire x⁺(0) = 0). L″(E, 1)/2 est loin du bruit : au moins 0,759 (389a1) dans la mission 2, au moins 7,5 dans la mission 3, pour une précision de 38 chiffres.
 6. **« Les conjectures 2 et 3 sont de la statistique de données biaisées. »** Oui, et c'est dit. La conjecture 3 est présentée comme réfutée hors du rang 2.
 7. **« Rien de tout cela n'approche une preuve de BSD en rang 2. »** Exact. Le programme localise le verrou et produit des vérifications. Aucune preuve n'est annoncée.
 
