@@ -53,7 +53,7 @@ def work(line):
 
 def main():
     lines = open(sys.argv[1]).read().splitlines()
-    with mp.get_context("spawn").Pool(4, initializer=init) as pool, open(sys.argv[2], "w") as fo:
+    with mp.get_context("spawn").Pool(int(sys.argv[3]) if len(sys.argv) > 3 else 4, initializer=init) as pool, open(sys.argv[2], "w") as fo:
         for o in pool.imap_unordered(work, lines):
             fo.write(json.dumps(o) + "\n")
             fo.flush()
