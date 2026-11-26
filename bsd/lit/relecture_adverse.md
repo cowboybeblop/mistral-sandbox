@@ -53,3 +53,36 @@
 4. **Objections 13 et 19** (Lemme 8.14, séries principales) : dépendent de Wan.
 5. **Objections 14 et 15** (B, étapes 1 et 4) : rédaction ligne à ligne.
 6. **Le reste** (vérifications numériques élargies, références, chiffrage).
+
+---
+
+## Traitement des objections 1 et 2 (26 novembre)
+
+### Objection 1 : admissibilité de la famille pour BSZ, facteur 19/24. **RÉGLÉE (lecture de BSZ, arXiv 1407.1826, §2.3–3.5)**
+
+- **« Large family » (ÉTABLI, BSZ §2.3).** C'est F_Σ avec Σ_ℓ fermé à bord de mesure nulle, tel que « for all sufficiently large primes ℓ, Σ_ℓ contains all E_{A,B} with ℓ² ∤ Δ(A, B) ». BSZ : « The family of all semistable elliptic curves is also large ».
+  Notre famille est F = {5 | A, 5 ∤ B} ∩ {types admis en 2 et 3} ∩ {semistable en ℓ ≥ 7}, privée des multiplicatives en q ≥ 7 avec 5 | v_q(Δ). Les ensembles imposés en 2, 3 et 5 sont définis par des congruences sur des cellules mod ℓ^k, donc fermés à bord de mesure nulle. En ℓ ≥ 7, Σ_ℓ contient tous les (A, B) avec ℓ² ∤ Δ : les exclus ont v_ℓ(Δ) ≥ 5. **F est une large family (DÉDUCTION immédiate).** La densité est le produit des densités locales (BSZ §3.1, d'après [2, Thm 3.17]). C'est la formule de `bound_v2.py`.
+- **Théorème 13 (ÉTABLI).** « When elliptic curves over Q in any large family are ordered by height, the average size of the p-Selmer group is p + 1 » (p ≤ 5).
+- **Facteur 19/24 (ÉTABLI, BSZ Th. 25, première partie, preuve lue).** L'inégalité x_{0ou1} + p²(1 − x_{0ou1}) ≤ p + 1 donne x_{0ou1} ≥ 19/24 pour la proportion de **5-rang de Selmer** 0 ou 1. C'est du **pur comptage**, valable dans toute famille large sans équirépartition. BSZ appliquent ensuite leur Th. 9 (cas ordinaire et multiplicatif). Chez nous, on le remplace par :
+  - **Rang de Selmer 0** (avec E(ℚ)[5] = 0, assuré par E[5] irréductible) : corang Sel_{5^∞} = 0. Les réciproques supersinguliers en rang 0 (BSTW Th. 1.6, étendu par A + B) donnent alors L(E, 1) ≠ 0, et Kolyvagin donne le rang 0.
+  - **Rang de Selmer 1** : Sel_{5^∞}[5] = Sel_5 est de dimension 1, donc le corang r ≤ 1. La parité (Dokchitser–Dokchitser, BSZ Th. 15, et p-parité pour p^∞) donne r impair, donc r = 1, et la partie divisible de Ш[5^∞] est nulle, donc Ш[5^∞] est fini. BSTW Th. 12.3 (étendu) donne ord L = 1, puis Gross–Zagier–Kolyvagin donne le rang 1. C'est la déduction 5 de `amelioration_BSZ.md`, utilisée aussi par BSZ (Th. 9) et Castella.
+  
+  **Le facteur 19/24 s'applique donc (DÉDUCTION, structure identique à BSZ).**
+- **Pas de 7/8.** Le Th. 16 (équirépartition des signes) demande des conditions modulo des puissances de premiers p ≡ 1 mod 4. Les conditions en 2, 3 et ℓ ≥ 7 l'excluent. On reste à 19/24, comme dans `gain_table.py` (ÉTABLI, BSZ Th. 16).
+- **Lemme 20 (ÉTABLI, preuve lue).** Pour 100 % des courbes, E[p] est irréductible **et** « there exist at least two prime factors ℓ ‖ N(E), ℓ ≠ p, such that E[p] is ramified at ℓ ». Un ensemble de densité nulle l'est aussi dans F. **Cela règle aussi l'objection 3** : le premier q multiplicatif (ram) existe pour 100 % de F, et les conducteurs 2^a·3^b forment un ensemble de densité nulle. On en a même deux, ce qui laisse de la marge pour le choix de L″.
+- **Reste (M).** La borne additionne la famille supersingulière (19/24) et la base de BSZ (familles en 5 disjointes : S₀(5) est {5 ∤ A}, la nôtre {5 | A, 5 ∤ B}). Les deux sont disjointes ✓, comme dans `bsz_bound.py`.
+
+### Objection 2 : le point de départ est conditionnel. **CLARIFIÉE**
+
+D'après `amelioration_BSZ.md` (branche d'origine), la base de 66,99 % repose sur :
+
+| Brique | Statut |
+|---|---|
+| BSTW Th. 12.3, cas bon ordinaire en 5, **sans condition sur le conducteur** (« Either a_p(g) = 0 and N is square-free or λ ∤ a_p(g) ») | énoncé relu ici ✓. **Prépublication** (arXiv 2409.01350 v2, 11/09/2024), aucune référence de journal trouvée (recherche web du 26/11/2026). Le cas ordinaire passe par le Th. 9.21(c) (Skinner–Urban, Wan [140]), qui demande p ∤ 6N, vrai pour p = 5 |
+| Castella Th. 1.1 (multiplicatif en 5 ; hypothèse (ii) : un premier q de réduction multiplicative **non déployée** avec E[5] ramifiée) | **Prépublication** (arXiv 2409.01360), aucune référence de journal trouvée. L'hypothèse (ii) est de densité 100 % par un argument de type Lemme 20, à vérifier |
+| Déduction « E(ℚ₅)[5] = 0 sur S₁new » | DÉDUCTION vérifiée numériquement (600 courbes) |
+| Déduction « S₅ ≅ ℤ/5 ⇒ corang 1, Ш[5^∞] = 0 » | standard (BSZ Th. 9, Cassels–Tate) |
+
+**Conséquence.** Notre amélioration hérite de **deux couches de conditionnalité**. Il y a d'abord celle de la base (BSTW et Castella, prépublications non publiées). Il y a ensuite celle de A + B (nos adaptations). Le gain propre de A + B (≈ +10,7 points en S_A) ne dépend que de BSTW, déjà nécessaire pour la base, et de A + B. Il ne dépend **pas** de Castella : la famille supersingulière n'utilise que BSTW.
+
+**Ce qu'il faudrait pour lever l'objection 2.** Attendre la publication de BSTW et de Castella, ou vérifier leurs preuves. C'est hors de notre portée et hors de notre contribution : on le signale comme hypothèse dans la formulation finale (« sous réserve de BSTW et Castella »).
