@@ -1,0 +1,12 @@
+(a) Lemme 8.14 (voir sortie de verif_27.py, partie a) : ratios -1/2 exacts en v(b) = s-t-1 pour (t,s) = (1,2),(1,3),(2,3) ; 0 en dessous ; 1 au-dessus.
+(a) Lemme 8.14 : Phi(n(b))/Phi(1), prédiction entre crochets
+  t=1 s=2 v(b)=0: -0.500000 -0.500000  [-0.500000]   <- contredit l'énoncé (v(b) < s-t)
+  t=1 s=2 v(b)=1: +1.000000 +1.000000  [+1.000000]
+  t=1 s=3 v(b)=0: +0.000000 +0.000000  [+0.000000]
+  t=1 s=3 v(b)=1: -0.500000 -0.500000  [-0.500000]   <- contredit l'énoncé (v(b) < s-t)
+  t=1 s=3 v(b)=2: +1.000000 +1.000000  [+1.000000]
+  t=2 s=3 v(b)=0: -0.500000 -0.500000  [-0.500000]   <- contredit l'énoncé (v(b) < s-t)
+  t=2 s=3 v(b)=1: +1.000000 +1.000000  [+1.000000]
+(b) [rerun with contragredient pairing]
+  sph alpha=0.765+0.644j / -0.505+0.863j : m=-2,-1,1,2 : 1.5e-08 2.7e-08 8.0e-08 1.4e-07 ; ecart K0(p^2) = 0
+  st : m=-2,-1,1,2 : 1.3e-09 3.9e-09 3.5e-08 1.0e-07 ; ecart K0(p^2) = 0
