@@ -50,7 +50,7 @@ Le chiffre prudent reste conditionnel à :
 3. **Estimation erronée de `LISTE_GAINS.md`, piste 5** : « jusqu'à ≈ +2,5 pts ». Elle supposait implicitement des courbes ordinaires en 3. Le plafond réaliste est **≈ +1,5 pt**.
 4. **Tables 3 et 4 de BS** : désaccords confirmés par l'équation fonctionnelle, sans effet sur leurs théorèmes. Ce n'est pas une erreur de notre part, mais c'est à présenter avec prudence. La version publiée n'est pas vérifiée.
 5. **Objection ouverte de la piste 7** (condition de type BSZ Th. 9 (c) chez BSTW) : **réglée** par lecture. BSTW Th. 10.5 et §10.3 n'imposent que (ram), (def)/(indef), (2.15) et (irr_L). Le produit des nombres de Tamagawa ∏_{q|N⁻} c_q(g) ne porte que sur N⁻, pas sur les premiers E1 de N⁺.
-6. **Obstruction de la piste 8** : vérifiée sur le texte. BSTW Th. 12.3 : « Let L be an imaginary quadratic field satisfying (2.15), (9.9) and (Heeg) », et (2.15) : « p splits in L ». Donc D_L premier est impossible avec des premiers propres.
+6. **Obstruction de la piste 8** : vérifiée sur le texte. BSTW Th. 12.3 : « Let L be an imaginary quadratic field satisfying (2.15), (9.9) and (Heeg) », et (2.15) : « p splits in L ». Donc D_L premier impair est impossible avec des premiers propres. Exception : D = −4, sans usage général ; corrigé dans `relecture_adverse_3.md`.
 7. **Non-additivité.** Les gains ont été recalculés ensemble (`bound_v6`), jamais additionnés à la main. Par exemple, la piste 2 fait baisser κ_ss de 0,0003.
 
 ## 5. Ce qui n'est pas de nous
@@ -62,5 +62,5 @@ Le chiffre prudent reste conditionnel à :
 
 ## 6. Questions mises à jour pour les spécialistes
 - **Question 4** (Hsieh, Kim) : E2 et E3 en 2 et 3, la même question en ℓ ≥ 7 additif (piste 2), le Steinberg tordu et Kim–Ota (2).
-- **Question 5** (Burungale, Hsieh) : N6, avec en plus l'obstruction « D_K premier impossible » et la question d'un théorème de non-annulation pour D = −ℓ₁ℓ₂ à facteurs premiers dans un ensemble de Chebotarev.
+- **Question 5** (Burungale, Hsieh) : N6, avec en plus l'obstruction « D_K premier impair impossible (sauf ℚ(i)) » et la question d'un théorème de non-annulation pour D = −ℓ₁ℓ₂ à facteurs premiers dans un ensemble de Chebotarev.
 - **Facultatif** (Shankar) : les coquilles des tables 3 et 4 (brouillon dans `piste1_equirepartition.md` §7, **non envoyé**).

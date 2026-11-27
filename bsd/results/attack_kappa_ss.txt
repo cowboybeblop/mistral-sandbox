@@ -1,0 +1,2 @@
+PARI stack size set to 1000000000 bytes, maximum size set to 1000001536
+famille ss, n = 40000, |A| <= 300000 : P(d = -1) = 0.5569 ± 0.0025 ; prévu 0.5585 (écart -0.6 σ)

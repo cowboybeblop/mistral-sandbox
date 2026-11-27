@@ -1,0 +1,1 @@
+famille toutes, n = 400000, |A| <= 1000000 : P(d = -1) = 0.5587 ± 0.0008 ; prévu 0.55872 (écart +0.0 σ) ; valeur BS 0.5501 : écart +11.0 σ

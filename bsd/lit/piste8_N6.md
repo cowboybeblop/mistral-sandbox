@@ -21,11 +21,12 @@
   - (ii) **tout** premier de D_K soit propre ;
   - (iii) L(1, E ⊗ χ_K) ≠ 0.
 
-## 2. Obstruction : jamais avec D_K premier (PROUVÉ, élémentaire)
+## 2. Obstruction : D_K premier ne marche pas, sauf ℚ(i) (PROUVÉ, élémentaire ; corrigé par la relecture adverse 3)
 
-- Prenons D = −ℓ avec ℓ premier. Comme (−1/5) = 1, on a (D/5) = (ℓ/5). La condition « 5 décomposé » impose donc ℓ ≡ ±1 (mod 5), ce qui contredit (ii).
-- Plus généralement, (D/5) = ∏_{ℓ|D} (ℓ/5), et un premier propre impair vérifie (ℓ/5) = −1. Il faut donc un **nombre pair** de facteurs premiers propres, par exemple D = −ℓ₁ℓ₂.
-- **Conséquence.** Les résultats de non-annulation pour des tordues **premières** ne suffisent pas. Cela vaut pour Ono–Skinner si, comme je le crois sans l'avoir vérifié, ils tordent par D₀·ℓ, et c'est le cas des conjectures de type Chida–Wakatsuki.
+- Prenons D = −ℓ avec ℓ premier **impair**. Comme (−1/5) = 1, on a (D/5) = (ℓ/5). La condition « 5 décomposé » impose donc ℓ ≡ ±1 (mod 5), ce qui contredit (ii).
+- **Exception oubliée dans la première version : D = −4 (K = ℚ(i)).** On a (−4/5) = +1, donc 5 est décomposé, et 2 ≢ ±1 (mod 5). Ce corps ne convient que si 2 ∤ N (pour (Heeg) et (9.9)), a₂(E) ≠ ±2 et L(1, E ⊗ χ₋₄) ≠ 0. C'est un seul corps, sans latitude, et 2 ∤ N est rare dans notre famille (au plus 0,3 % des courbes sont semistables en 2). D = −8 ne marche pas : (−8/5) = −1. **L'exception est donc sans usage général.**
+- **Règle exacte.** (D/5) = (−4/5)^{[4‖D]}·(−8/5)^{[8|D]}·∏_{ℓ|D impair} (ℓ/5). Un premier impair propre vérifie (ℓ/5) = −1. Il faut donc un nombre pair de « −1 », en comptant le facteur 2 quand 8 | D. Exemple : D = −ℓ₁ℓ₂.
+- **Conséquence.** Les tordues **premières** impaires (conjecture de Goldfeld restreinte aux premiers, Chida–Wakatsuki) ne suffisent pas. Les tordues D₀·ℓ (méthode d'Ono–Skinner telle que je la crois, **non vérifiée**) **pourraient** convenir si D₀ a un nombre impair de facteurs propres. Ce n'est donc pas exclu par l'obstruction ; c'est à vérifier sur le texte d'Ono–Skinner. *(La première version disait à tort que l'obstruction « valait pour Ono–Skinner ».)*
 - La remarque vaut aussi pour le cas publié de BSTW (semistable), qui ne traite pas N6. À signaler aux spécialistes.
 
 ## 3. Test numérique (indication, pas une preuve)
