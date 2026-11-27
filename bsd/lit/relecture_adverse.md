@@ -123,3 +123,57 @@ Relevé **exhaustif** des usages de ϕ dans CLW (recherche du symbole ϕ dans to
 
 ### Objection 26 (rang 1 et séries principales ramifiées) : **RÉPARÉE** (`probleme_A_note.md` §13)
 Proposition R : on prend pour ϕ_v le vecteur nouveau de π_v ⊗ A (f_{χ,ϑ} de Wan avec s = t au lieu de s > t), et des données auxiliaires de type assorti, avec L(π_v ⊗ A^{±1}) = 1. Seule la cellule n = 0 contribue : I_v est une constante non nulle indépendante de τ, pour **toute** π_v (supercuspidale, série principale ramifiée, Steinberg, Steinberg tordu). C'est vérifié numériquement (p = 3) pour les non ramifiées, les Steinberg et les séries principales quadratiques. Les objections 13 et 19 se trouvent du même coup **réparées** dans notre version, quelle que soit la réponse de Wan sur son Lemme 8.14. Reste à valider : la preuve de la Prop. R (point (3) : γ monomial ⇒ une seule couche) et l'extension des tests numériques à ℓ = 2.
+
+---
+
+## Traitement des objections restantes (27 novembre)
+
+Sources rouvertes pour ce traitement :
+- Wan 1408.4044, §8D ;
+- CLW 2109.08375, §5.6 et p. 72 ;
+- BSTW 2409.01350, §2.5, Th. 2.9, Th. 2.10, Lemme 2.13, §9.4, §10, Th. 12.3 ;
+- Chida–Hsieh 1204.2427, §3.6 et §6 en entier ;
+- Pollack–Weston math/0610694, §2 ;
+- Taylor 2006, §2 ;
+- Hsieh 1112.1580, Th. A et C ;
+- Hu IMRN 2018, (2.63)-(2.65).
+
+La revérification du 27/11 (`reverification_27_11.md`) change deux choses :
+- La Prop. R a une preuve plus simple. Elle vaut pour toute π_v, avec A arbitraire (trivial compris).
+- Côté A, **aucune classification des types locaux n'est plus nécessaire**.
+
+| N° | Statut au 27/11 | Traitement |
+|---|---|---|
+| 4 | **RÉGLÉE** (lecture) | Dans la chaîne Th. 1.6 / 12.3 → 10.1 → 10.5, « square-free » sert seulement à quatre endroits. (a) Th. 9.24, pour le calcul des périodes locales du produit triple ; BSTW le disent en note 20. C'est le problème A. (b) Th. 10.5 : μ(L°_W) = 0 via [116] (PW, niveau sans facteur carré) et l'identité des périodes. C'est le problème B. (c) (2.16) « N_L squarefree », où N_L est la partie de N première à D_L : c'est trivial, puisque (D_L, N) = 1 par (9.9). (d) Th. 11.12 (formule de BSD), hors de la chaîne. Th. 2.9, Th. 2.10, Lemme 2.13, Th. 10.4, Prop. 10.7 et Prop. 12.1 n'ont pas cette hypothèse. Dans la preuve du Th. 10.1, « since g is semistable, there exists q \| N satisfying (ram) » est remplacé par le Lemme 20 de BSZ (100 % des courbes). |
+| 7 | **CADUQUE** | La Prop. R′ fixe elle-même les données : f_θ et f_h de niveau t₁ = a, et (χ_hχ_θ^c)_𝔳·A non ramifié. La première clause de (iv) (χ_{θ,𝔳} non ramifié, ord cond χ_{θ,𝔳̄} ≥ 2c + 2) donne exactement cond(χ_{θ,1}χ_{θ,2}^{-1}) = a. La lecture littérale de FW Cor. 7.28 n'intervient plus. |
+| 8 | **RÉGLÉE** (DÉDUCTION, preuve complète) | `reverification_27_11.md` §4. Le point (3) découle du support de Kirillov et du produit scalaire G-invariant (Hu (2.63)/(2.65)). On n'utilise plus γ monomial. |
+| 9 | **RÉGLÉE** pour A, sauf un cas | Tests disponibles. Wan 8.13 en ℓ = 2 et 3. Wan 8.14 : trois couples (t, s) et la somme exacte sur GL₂(ℤ/27). Prop. R avec A ramifié : non ramifiée, Steinberg et série principale ramifiée, en ℓ = 2 et 3. Prop. R avec A trivial : non ramifiée (deux paramètres) et Steinberg, en ℓ = 3, dans le modèle induit. **Non testé numériquement : le cas supercuspidal**, faute de modèle explicite. La preuve n'y distingue cependant aucun cas. |
+| 10 | **CADUQUE** | La formule (2.66) de Hu n'est plus utilisée. |
+| 11 | **CADUQUE** | Le Lemme 6.8 de Hsieh n'est plus utilisé. |
+| 12 | **RÉGLÉE** (DÉDUCTION) | Seule la double classe K_{t₁} contribue : I_v est une intégrale **finie**, dans laquelle les torsions non ramifiées de θ et h n'apparaissent pas. L'identité vaut donc pour toute spécialisation, unitaire ou non, et la question du prolongement ne se pose pas. π_v est fixée et unitaire (tempérée). |
+| 13, 19 | **RÉPARÉES** (Prop. R′) | La cause est identifiée : la Prop. V (`reverification_27_11.md` §2). |
+| 14 | **RÉGLÉE** (lecture) | BSTW appliquent [116, Th. 1.2] (PW) directement à L°_W, qui est donc la fonction de PW. Pour N⁺ quelconque, on prend la normalisation de CH (f primitive, période de Gross ⟨f, f⟩_R). CH ne supposent que **N⁻ sans facteur carré** (lu, p. 1 : « We assume that N⁻ is the square-free product of an odd number of primes »). Leur Prop. 3.8 donne la période locale en **tout** q \| N⁺, sans condition d'exposant : P(ς_q, φ_q, χ)·‖φ_π‖_q/(\|D_K\|^{1/2}ε(π)) = χ_q(N⁺) pour χ non ramifié en q. La preuve n'utilise que Ψ(1/2, W_π, χ) = L(1/2, π ⊗ χ) pour le vecteur nouveau. L'identité de BSTW devient (L^{◦,ac}_p) = (u·L°_W), avec u unité, par CH Prop. 6.1. |
+| 15 | **RÉGLÉE pour la structure** (DÉDUCTION, table ci-dessous) ; une nouvelle objection en sort (N2) | Voir le tableau « Taylor §2 ». |
+| 16 | **Largement RÉGLÉE** | Vatsal 2003 : inutile, la preuve du Lemme 5.4 de CH a été refaite le 26/11. Diamond 1997b : inutile si Σ = ∅, et les cas Σ ≠ ∅ sont exclus (N2). Carayol : remplacé par un argument direct, voir N2. DDT et [Dia] Th. 2.1 : utilisés seulement **à l'intérieur** de la preuve du Th. 2.6 de Taylor, qu'on prend comme énoncé publié. **Reste NON VÉRIFIÉ :** que la définition de Diamond 1997a, Déf. 3.1, citée par CH en (D2), coïncide avec la condition locale explicite qu'on utilise (relèvement rigide si p ∤ #ρ̄(I_q), type Steinberg sinon). |
+| 17, 18 | **RÉGLÉES** (lecture) | PW, preuve du Th. 2.5 (lue) : « L_n is divisible by ω_n^ε where ε equals the sign of (−1)^{n−1}. For a fixed parity of n, factoring out these extra zeroes then produces the norm compatible sequence that yields L^ε_p ». Chaque signe utilise donc une parité de n. Notre étape 2 (CH Cor. 5.2) donne μ(θ_n) = 0 **pour tout** n > n₀, donc pour les deux parités, donc pour les deux signes. |
+| 20 | **HÉRITÉE de BSTW** | Le choix du corps de Heegner L par [51] (Friedberg–Hoffstein) est celui de BSTW Th. 12.3. Les conditions locales demandées, à savoir (Heeg) (tout ℓ \| N décomposé, 2 compris), (2.15) et (9.9), sont les mêmes que dans le cas sans facteur carré, et [51] ne porte pas sur le conducteur. [51] n'a pas été ouvert (NON VÉRIFIÉ, comme chez BSTW). L″ existe par le théorème des restes chinois (raccord §2). |
+| 21, 23 | **CADUQUES côté A** ; côté B, remplacées par N2 | Seuls les drapeaux « non minimal » de B demandent un calcul local (`local_types_v3.py`). |
+| 22 | **INCHANGÉE** (M) | ε ≈ 5,3·10⁻⁵ (q ≥ 7). L'ordre de grandeur est sûr, puisque le terme q = 7, m = 5 domine. |
+| 24 | **EN PARTIE** | Les points critiques (Lemme 8.14, Lemme 8.17, Prop. R′) ont maintenant des preuves analytiques **et** des vérifications numériques indépendantes. Restent la relecture par des spécialistes et une reproduction en Sage ou Magma (indisponibles ici). |
+| 25 | **RÉGLÉE** | Document unique `bsd/REPORT_EN.tex` (pdf). |
+
+### Taylor 2006 §2, étape par étape : ce qui dépend de la condition en p (objection 15)
+
+| Étape (Taylor §2, lu) | Dépend de la condition en p ? | Version ordinaire de CH | Notre version (cristalline) |
+|---|---|---|---|
+| Foncteur D_∅ : déformations non ramifiées hors de l et Σ, det fixé, condition de Fontaine–Laffaille en x \| l | oui | (D3) ordinaire | celle de Taylor, inchangée |
+| Lemme 2.1 : forme locale en x ∈ Q (premiers de Taylor–Wiles), structure de O[Δ]-module, surjection R_Q → h(U_{1,Q})_m | (3) : les ρ modulaires vérifient la condition en l | via Hida | via Taylor Lemme 1.4 : poids 2 ≤ l − 1, cristallin, dans l'image de M |
+| Lemme 2.2 (isomorphisme α en x ∈ Q) | non | idem | idem |
+| Lemme 2.3 et Cor. 2.4 (liberté sur O[Δ_Q]) | non. Demande l ∤ #(U ∩ xD^×x^{-1})/F^× | CH : ordres d'Eichler | groupes d'unités d'ordre divisant 12, premier à 5 |
+| Borne locale en x \| l : #H¹_f \| #(O/λⁿ)#H⁰ | oui | borne ordinaire | celle de Taylor (p. 21), via Fontaine–Laffaille |
+| Formule de Wiles ([DDT] Th. 2.19) : #Q + dim H¹_∅(ad⁰(1)) générateurs | non, une fois les bornes locales données | — | — |
+| Lemme 2.5 (premiers de TW) | non. Demande ρ̄\|G_{F(√±l)} irréductible et l > 3 | (CR⁺)(2) | (CR⁺)(2), l = 5 |
+| Th. 2.6 : R_∅ ≅ h(U₀)_m, S libre (par [Dia] Th. 2.1) | conséquence | — | — |
+| Places q ≠ l de niveau (CH) : (D2) minimale ; (D5) sp en q \| N⁻ ; ♯L_q = ♯H⁰ | non | CH, [Ter03 §3.4] | idem. En q \| N⁺ avec p ∤ #ρ̄(I_q), ♯H¹(Ẑ, M) = ♯M^{Frob} = ♯H⁰ (calcul du 26/11, §9 de B) |
+
+**Conclusion (DÉDUCTION).** La version cristalline de la Prop. 6.8 de CH, pour Σ = ∅, s'obtient en remplaçant (D3) par la condition de Taylor. Aucune autre étape ne voit la condition en p. La surjection R_∅ → T_∅ (CH Lemme 6.5) suppose toutefois que **toutes** les formes de T_∅ = T(N_∅)_m sont minimalement ramifiées. CH ne le vérifient pas explicitement en q \| N⁺ avec q² \| N_∅. C'est l'objet de la nouvelle objection N2 (`relecture_adverse_2.md`).

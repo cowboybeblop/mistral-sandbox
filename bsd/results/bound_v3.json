@@ -1,0 +1,26 @@
+[
+ {
+  "scenario": "S3_prudent : A tous types ; B sans E1-E3 ni indéterminées",
+  "mu2": 0.96783357771261,
+  "mu3": 0.9971987635922062,
+  "eps": 5.336052474181407e-05,
+  "gain": 0.11611629252664515,
+  "borne": 0.786058370091582
+ },
+ {
+  "scenario": "S3_optimiste : A et B tous types",
+  "mu2": 1.0,
+  "mu3": 1.0,
+  "eps": 5.336052474181407e-05,
+  "gain": 0.12031249804685425,
+  "borne": 0.7902545756117911
+ },
+ {
+  "scenario": "référence : tous types, eps = 0 (table d'origine)",
+  "mu2": 1.0,
+  "mu3": 1.0,
+  "eps": 0.0,
+  "gain": 0.12031891832747256,
+  "borne": 0.7902609958924094
+ }
+]
