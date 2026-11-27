@@ -64,7 +64,7 @@ Everything is conditional on expert verification. Section~\ref{sec:context} expl
 \item {[BSZ, \S4]} write: ``If Theorem 9 can be improved as indicated in Remark 10, \dots\ the lower bound on the proportion of elliptic curves satisfying the Birch and Swinnerton-Dyer rank conjecture increases to $79.7\%$.'' [BSZ, Remark 10] asks for $E$ to be allowed supersingular reduction at $p$.
 \item The supersingular $p$-converse of [BSTW, Thm.~1.6, 12.3] provides this, but only for square-free $N$. By [BSTW, footnote 20], the reason is the explicit computation of local triple product periods in [CLW].
 \item In August 2026 the same authors write, about the square-free hypothesis: ``The hypothesis that $N$ be squarefree is carried over from [CLW22], and it should be removable with some more work'' [CLW26, \S1.5, remark (3)].
-\item We searched the web on November 27, 2026 and found no erratum to [Wan, \S8D], no correction of [CLW] at split places, and no extension of the supersingular $p$-converse to non-square-free conductor. We could not consult the published versions of [CLW] (Forum Math.\ Sigma 10 (2022)) and [Wan] (ANT 14 (2020)) through our network. We did read the published [Wan] in a copy we were given: Lemma 8.14 has the same statement there.
+\item We searched the web on November 27, 2026 and found no erratum to [Wan, \S8D], no correction of [CLW] at split places, and no extension of the supersingular $p$-converse to non-square-free conductor. We checked the published versions of [Wan] (ANT 14 (2020)), where Lemma 8.14 has the same statement, and of [CLW] (Forum Math.\ Sigma 10 (2022)), where the local data and the citation of [Wan20, Lemmas 8.13--8.17] are unchanged (\S\ref{sec:clw}).
 \end{itemize}
 
 \subsection{What is new here, and what is not}
@@ -186,6 +186,14 @@ We quote the following four passages.
 with $t_v=\mathrm{ord}\,\cond\chi_{h,\bar v}$. This is the sum of [Wan, Lemmas 8.16, 8.18], so $\phi_v=f_{\chi,\vartheta}$ with $\vartheta=\chi_{h,\bar v}$ and $s=t_v$.
 \item {[CLW, p.~72]}: for $v\in\Sigma_s\cup\{\ell\}$ the normalized local integral is ``a nonzero constant independent of $\tau$ \dots\ this is [Wan20, Lemmas 8.13--8.17]. Note that the twist at $v\in\Sigma_s\cup\{\ell\}$ in (5.6.10) guarantees that the local integrals are nonzero constants.''
 \item {[Wan, Remark 8.19]}: ``The reason why the local integrals at split primes showing up in the triple product formula later on are the ones considered in this subsection is a consequence of the computations in Subsection 6.7.''
+\end{itemize}
+
+\emph{Published version.} We checked [CLW] as published (Forum Math.\ Sigma 10 (2022), e110). The following are \emph{unchanged} from arXiv v1, the only difference being that (5.6.10) is renumbered (5.6.9) and condition (iv) becomes (4):
+\begin{itemize}
+\item condition (4) on p.~39;
+\item the twist (5.6.9) on p.~40;
+\item the Schwartz functions of $h_0$ and $\theta$ at split places, through (7.1.6), on pp.~70--71;
+\item the sentence ``For $v\in\Sigma_s\cup\{\ell\}$, this is [Wan20, Lemmas 8.13-8.17]. Note that the twist \dots\ in equation (5.6.9) guarantees that the local integrals are nonzero constants'' on p.~78.
 \end{itemize}
 
 \begin{corollary}\label{cor:gap}
@@ -459,7 +467,7 @@ All scripts are in \texttt{bsd/scripts/} of the accompanying repository, and the
 \bibitem[BSZ]{BSZ} M.~Bhargava, C.~Skinner, W.~Zhang, \emph{A majority of elliptic curves over $\Q$ satisfy the Birch and Swinnerton-Dyer conjecture}, arXiv:1407.1826.
 \bibitem[BSTW]{BSTW} A.~Burungale, C.~Skinner, Y.~Tian, X.~Wan, \emph{Zeta elements for elliptic curves and applications}, arXiv:2409.01350v2 (2024).
 \bibitem[Cas]{Cas} F.~Castella, \emph{Exceptional zeros for Heegner points and $p$-converse to the theorem of Gross--Zagier and Kolyvagin}, arXiv:2409.01360.
-\bibitem[CLW]{CLW} F.~Castella, Z.~Liu, X.~Wan, \emph{Iwasawa--Greenberg main conjecture for non-ordinary modular forms and Eisenstein congruences on $GU(3,1)$}, arXiv:2109.08375v1 (2021).
+\bibitem[CLW]{CLW} F.~Castella, Z.~Liu, X.~Wan, \emph{Iwasawa--Greenberg main conjecture for nonordinary modular forms and Eisenstein congruences on $GU(3,1)$}, Forum Math.\ Sigma 10 (2022), e110, 1--90; arXiv:2109.08375v1. Page and equation numbers in this report refer to arXiv v1 unless stated otherwise.
 \bibitem[BFH]{BFH} D.~Bump, S.~Friedberg, J.~Hoffstein, \emph{Nonvanishing theorems for $L$-functions of modular forms and their derivatives}, Invent.\ Math.\ 102 (1990), 543--618.
 \bibitem[Cas73]{Cas73} W.~Casselman, \emph{On some results of Atkin and Lehner}, Math.\ Ann.\ 201 (1973), 301--314.
 \bibitem[CH]{CH} M.~Chida, M.-L.~Hsieh, \emph{Special values of anticyclotomic $L$-functions for modular forms}, J.\ reine angew.\ Math.\ 741 (2018); arXiv:1204.2427.

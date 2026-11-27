@@ -18,3 +18,13 @@
 Document : `bsd/NEW_RESULTS_EN.pdf`.
 
 **À faire faire par l'utilisateur.** Télécharger la version publiée de CLW (Forum Math. Sigma 10 (2022) e110), pour vérifier que la condition (iv) et la p. 72 n'y ont pas été corrigées.
+
+## Mise à jour : version publiée de CLW (fournie par l'utilisateur)
+
+CLW, Forum Math. Sigma 10 (2022) e110. Aucun changement sur les points en cause :
+- condition (4), anciennement (iv), **identique** (p. 39) ;
+- torsion (5.6.9), anciennement (5.6.10), identique (p. 40) ;
+- fonctions de Schwartz de h₀ et θ aux places décomposées, via (7.1.6), identiques (p. 70-71) ;
+- même renvoi « [Wan20, Lemmas 8.13-8.17] … the twist … guarantees that the local integrals are nonzero constants » (p. 78).
+
+**La Prop. V et la lacune possible s'appliquent donc à la version publiée.**
