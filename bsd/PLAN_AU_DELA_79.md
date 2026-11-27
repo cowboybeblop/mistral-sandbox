@@ -26,3 +26,26 @@ Pour 100 %, il faudrait connaître la **distribution** complète des groupes de 
 ## 3. Prochaine action concrète (si on continue)
 - Chiffrer E2 et E3 avec bound_v3.py, en supposant les ingrédients acquis, pour savoir où est le vrai gain.
 - Lire BSZ Th. 16 et §4 pour E2, et les résultats de distribution (Smith, Kane) pour E5. Chaque article sera ouvert avant d'être cité.
+
+---
+
+## Mise à jour (vérification du 27/11) : trois problèmes candidats
+
+**1. Équirépartition des signes dans la famille supersingulière (recommandé, abordable).**
+- ÉTABLI, BSZ Th. 16 : énoncé seulement pour des familles « defined by congruence conditions modulo powers of primes p ≡ 1 (mod 4) », avec κ ≥ 0,5501.
+- ÉTABLI, BSZ p. 6 : « We conjecture that for any large family F, we have µequi(F) = µ(F). Although this seems difficult to prove ».
+- La construction est celle de Bhargava–Shankar (arXiv 1312.7859, §5, Prop. 35) : d(E) = r(E)r(E₋₁), avec des familles F₁ et F₂ définies modulo des puissances de 2 et 3, fermées par la torsion par −1, et des tables de signes locaux en 2 et 3.
+- Notre famille (conditions en 5 ≡ 1 mod 4, semistabilité en ℓ ≥ 7, exclusions E1-E3) n'est pas couverte telle quelle. Nos bornes utilisent encore 19/24 sur toute la partie supersingulière.
+- DÉDUCTION, chiffrage grossier : si κ ≈ 0,55 tient dans notre famille, le facteur passe de 19/24 à 7/8 sur 55 % de la famille, soit environ +0,7 point (79,03 → ≈ 79,7 %, la prévision de BSZ ; 78,61 → ≈ 79,3 % en version prudente).
+- Méthode : calcul des signes locaux avec PARI (ellrootno), vérification de la fermeture sous la torsion par −1 de nos conditions locales, recalcul de κ.
+
+**2. N6 : la tordue g_K aux premiers de D_K (rang 1).**
+- Ouvert, et déjà non traité dans le cas publié de BSTW.
+- Théorique et difficile (liberté des modules de Hecke avec congruences à changement de type).
+
+**3. Le premier p = 3.**
+- ÉTABLI, BSZ §4 : « working also with the prime 3 would push this lower bound over 80% ».
+- Aucun travail trouvé qui le fasse. Il faudrait les réciproques en p = 3 hors du cas sans facteur carré, et une combinaison des familles.
+- Gros chantier.
+
+**Recherches web (27/11).** Aucune généralisation du Th. 16 ni de l'amélioration avec p = 3 trouvée. Les μ = 0 récents (arXiv 2108.05958, 2508.11835) portent sur les groupes de Selmer, pas sur notre point B.
