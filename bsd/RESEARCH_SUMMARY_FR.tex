@@ -78,6 +78,43 @@ La lecture de toute la chaîne montre que « $N$ sans facteur carré » n'est ut
 \item \textbf{Contact avec l'auteur.} X.~Wan a confirmé le cas supercuspidal (voir ci-dessous).
 \end{enumerate}
 
+
+\section{Les Lemmes 8.14 et 8.17 de Wan : ce qu'ils disent, ce que nous avons trouvé}
+C'est le cœur de nos résultats sur (A). On se place en un premier décomposé $\ell$, avec $K_t=K_0(\ell^t)$, et $\Phi_f(g)=\langle\pi(g)f,\tilde f\rangle$ le coefficient matriciel d'un vecteur $f$.
+
+\subsection*{Le rôle de ces lemmes}
+La preuve de [CLW] (et donc de [BSTW]) a besoin qu'en chaque premier décomposé, un certain nombre, l'\emph{intégrale locale de produit triple} $I_v$, soit \emph{non nul} et indépendant de la famille $p$-adique. [CLW, p.~78] renvoient pour cela à [Wan, Lemmes 8.13--8.17]. Le Lemme~8.17 donne la valeur de $I_v$ :
+\[
+I_v=\frac{(q-1)^2}{q^{2s+1}}\Vol(K_1)^2\Vol(K_{t_2})^2\neq0,
+\]
+pour des vecteurs précis ($f_{\chi,\vartheta}$ pour la forme, $f_{\chi_\theta}$ et $f_{\chi_h}$ pour les deux familles auxiliaires). Le Lemme~8.14 est l'étape qui décrit où $\Phi_{f_{\chi,\vartheta}}$ est non nul.
+
+\subsection*{Ce que dit le Lemme 8.14, et pourquoi c'est faux}
+\emph{Énoncé} (avec $t<s$) : « si $g\in K_{t+s}$ et $\Phi(g)\neq0$, alors le coefficient en haut à droite de $g$ est divisible par $\varpi^{s-t}$ ».
+
+\emph{Ce que nous trouvons} \stat{prouvé} : pour $g=\begin{pmatrix}1&b\\0&1\end{pmatrix}$, un calcul direct de trois lignes donne
+\[
+\frac{\Phi(g)}{\Phi(1)}=1\ \text{si } v(b)\ge s-t,\qquad -\frac{1}{q-1}\ \text{si } v(b)=s-t-1,\qquad 0\ \text{sinon}.
+\]
+Donc $b=\varpi^{s-t-1}$ donne $\Phi(g)\neq0$ alors que $b$ n'est pas divisible par $\varpi^{s-t}$. L'énoncé est faux \emph{pour tous} les $t<s$. Trois calculs numériques indépendants donnent exactement $-1/2$ pour $q=3$. L'énoncé est le même dans la version publiée (ANT 2020).
+
+\subsection*{Ce que dit le Lemme 8.17, et pourquoi la valeur annoncée ne peut pas être la bonne}
+\emph{Ce que nous trouvons} \stat{prouvé} : avec ces vecteurs, $I_v=0$ (sauf dans le seul cas $t_1=0$, $s=1$). L'argument tient en quatre lignes et ne dépend pas du Lemme 8.14.
+\begin{enumerate}[label=(\roman*)]
+\item $f_{\chi_\theta}\otimes f_{\chi_h}$ est un vecteur propre de $K_{t_2}$, de caractère $\Xi$ explicite.
+\item L'intégrale d'Ichino est invariante quand on fait agir le même $k$ sur les trois vecteurs ; elle ne voit donc que la projection du premier vecteur sur le type $\Xi^{-1}$.
+\item Dans $\pi_f$, ce type n'existe qu'au niveau $c\big(\pi(\chi_{f,1}\chi_{f,2}^{-1}\vartheta,\vartheta)\big)=2s$ (théorie de Casselman), alors que le niveau disponible est $t_2=t_1+s<2s$.
+\item La projection est donc nulle, et $I_v=0$, \emph{quel que soit} le vecteur choisi pour la forme.
+\end{enumerate}
+L'origine probable de l'erreur : le lemme traite $f_{\chi,\vartheta}$ comme s'il était vecteur propre de niveau $t+s$, ce qui est impossible. Le contre-exemple au Lemme 8.14 en est la trace.
+
+\subsection*{Pourquoi cela compte, et ce que nous ne prétendons pas}
+\begin{itemize}
+\item \emph{Conséquence possible} \stat{déduction}. [CLW] (version publiée, inchangée) utilisent exactement ces lemmes. Si leurs vecteurs locaux sont bien ceux du Lemme 8.17, comme l'écrit Wan (Rem.~8.19), alors la non-nullité annoncée échoue aux premiers décomposés de type série principale ou Steinberg, \emph{même pour $N$ sans facteur carré}. Cela touche une étape de preuve, pas les énoncés finaux.
+\item \emph{La correction} \stat{prouvé} : un autre vecteur (fonction de Kirillov $A^{-1}1_{\cO^\times}$, résultat R5) redonne $I_v=\Vol(K_{t_1})\neq0$ pour toute représentation, dans l'esprit de [FW, Prop.~7.27]. Wan a confirmé ce choix dans le cas supercuspidal.
+\item \emph{Ce qui reste à confirmer} : que la construction de [CLW] produit bien les vecteurs du Lemme 8.17. C'est la question 1 de la dernière section.
+\end{itemize}
+
 \section{Résultats}
 \begin{center}\small
 \begin{tabular}{p{7.4cm}p{2.3cm}p{4.2cm}}

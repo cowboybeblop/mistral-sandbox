@@ -73,6 +73,43 @@ Reading the whole chain shows that ``$N$ square-free'' is used in exactly two pl
 \item \textbf{Contact with the author.} X.~Wan confirmed the supercuspidal case (below).
 \end{enumerate}
 
+
+\section{Wan's Lemmas 8.14 and 8.17: what they say and what we found}
+This is the core of our results on (A). Work at a split prime $\ell$, with $K_t=K_0(\ell^t)$ and $\Phi_f(g)=\langle\pi(g)f,\tilde f\rangle$ the matrix coefficient of a vector $f$.
+
+\subsection*{The role of these lemmas}
+The proof in [CLW] (hence in [BSTW]) needs, at each split prime, a certain number, the \emph{local triple product integral} $I_v$, to be \emph{non-zero} and independent of the $p$-adic family. For this, [CLW, p.~78] refer to [Wan, Lemmas 8.13--8.17]. Lemma~8.17 gives the value
+\[
+I_v=\frac{(q-1)^2}{q^{2s+1}}\Vol(K_1)^2\Vol(K_{t_2})^2\neq0
+\]
+for specific vectors: $f_{\chi,\vartheta}$ for the form, and $f_{\chi_\theta}$, $f_{\chi_h}$ for the two auxiliary families. Lemma~8.14 is the step describing where $\Phi_{f_{\chi,\vartheta}}$ is non-zero.
+
+\subsection*{What Lemma 8.14 says, and why it is false}
+\emph{Statement} (with $t<s$): ``if $g\in K_{t+s}$ with $\Phi(g)\neq0$, then its upper right entry is divisible by $\varpi^{s-t}$''.
+
+\emph{What we find} \stat{proved}. For $g=\begin{pmatrix}1&b\\0&1\end{pmatrix}$, a three-line computation gives
+\[
+\frac{\Phi(g)}{\Phi(1)}=1\ \text{if } v(b)\ge s-t,\qquad -\frac{1}{q-1}\ \text{if } v(b)=s-t-1,\qquad 0\ \text{otherwise}.
+\]
+So $b=\varpi^{s-t-1}$ gives $\Phi(g)\neq0$, although $\varpi^{s-t}\nmid b$. The statement fails for \emph{every} $t<s$. Three independent numerical computations give exactly $-1/2$ for $q=3$. The statement is the same in the published version (ANT 2020).
+
+\subsection*{What Lemma 8.17 says, and why the stated value cannot hold}
+\emph{What we find} \stat{proved}. With these vectors, $I_v=0$, except in the single case $t_1=0$, $s=1$. The argument takes four lines and does not depend on Lemma 8.14.
+\begin{enumerate}[label=(\roman*)]
+\item $f_{\chi_\theta}\otimes f_{\chi_h}$ is an eigenvector of $K_{t_2}$ with an explicit character $\Xi$.
+\item Ichino's integral is invariant when the same $k$ acts on all three vectors, so it only sees the projection of the first vector to the type $\Xi^{-1}$.
+\item In $\pi_f$ this type occurs only at level $c\big(\pi(\chi_{f,1}\chi_{f,2}^{-1}\vartheta,\vartheta)\big)=2s$ (Casselman), whereas the available level is $t_2=t_1+s<2s$.
+\item Hence the projection is zero and $I_v=0$, \emph{whatever} vector is chosen for the form.
+\end{enumerate}
+The likely origin of the error is that the lemma treats $f_{\chi,\vartheta}$ as an eigenvector of level $t+s$, which is impossible. The counterexample to Lemma 8.14 is a trace of this.
+
+\subsection*{Why it matters, and what we do not claim}
+\begin{itemize}
+\item \emph{Possible consequence} \stat{deduction}. [CLW] (published version, unchanged) use exactly these lemmas. If their local vectors are those of Lemma 8.17, as Wan's Rem.~8.19 states, then the claimed non-vanishing fails at split primes of principal series or Steinberg type, \emph{even for square-free $N$}. This affects a step of the proof, not the final statements.
+\item \emph{The repair} \stat{proved}. Another vector, with Kirillov function $A^{-1}1_{\cO^\times}$ (result R5), restores $I_v=\Vol(K_{t_1})\neq0$ for every representation, in the spirit of [FW, Prop.~7.27]. Wan confirmed this choice in the supercuspidal case.
+\item \emph{What remains to be confirmed}: that the construction of [CLW] does produce the vectors of Lemma 8.17. This is question 1 of the last section.
+\end{itemize}
+
 \section{Results}
 \begin{center}\small
 \begin{tabular}{p{7.4cm}p{2.3cm}p{4.2cm}}
