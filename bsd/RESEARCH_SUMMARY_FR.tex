@@ -67,6 +67,51 @@ La lecture de toute la chaîne montre que « $N$ sans facteur carré » n'est ut
 \item \emph{l'invariant $\mu$ et la comparaison des périodes} dans [BSTW, Th.~10.5], qui s'appuient sur [PW] (niveau sans facteur carré).
 \end{enumerate}
 
+
+\section{Les deux problèmes en détail}
+
+\subsection*{Problème A : les intégrales locales aux places décomposées}
+\emph{D'où vient-il.} [CLW] démontrent la conjecture principale nécessaire à [BSTW] par une méthode de congruences d'Eisenstein. Les étapes sont les suivantes.
+\begin{itemize}
+\item On construit une famille $p$-adique de séries d'Eisenstein (de Klingen) sur le groupe unitaire $GU(3,1)$.
+\item On montre qu'elle est congrue à des formes paraboliques, ce qui fournit des éléments du groupe de Selmer.
+\item Pour cela, il faut qu'un certain coefficient (de Fourier--Jacobi), apparié avec deux familles auxiliaires $\theta$ et $h$ construites à partir de caractères de Hecke, soit non nul modulo $p$.
+\end{itemize}
+Par la formule d'Ichino, ce coefficient se factorise en un produit de valeurs $L$ et d'\emph{intégrales locales}, une par premier. Il faut que chacune soit une \emph{constante non nulle, indépendante de la famille}.
+
+\emph{Pourquoi le conducteur intervient.} En un premier $\ell$ décomposé dans le corps auxiliaire, l'intégrale locale dépend du type de la représentation locale $\pi_\ell$ de la courbe en $\ell$.
+\begin{itemize}
+\item Si $N$ est sans facteur carré, $\pi_\ell$ est non ramifiée ou de Steinberg : ce sont les seuls cas traités par [Wan, \S8D], utilisés par [CLW].
+\item Pour nos courbes, en $2$ et $3$, $\pi_\ell$ peut être de \emph{tout} type. Dans la famille, en $2$ : $92\,\%$ supercuspidales, $6{,}5\,\%$ séries principales ramifiées, le reste Steinberg tordu ou semistable. En $3$ : $29\,\%$ supercuspidales, $67\,\%$ semistables, le reste en séries principales.
+\end{itemize}
+
+\emph{Ce que prescrit [CLW].} Une condition (4) sur les conducteurs des caractères auxiliaires, et un vecteur « tordu » (5.6.9) pour la forme, avec renvoi à [Wan, Lemmes 8.13--8.17] pour la non-nullité.
+
+\emph{Ce que nous avons fait.}
+\begin{itemize}
+\item Cas supercuspidal : on change les données selon [FW, Prop.~7.27] : vecteur nouveau, caractères auxiliaires de « produit non ramifié ». L'intégrale vaut alors $\Vol(K_{t_1})\neq0$. Nous l'avons redémontré pour tout $\ell$, y compris $\ell=2$, et \textbf{Wan l'a confirmé}.
+\item Ce faisant, nous avons trouvé le problème des Lemmes 8.14 et 8.17 (section suivante).
+\item Tous les types : une réparation uniforme (R5) donne une constante non nulle pour toute représentation, vérifiée numériquement en $\ell=2$ et $3$.
+\item Les autres conditions de [CLW] ont été vérifiées : choix global des caractères via [Hsi14b] et [Hsi12], aucune contrainte aux places décomposées ; niveau ; caractère central.
+\end{itemize}
+
+\subsection*{Problème B : l'invariant $\mu$ et la comparaison des périodes}
+\emph{D'où vient-il.} La méthode de [CLW] donne une divisibilité de séries caractéristiques \emph{après inversion de $p$}. Pour la rendre entière, [BSTW, Th.~10.5] utilisent une fonction $L$ $p$-adique \emph{anticyclotomique} $L_W$. Elle se construit à partir de « points de Gross », c'est-à-dire de valeurs de la forme modulaire sur une algèbre de quaternions définie (formule de Waldspurger), et il faut deux choses.
+\begin{enumerate}[label=(B\arabic*)]
+\item \emph{$\mu(L_W)=0$} : $L_W$ n'est pas divisible par $p$.
+\item \emph{Comparaison des périodes} : $L_W$ est normalisée par la période de Gross $\Omega_{N^-}$, la fonction $L$ de [BSTW] par la période canonique de Hida $\Omega^{\mathrm{can}}$. Il faut que leur quotient soit une unité.
+\end{enumerate}
+Pour $N$ sans facteur carré, les deux sont dans [PW]. Pour nos courbes, l'ordre d'Eichler de niveau $N^+$ a des facteurs carrés en $2$ et $3$.
+
+\emph{Ce que nous avons fait} (chaque étape vérifiée sur la source) :
+\begin{itemize}
+\item \emph{Interpolation} : [CH, Th.~3.11] et [CH, Prop.~3.8] donnent la période locale en tout $q\mid N^+$, sans facteur parasite, quel que soit l'exposant.
+\item \emph{(B1)} : on reprend [CH, Th.~5.7] sans la $p$-stabilisation (utile seulement dans le cas ordinaire). L'équirépartition de Cornut--Vatsal vaut pour tout niveau, et les deux signes $\pm$ sont couverts [PW, Th.~2.5].
+\item \emph{(B2)} : on reprend [CH, Prop.~6.8] avec la condition « cristalline » de Taylor [Tay06, \S2] au lieu de la condition ordinaire, comme le suggèrent Kim--Ota [KO, Rem.~6.6]. Nous avons repris étape par étape ce qui dépend de la condition en $p$.
+\item \emph{Ce que cela révèle.} L'argument suppose le niveau « minimal » : aucune forme congruente d'un autre type au même niveau. En $2$ et $3$, nous avons identifié trois configurations où ce n'est pas le cas (E1--E3, par exemple une tordue de bonne réduction avec $a_\ell\equiv\pm(\ell+1)\bmod5$). Elles représentent $3{,}2\,\%$ des courbes en $2$ et $0{,}27\,\%$ en $3$. Nous les excluons, ce qui coûte $0{,}4$ point.
+\item \emph{Point hérité.} Pour le rang $1$, [BSTW] utilisent aussi la tordue $g_K$ par le corps de Heegner. Aux premiers de $D_K$, le même phénomène peut se produire, et [BSTW] ne le traitent pas non plus.
+\end{itemize}
+
 \section{Chemin de recherche}
 \begin{enumerate}[label=\arabic*.]
 \item \textbf{(A), première tentative.} Nous avons calculé l'intégrale locale pour $\pi_v$ supercuspidale avec les données locales de [CLW, \S5.6], et trouvé une obstruction. Nous avons ensuite découvert que Fouquet--Wan [FW, Prop.~7.27, Cor.~7.28] traitent exactement ce cas avec un autre choix de données : le vecteur nouveau, et des caractères tels que $\chi_{h,i}\chi_{\theta,i}$ soit non ramifié. Nous avons redémontré leur calcul pour tout $\ell$, y compris $\ell=2$.

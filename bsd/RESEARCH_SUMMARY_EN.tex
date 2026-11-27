@@ -62,6 +62,51 @@ Reading the whole chain shows that ``$N$ square-free'' is used in exactly two pl
 \item \emph{The $\mu$-invariant and the comparison of periods} in [BSTW, Thm.~10.5], which rely on [PW] (square-free level).
 \end{enumerate}
 
+
+\section{The two problems in more detail}
+
+\subsection*{Problem A: local integrals at split places}
+\emph{Where it comes from.} [CLW] prove the main conjecture needed by [BSTW] by an Eisenstein congruence method. The steps are as follows.
+\begin{itemize}
+\item One constructs a $p$-adic family of (Klingen) Eisenstein series on the unitary group $GU(3,1)$.
+\item One shows that it is congruent to cusp forms, which produces elements of the Selmer group.
+\item This requires a certain (Fourier--Jacobi) coefficient, paired with two auxiliary families $\theta$ and $h$ built from Hecke characters, to be non-zero modulo $p$.
+\end{itemize}
+By Ichino's formula this coefficient factors into $L$-values and \emph{local integrals}, one for each prime. Each must be a \emph{non-zero constant independent of the family}.
+
+\emph{Why the conductor matters.} At a prime $\ell$ split in the auxiliary field, the local integral depends on the type of the local representation $\pi_\ell$ of the curve at $\ell$.
+\begin{itemize}
+\item If $N$ is square-free, $\pi_\ell$ is unramified or Steinberg. These are the only cases treated in [Wan, \S8D], on which [CLW] rely.
+\item For our curves, $\pi_\ell$ can be of \emph{any} type at $2$ and $3$. In the family, at $2$: $92\%$ supercuspidal, $6.5\%$ ramified principal series, the rest twisted Steinberg or semistable. At $3$: $29\%$ supercuspidal, $67\%$ semistable, the rest principal series.
+\end{itemize}
+
+\emph{What [CLW] prescribe.} A condition (4) on the conductors of the auxiliary characters and a ``twisted'' vector (5.6.9) for the form, with a reference to [Wan, Lemmas 8.13--8.17] for the non-vanishing.
+
+\emph{What we did.}
+\begin{itemize}
+\item Supercuspidal case: change the data as in [FW, Prop.~7.27], i.e.\ newvector and auxiliary characters with unramified product. The integral is then $\Vol(K_{t_1})\neq0$. We re-proved this for all $\ell$, including $\ell=2$, and \textbf{Wan confirmed it}.
+\item In doing so we found the problem with Lemmas 8.14 and 8.17 (next section).
+\item All types: a uniform repair (R5) gives a non-zero constant for every representation, checked numerically at $\ell=2,3$.
+\item We checked the other conditions of [CLW]: the global choice of characters via [Hsi14b] and [Hsi12] imposes nothing at split places; level; central character.
+\end{itemize}
+
+\subsection*{Problem B: the $\mu$-invariant and the comparison of periods}
+\emph{Where it comes from.} The method of [CLW] gives a divisibility of characteristic ideals \emph{after inverting $p$}. To make it integral, [BSTW, Thm.~10.5] use an \emph{anticyclotomic} $p$-adic $L$-function $L_W$. It is built from ``Gross points'', i.e.\ values of the modular form on a definite quaternion algebra (Waldspurger's formula), and two things are needed.
+\begin{enumerate}[label=(B\arabic*)]
+\item \emph{$\mu(L_W)=0$}: $L_W$ is not divisible by $p$.
+\item \emph{Comparison of periods}: $L_W$ is normalized by the Gross period $\Omega_{N^-}$, the $L$-function of [BSTW] by Hida's canonical period $\Omega^{\mathrm{can}}$, and their ratio must be a unit.
+\end{enumerate}
+For square-free $N$ both are in [PW]. For our curves, the Eichler order of level $N^+$ has square factors at $2$ and $3$.
+
+\emph{What we did} (each step checked against the source):
+\begin{itemize}
+\item \emph{Interpolation}: [CH, Thm.~3.11] and [CH, Prop.~3.8] give the local period at every $q\mid N^+$, with no spurious factor, for any exponent.
+\item \emph{(B1)}: we redo [CH, Thm.~5.7] without $p$-stabilization, which is only needed in the ordinary case. The Cornut--Vatsal equidistribution holds at any level, and both signs $\pm$ are covered [PW, Thm.~2.5].
+\item \emph{(B2)}: we redo [CH, Prop.~6.8] with Taylor's ``crystalline'' condition [Tay06, \S2] instead of the ordinary one, as suggested by Kim--Ota [KO, Rem.~6.6]. We traced step by step what depends on the condition at $p$.
+\item \emph{What this reveals.} The argument assumes ``minimal'' level, i.e.\ no congruent form of another type at the same level. At $2$ and $3$ we identified three configurations where this fails (E1--E3; for instance a quadratic twist with good reduction and $a_\ell\equiv\pm(\ell+1)\bmod5$). They concern $3.2\%$ of the curves at $2$ and $0.27\%$ at $3$. We exclude them, at a cost of $0.4$ points.
+\item \emph{Inherited point.} For rank $1$, [BSTW] also use the twist $g_K$ by the Heegner field. At primes dividing $D_K$ the same phenomenon can occur, and [BSTW] do not treat it either.
+\end{itemize}
+
 \section{Research path}
 \begin{enumerate}[label=\arabic*.]
 \item \textbf{(A), first attempt.} We computed the local integral for supercuspidal $\pi_v$ with the local data of [CLW, \S5.6]. We found an obstruction (route 1). We then found that Fouquet--Wan [FW, Prop.~7.27, Cor.~7.28] treat exactly this case with a different choice of data: the newvector, and characters with $\chi_{h,i}\chi_{\theta,i}$ unramified. We re-proved their computation for all $\ell$, including $\ell=2$.
