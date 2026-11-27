@@ -196,3 +196,8 @@ Aujourd'hui (BSZ + BSTW + Castella) : 67,02 %.
 - Genestier–Tilouine (Astérisque 302) porte sur GSp₄ et ne remplace pas Diamond 1997a/b.
 - **Toujours manquants** : la version publiée de CLW (Forum Math. Sigma 2022), Diamond 1997a (Déf. 3.1) et Diamond 1997b (Th. 2.4).
 - **Darmon–Diamond–Taylor, *Fermat's Last Theorem*** (fourni, 167 p.). Ce n'est pas Diamond 1997a. Le §2.7 suppose ρ̄ **semistable** : « if p ≠ ℓ then #ρ̄(I_p) \| ℓ », c'est-à-dire une inertie unipotente. Il ne couvre donc pas les types additifs en 2 et 3, ni le cas E3. Il sert en revanche à ouvrir deux références utilisées en boîte noire : le Th. 2.19 (formule de Wiles, utilisée par Taylor §2) et le Lemme 4.17 (cité par Kim–Ota). La question de minimalité (N2) reste ouverte : seul Diamond 1997a (Déf. 3.1) peut la trancher.
+- **N2, définition tranchée sans Diamond 1997a.** Kim–Ota, arXiv 1905.02926, Déf. 3.5 (suivant [DFG04, §3.1]) : une déformation est minimalement ramifiée en ℓ si « (1) p ∤ #ρ̄(I_ℓ) ⇒ #ρ(I_ℓ) = #ρ̄(I_ℓ) ; (2) p \| #ρ̄(I_ℓ) ⇒ ρ\|I_ℓ a un quotient non ramifié de rang un ». Avec cette définition, E2 et E3 sont des **vrais** cas non minimaux.
+  - En E3, une forme de type χ ⊗ St au même niveau est dans T(N_∅)_𝔪 mais n'est pas minimalement ramifiée.
+  - En E2, f elle-même ne l'est pas.
+  - Le Lemme 6.5 de CH demande donc, dans ces configurations, un argument que CH ne donnent pas (observation, DÉDUCTION). L'exclusion prudente est **justifiée**. Diamond 1997b ne servirait qu'à récupérer ces cas.
+- Diamond 1997a et 1997b : introuvables en accès libre. Les éditeurs (Springer) et GDZ sont bloqués depuis la session.
