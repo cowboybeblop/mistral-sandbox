@@ -184,3 +184,14 @@ Aujourd'hui (BSZ + BSTW + Castella) : 67,02 %.
 | N10 | I | constat |
 
 **Troisième tour.** Il n'apparaît pas de nouvelle objection critique qui ne soit pas héritée de BSTW, ou qui ne soit pas une question de lecture de CLW (N1, N7). Conformément à la règle « s'arrêter si deux étapes n'apportent rien », je m'arrête ici. Je passe à la rédaction du document anglais, qui liste N1, N3, N6 et N7 comme points ouverts.
+
+---
+
+## Mise à jour (27/11, après les articles fournis par l'utilisateur)
+
+- **Casselman, Math. Ann. 201 (1973)**, lu sur les images p. 301-304. Th. 1 : l'espace des v tels que ρ(g)v = ε(d)v sur Γ₀(𝔠) est non nul exactement pour 𝔠 ⊆ 𝔠(ρ), et de dimension 1 en 𝔠(ρ). Le Lemme p. 303 fait l'échange a ↔ d par H. **La théorie des formes nouvelles utilisée dans la Prop. V est maintenant ÉTABLIE sur source.**
+- **N3 RÉGLÉE.** Hsieh, *On the non-vanishing of Hecke L-values modulo p* (= [Hsi12], fichier NVCMv2). Le Th. B, utilisé par CLW, suppose : (unr), (ord), (pl, D_{K/F}𝔠) = 1, (L) μ_p(χ_v) = 0 aux places inertes et ramifiées du conducteur, et (N) χ non résiduellement autodual. **Aucune condition sur la partie décomposée du conducteur.**
+- **Objection 20 RÉGLÉE (autrement que chez BSTW).** Bump–Friedberg–Hoffstein, Invent. Math. 102 (1990), Théorème (ii), lu p. 543-544. Pour f newform de niveau M **quelconque**, de signe ε, et S fini contenant les premiers divisant M, il existe D fondamental avec εD > 0, tout premier de S décomposé dans ℚ(√D) et L(k/2, f, χ_D) ≠ 0. Avec ε = −1 et 5 ∈ S, c'est exactement le corps de Heegner de BSTW Th. 12.3. (BSTW citent Friedberg–Hoffstein 1995, non fourni ; BFH 1990 suffit.)
+- **N2 (minimalité), éclairage.** Wiles, Annals 141 (1995), Ch. 1 : en q ≠ p, les déformations standard sont de types (A) (Steinberg), (B) (ρ₀\|I_q = χ_q ⊕ 1, χ_q ≠ 1) et (C) (H¹(ℚ_q, W_λ) = 0). L'inertie résiduelle scalaire χ ⊕ χ du cas E3 n'en fait pas partie : il faut [Dia97a], toujours manquant. L'exclusion prudente de E1-E3 reste donc justifiée.
+- Genestier–Tilouine (Astérisque 302) porte sur GSp₄ et ne remplace pas Diamond 1997a/b.
+- **Toujours manquants** : la version publiée de CLW (Forum Math. Sigma 2022), Diamond 1997a (Déf. 3.1) et Diamond 1997b (Th. 2.4).

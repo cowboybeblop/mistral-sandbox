@@ -106,7 +106,7 @@ Following [Wan, Lemma 8.13], when $\cond(\chi_1\chi_2^{-1})=\vp^t$ with $t\ge1$,
 \]
 The pairing is the $G$-invariant unitary pairing for $\pi$ unitary; it is also the Whittaker pairing [Hu, (2.63)].
 
-\emph{Newforms.} We use the classical theory of newforms in the following form: if $\pi'$ has central character $\omega'$, then $\pi'$ contains a non-zero vector $v$ with $\pi'(k)v=\omega'(a_k)v$ for all $k\in K_0(\vp^n)$ if and only if $n\ge c(\pi')$, the exponent of the conductor. The variant with $\omega'(d_k)$ is equivalent, because the Atkin--Lehner element normalizes $K_0(\vp^n)$ and exchanges $a$ and $d$. This is [Cas73], which we did not consult directly; it is used in this form in [CH, \S 3] and [Hsi21]. In the case of Proposition~\ref{prop:814} we also checked it numerically (Appendix~\ref{app:num}). Finally, $c(\pi(\mu,\nu))=c(\mu)+c(\nu)$, and $c(\St\otimes\mu)=2c(\mu)$ when $\mu$ is ramified.
+\emph{Newforms.} We use the classical theory of newforms in the following form: if $\pi'$ has central character $\omega'$, then $\pi'$ contains a non-zero vector $v$ with $\pi'(k)v=\omega'(a_k)v$ for all $k\in K_0(\vp^n)$ if and only if $n\ge c(\pi')$, the exponent of the conductor. The variant with $\omega'(d_k)$ is equivalent, because the Atkin--Lehner element normalizes $K_0(\vp^n)$ and exchanges $a$ and $d$. This is [Cas73, Thm.~1]: there the vectors satisfy $\rho(g)v=\varepsilon(d)v$ on $\Gamma_0(\mathfrak c)$, and the space is non-zero exactly for $\mathfrak c\subseteq\mathfrak c(\rho)$; see also the dimension count on [Cas73, p.~304]. The element $H$ of [Cas73, Lemma, p.~303] exchanges $a$ and $d$. In the case of Proposition~\ref{prop:814} we also checked it numerically (Appendix~\ref{app:num}). Finally, $c(\pi(\mu,\nu))=c(\mu)+c(\nu)$, and $c(\St\otimes\mu)=2c(\mu)$ when $\mu$ is ramified.
 
 %======================================================================
 \section{Wan's Lemmas 8.14 and 8.17}\label{sec:wan}
@@ -279,7 +279,7 @@ With (i$'$)--(iii$'$), the remaining arguments of [CLW] go through unchanged. Mo
 \item For $\ell\in\{2,3\}$ and $p=5$, the constant $\Vol(K_{t_1})=((\ell+1)\ell^{t_1-1})^{-1}$ is a $5$-adic unit.
 \end{enumerate}
 \end{claim}
-\status{Deduction. Item (b) uses [Hsi14b], which we read. The analogous input [Hsi12], used for (5.6.3)--(5.6.4), has not been checked.}
+\status{Deduction. Item (b) uses [Hsi14b]. The input used for (5.6.3)--(5.6.4) is [Hsi12, Thm.~B]. Its hypotheses are: (unr), (ord), $(p\mathfrak l,D_{K/F}\mathfrak C)=1$, $\mu_p(\chi_v)=0$ at inert and ramified places of the conductor, and $\chi$ not residually self-dual. None of them concerns the split part of the conductor.}
 
 \subsection{Numerical verification}
 All checks are at $q=2$ or $q=3$, with exact or high-precision arithmetic; see Appendix~\ref{app:num}.
@@ -425,7 +425,7 @@ The figures of \S\ref{sec:count} are conditional on:
 Are the local vectors of $\theta$ and $h$ at split $v\in\Sigma_s$ in [CLW, \S 7.7] the vectors $f_{\chi_\theta}$ and $f_{\chi_h}$ of [Wan, Lemma 8.13], as [Wan, Rem.~8.19] states? If so, Proposition~\ref{prop:V} shows that the integral of [Wan, Lemma 8.17] vanishes, and the non-vanishing claimed on [CLW, p.~72] fails at ramified split places.
 \end{question}
 \begin{question}[the repair]
-Is the replacement (i$'$)--(iii$'$) of \S\ref{subsec:insert} compatible with the rest of [CLW], in particular with the use of [Hsi12] for (5.6.3)--(5.6.4)?
+Is the replacement (i$'$)--(iii$'$) of \S\ref{subsec:insert} compatible with the rest of [CLW], in particular with the global choice of $\chi_\theta,\chi_h$ in [CLW, \S5.6]?
 \end{question}
 \begin{question}[auxiliary prime]\label{q:ell}
 How is condition (iv) at $v=\ell$ compatible with the twist by $\nu$ of $\ell$-power conductor (Remark~\ref{rem:ell})?
@@ -437,7 +437,7 @@ In [CH, (D2)], does ``minimally ramified in the sense of [Dia97a, Def.~3.1]'' ex
 For $g_K$ at $\ell\mid D_K$ (Remark~\ref{rem:gK}), how should the freeness of [CH, Prop.~6.8] and the equality $\Omega_{N^-}\sim\Omega^{\mathrm{can}}$ be obtained? Is this already settled in the literature?
 \end{question}
 
-\noindent Finally, the following references were cited by the papers we read but were \emph{not} consulted directly: [Cas73], [Dia97a], [Dia97b], [Hsi12], Ichino's formula (used here in the form of [Wan, \S8]), and Friedberg--Hoffstein (the reference [51] of [BSTW]).
+\noindent Finally, the following references were cited by the papers we read but were \emph{not} consulted directly: [Dia97a], [Dia97b], Ichino's formula (used here in the form of [Wan, \S8]), and Friedberg--Hoffstein (the reference [51] of [BSTW]). For the existence of the Heegner field we checked instead [BFH, Theorem (ii)]. For a newform of \emph{any} level $M$ with sign $\varepsilon$ and a finite set $S$ of primes containing those dividing $M$, it gives a fundamental discriminant $D$ with $\varepsilon D>0$, every prime of $S$ split in $\Q(\sqrt D)$, and $L(k/2,f,\chi_D)\neq0$. With $\varepsilon=-1$ and $S\ni5$, this is exactly what [BSTW, proof of Thm.~12.3] needs. Minimal deformations at $q\neq p$ in [Wil95, Ch.~1] are of types (A), (B), (C); the scalar residual inertia $\chi\oplus\chi$ of (E3) is not among them, which is why Definition~\ref{def:min} is needed.
 
 \appendix
 %======================================================================
@@ -458,10 +458,13 @@ All scripts are in \texttt{bsd/scripts/} of the accompanying repository, and the
 \bibitem[BSTW]{BSTW} A.~Burungale, C.~Skinner, Y.~Tian, X.~Wan, \emph{Zeta elements for elliptic curves and applications}, arXiv:2409.01350v2 (2024).
 \bibitem[Cas]{Cas} F.~Castella, \emph{Exceptional zeros for Heegner points and $p$-converse to the theorem of Gross--Zagier and Kolyvagin}, arXiv:2409.01360.
 \bibitem[CLW]{CLW} F.~Castella, Z.~Liu, X.~Wan, \emph{Iwasawa--Greenberg main conjecture for non-ordinary modular forms and Eisenstein congruences on $GU(3,1)$}, arXiv:2109.08375v1 (2021).
+\bibitem[BFH]{BFH} D.~Bump, S.~Friedberg, J.~Hoffstein, \emph{Nonvanishing theorems for $L$-functions of modular forms and their derivatives}, Invent.\ Math.\ 102 (1990), 543--618.
+\bibitem[Cas73]{Cas73} W.~Casselman, \emph{On some results of Atkin and Lehner}, Math.\ Ann.\ 201 (1973), 301--314.
 \bibitem[CH]{CH} M.~Chida, M.-L.~Hsieh, \emph{Special values of anticyclotomic $L$-functions for modular forms}, J.\ reine angew.\ Math.\ 741 (2018); arXiv:1204.2427.
 \bibitem[CV05]{CV} C.~Cornut, V.~Vatsal, \emph{CM points and quaternion algebras}, Doc.\ Math.\ 10 (2005), 263--309.
 \bibitem[FW]{FW} O.~Fouquet, X.~Wan, \emph{The Iwasawa main conjecture for universal families of modular motives}, arXiv:2107.13726v3.
 \bibitem[Hsi14b]{Hsi14b} M.-L.~Hsieh, \emph{Special values of anticyclotomic Rankin--Selberg $L$-functions}, Doc.\ Math.\ 19 (2014), 709--767; arXiv:1112.1580.
+\bibitem[Hsi12]{Hsi12} M.-L.~Hsieh, \emph{On the non-vanishing of Hecke $L$-values modulo $p$}, Amer.\ J.\ Math.\ 134 (2012), no.~6, 1503--1539.
 \bibitem[Hsi21]{Hsi21} M.-L.~Hsieh, \emph{Hida families and $p$-adic triple product $L$-functions}, Amer.\ J.\ Math.\ 143 (2021), 411--532; arXiv:1705.02717.
 \bibitem[Hu]{Hu} Y.~Hu, \emph{Triple product formula and mass equidistribution on modular curves of level $N$}, Int.\ Math.\ Res.\ Not.\ IMRN 2018, no.~9, 2899--2943.
 \bibitem[KO]{KO} C.-H.~Kim, K.~Ota, \emph{On the quantitative variation of congruence ideals and integral periods of modular forms}, arXiv:1905.02926v4.
@@ -469,6 +472,7 @@ All scripts are in \texttt{bsd/scripts/} of the accompanying repository, and the
 \bibitem[PW]{PW} R.~Pollack, T.~Weston, \emph{On anticyclotomic $\mu$-invariants of modular forms}, Compos.\ Math.\ 147 (2011); arXiv:math/0610694.
 \bibitem[Tay06]{Tay06} R.~Taylor, \emph{On the meromorphic continuation of degree two $L$-functions}, Doc.\ Math.\ Extra Vol.\ (2006), 729--779.
 \bibitem[Ter03]{Ter03} L.~Terracini, \emph{A Taylor--Wiles system for quaternionic Hecke algebras}, Compos.\ Math.\ 137 (2003), 23--47.
+\bibitem[Wil95]{Wil95} A.~Wiles, \emph{Modular elliptic curves and Fermat's Last Theorem}, Ann.\ of Math.\ 141 (1995), 443--551.
 \bibitem[Wan]{Wan} X.~Wan, \emph{Iwasawa main conjecture for Rankin--Selberg $p$-adic $L$-functions}, arXiv:1408.4044; published as [Wan20], Algebra Number Theory 14 (2020), no.~2.
 \end{thebibliography}
 
