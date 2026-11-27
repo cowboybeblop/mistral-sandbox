@@ -31,8 +31,13 @@ Faire passer la proportion de courbes elliptiques vérifiant BSD (partie rang, r
 - Aucun erratum, aucune extension concurrente, aucune amélioration du pourcentage trouvés (recherches du 27/11).
 - Indépendant de l'annonce sur l'hypothèse de Riemann (Alpöge et Claude, 20/11/2026), dont la portée vérifiée exclut les fonctions L de courbes elliptiques. Même GRH ne donnerait pas ce résultat (Young, Fiorilli).
 
+## 5 bis. Réponse de Wan (fin novembre)
+- **Le cas supercuspidal de A est confirmé par l'auteur** : la recette de Fouquet–Wan (Prop. 7.27) et notre lecture des conducteurs.
+- Il n'a pas répondu sur les Lemmes 8.14 et 8.17 (séries principales et Steinberg), qui touchent le cas publié et notre rang 1.
+- Une relance courte est prête (`lit/reponse_wan.md`). Il faut aussi lui demander l'autorisation de citer sa réponse.
+
 ## 6. Questions ouvertes pour les spécialistes
-1. Les vecteurs locaux de θ et h dans CLW sont-ils ceux du Lemme 8.17 ? (Wan)
+1. Séries principales et Steinberg : la Prop. V et la Prop. R′ (Wan, relance prête). Le cas supercuspidal est **réglé** par la réponse de Wan.
 2. La condition (4) au premier auxiliaire ℓ est-elle compatible avec la torsion par ν ? (Wan)
 3. L'insertion de la Prop. R′ dans CLW §5.6 est-elle compatible avec le reste de l'article ? (Castella)
 4. Le Lemme 6.5 de CH dans les cas E2 et E3, et la récupération via Diamond 1997b ? (Hsieh, Kim)
