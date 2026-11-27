@@ -47,6 +47,6 @@ P(ℓ ≥ 7) est maintenant le produit exact des mesures locales, et non plus P�
 ## Relecture adverse (pistes 6, 7, 4)
 
 1. **I — Piste 6 : le critère « constant sur 3 relèvements » peut accepter une cellule non constante.** On a fait des contrôles croisés : stabilité entre k = 8 et k = 18, et accord au 5ᵉ chiffre avec `local_types_v3`. L'erreur est de l'ordre des violations de symétrie observées (moins de 10⁻⁵). **Réglée** au niveau de précision affiché.
-2. **I — Piste 7 : BSTW imposent-ils une condition de type BSZ Th. 9 (c)** (E[5] ramifiée en ℓ ‖ N, ℓ ≡ ±1 mod 5) ailleurs que dans CH ? À vérifier dans BSTW lors de la vérification finale. **Ouverte.**
+2. **I — Piste 7 : BSTW imposent-ils une condition de type BSZ Th. 9 (c)** (E[5] ramifiée en ℓ ‖ N, ℓ ≡ ±1 mod 5) ailleurs que dans CH ? **Réglée** (vérification finale) : BSTW Th. 10.5 et §10.3 n'imposent que (ram), (def)/(indef), (2.15) et (irr_L). ∏ c_q ne porte que sur q | N⁻.
 3. **M — Piste 4 : base et S1(5).** BSZ intersectent F′ avec S1(5) (conditions en ℓ ≡ ±1 mod 5) au prix de 10⁻⁵ ; c'est inchangé. **Réglée.**
 4. **M — Piste 4 : κ de la base est-il le même pour S0 ∩ S1′ que pour toutes les courbes ?** Oui : les conditions ne portent qu'en 5, et β₅ = 1. **Réglée.**

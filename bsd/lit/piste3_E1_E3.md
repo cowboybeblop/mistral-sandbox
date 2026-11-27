@@ -46,6 +46,10 @@
   
   Les deux demandent une lecture qui n'est pas faisable sans Diamond 1997a et 1997b.
 
+## 3 bis. Vérification finale
+- Le contenu de [Dia97b, Th. 2.4] est confirmé par Iyengar–Khare–Manning, arXiv 2206.08212 v3, p. 2-3 : « a numerical criterion for freeness of R-modules M finite flat over O, in terms of an augmentation λ : R → O ». C'est un critère d'algèbre commutative sans hypothèse de type. Il consolide le §2 (E1), mais ne résout pas E2 et E3.
+- À se procurer aussi : Terracini, *A Taylor–Wiles system for quaternionic Hecke algebras*, Compositio Math. (2003) (cité par CH, hôte bloqué).
+
 ## 4. Bilan
 - Gain potentiel : S3 optimiste − S3 prudent ≈ **+0,42 pt**, surtout E3 en 2 (3,18 % des courbes en 2). Avec les pistes 1 et 2, on passerait de 79,75 % à **80,19 %** (`bound_v5.py`).
 - **Statut : bloqué par la référence.** À se procurer : Diamond 1997b et 1997a (références ci-dessus).

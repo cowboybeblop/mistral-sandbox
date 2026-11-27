@@ -1,5 +1,10 @@
 # Liste des pistes pour gagner des pourcentages (27 novembre 2026)
 
+> **Mise à jour finale du 27/11 (nuit) : toutes les pistes examinées.** Chiffre consolidé : **79,81 %** (prudent), 80,25 % (optimiste), `scripts/bound_v6.py`. La vérification est dans `lit/verification_finale_27_11.md`.
+> - Piste 6 faite (+0,005 pt) ; piste 7 faite (+0,001 pt) ; piste 4 faite pour la partie abordable (+0,06 pt). **Le plafond de la méthode de BS est atteint** (κ = P(d = −1) = 0,5587) ; les « +0,4 pt par +0,05 » ci-dessous étaient faux. Voir `lit/pistes_6_7_4.md`.
+> - Piste 8 : réduite à un énoncé de non-annulation (D = −ℓ₁ℓ₂ à facteurs « propres »). Obstruction : D_K premier est impossible. Indication numérique favorable. **Ouverte.** Voir `lit/piste8_N6.md`.
+> - Piste 5 : plafond corrigé à **≈ +1,5 pt** (et non 2,5) : presque aucune courbe n'est ordinaire en 3. Verrous : (CR⁺)(1) de CH exclut p = 3, et la minimalité pose problème partout. Voir `lit/piste5_p3.md`.
+>
 > **Mise à jour du 27/11 au soir (pistes 1, 2, 3 traitées).** Chiffres conditionnels, mêmes hypothèses que 78,61 % (`scripts/bound_v5.py`).
 > - **Piste 1 : faite.** 78,61 → **79,30 %** (prudent), 79,03 → 79,73 % (optimiste). Les signes locaux en 2 et 3 sont vérifiés par l'équation fonctionnelle. Constat en passant : plusieurs entrées des tables 3 et 4 de Bhargava–Shankar semblent fausses, sans conséquence pour eux (κ vrai ≈ 0,558 > 0,5501). Voir `lit/piste1_equirepartition.md`.
 > - **Piste 2 : faite (version prudente, ℓ ≢ ±1 mod 5).** +0,42 pt seule ; avec la piste 1, **79,75 %** (prudent) et 80,19 % (si la piste 3 aboutit). Voir `lit/piste2_additif_l7.md`.

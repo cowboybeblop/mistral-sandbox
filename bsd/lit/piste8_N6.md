@@ -52,6 +52,11 @@ Il manque un **théorème de non-annulation** de L(1, E ⊗ χ_D) pour une infin
 - (b) des résultats de moments ou de densité un-niveau pour des familles de discriminants restreintes. Je ne connais pas d'énoncé couvrant « tous les facteurs premiers dans 𝒫 » ;
 - (c) l'autre voie de `LISTE_GAINS.md` : l'invariance par torsion des modules de congruence, qui contournerait le choix de K.
 
+## 4 bis. Vérification finale
+- (2.15) est vérifié sur le texte de BSTW (« p splits in L ») ; le Th. 12.3 demande L avec (2.15), (9.9) et (Heeg). L'obstruction du §2 tient.
+- Coates–Li–Tian–Zhai (arXiv 1312.3884, Th. 1.1) donnent des tordues non annulées à exactement k facteurs premiers, mais sous l'hypothèse f([0]) ∉ 2E(ℚ), fausse dès que E(ℚ) n'a pas de 2-torsion. **Non applicable en général.**
+- Aucun résultat « facteurs premiers de D dans un ensemble de Chebotarev » n'a été trouvé (recherche du 27/11).
+
 ## 5. Relecture adverse
 1. **I — La notion de « propre » suffit-elle pour g_K ?** Pour g_K en ℓ | D_K, on a E de bonne réduction en ℓ. La seule congruence à changement de type compatible avec ρ̄|I = χ ⊕ χ est χ ⊗ St (montée de niveau, a_ℓ ≡ ±(ℓ + 1)) ou un caractère modéré d'ordre 5 (ℓ ≡ ±1). Cela demande encore la même vérification que E3 (question 4). **Réglée au niveau DÉDUCTION.**
 2. **M — Calcul numérique des L(1).** L'indication est robuste (valeurs ≫ 10⁻⁸ dans les cas retenus), mais ce n'est pas une preuve. **Assumé.**

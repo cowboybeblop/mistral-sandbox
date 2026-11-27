@@ -32,6 +32,8 @@ Faire passer la proportion de courbes elliptiques vérifiant BSD (partie rang, r
 - **79,75 %** en ajoutant la réduction additive en ℓ ≥ 7, ℓ ≢ ±1 (mod 5) (piste 2) ;
 - **80,19 %** si E2 et E3 sont récupérés en plus (piste 3, bloquée par Diamond 1997a et 1997b).
 
+**Mise à jour finale (nuit du 27/11)** (`scripts/bound_v6.py`, `lit/verification_finale_27_11.md`) : **79,81 %** en version prudente (pistes 1, 2, 4, 6, 7) ; 80,25 % si E2 et E3 sont récupérés ; plafond ≈ 81,3 % avec p = 3 (hors de portée aujourd'hui). Conditionnel à A, B, N6 (ouvert), BSTW et CLW.
+
 Constat en passant : des coquilles probables dans les tables 3 et 4 de Bhargava–Shankar (arXiv 1312.7859), sans effet sur leurs théorèmes (κ ≈ 0,558 ≥ 0,5501).
 
 ## 5. Vérifications externes
@@ -48,7 +50,7 @@ Constat en passant : des coquilles probables dans les tables 3 et 4 de Bhargava�
 2. La condition (4) au premier auxiliaire ℓ est-elle compatible avec la torsion par ν ? (Wan)
 3. L'insertion de la Prop. R′ dans CLW §5.6 est-elle compatible avec le reste de l'article ? (Castella)
 4. Le Lemme 6.5 de CH dans les cas E2 et E3, et la récupération via Diamond 1997b ? Même question pour les ℓ ≥ 7 additifs (piste 2) et le Steinberg tordu. (Hsieh, Kim)
-5. La tordue g_K aux premiers de D_K ? (Burungale, Hsieh)
+5. La tordue g_K aux premiers de D_K ? Obstruction : D_K premier est impossible avec des premiers « propres ». Existe-t-il un théorème de non-annulation pour D = −ℓ₁ℓ₂ dans un ensemble de Chebotarev ? (Burungale, Hsieh)
 
 ## 7. Documents
 - `bsd/NEW_RESULTS_EN.pdf` : document à montrer (nouveautés seulement, 13 p.).

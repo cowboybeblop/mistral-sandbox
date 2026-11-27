@@ -1,0 +1,7 @@
+mu_pru           MC = 0.99738 ± 0.00011   cellules = 0.99725   écart = +1.1 σ
+e1               MC = 0.00000 ± 0.00000   cellules = 0.00000   écart = +0.0 σ
+opt_p            MC = 0.92395 ± 0.00059   cellules = 0.92363   écart = +0.5 σ
+opt_m            MC = 0.07605 ± 0.00059   cellules = 0.07637   écart = -0.5 σ
+pru_p            MC = 0.92134 ± 0.00060   cellules = 0.92088   écart = +0.7 σ
+pru_m            MC = 0.07604 ± 0.00059   cellules = 0.07636   écart = -0.5 σ
+pru_not_closed   MC = 0.00000 ± 0.00000   cellules = 0.00000   écart = +0.0 σ
