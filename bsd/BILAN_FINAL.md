@@ -27,6 +27,13 @@ Faire passer la proportion de courbes elliptiques vérifiant BSD (partie rang, r
 - 79,03 % si les cas E1-E3 sont récupérés via Diamond 1997b ;
 - aujourd'hui : 67,02 %.
 
+**Mise à jour du 27/11 au soir** (`scripts/bound_v5.py`, `lit/piste1_equirepartition.md`, `lit/piste2_additif_l7.md`) :
+- **79,30 %** avec l'équirépartition des signes (piste 1) ;
+- **79,75 %** en ajoutant la réduction additive en ℓ ≥ 7, ℓ ≢ ±1 (mod 5) (piste 2) ;
+- **80,19 %** si E2 et E3 sont récupérés en plus (piste 3, bloquée par Diamond 1997a et 1997b).
+
+Constat en passant : des coquilles probables dans les tables 3 et 4 de Bhargava–Shankar (arXiv 1312.7859), sans effet sur leurs théorèmes (κ ≈ 0,558 ≥ 0,5501).
+
 ## 5. Vérifications externes
 - Aucun erratum, aucune extension concurrente, aucune amélioration du pourcentage trouvés (recherches du 27/11).
 - Indépendant de l'annonce sur l'hypothèse de Riemann (Alpöge et Claude, 20/11/2026), dont la portée vérifiée exclut les fonctions L de courbes elliptiques. Même GRH ne donnerait pas ce résultat (Young, Fiorilli).
@@ -40,7 +47,7 @@ Faire passer la proportion de courbes elliptiques vérifiant BSD (partie rang, r
 1. Séries principales et Steinberg : la Prop. V et la Prop. R′ (Wan, relance prête). Le cas supercuspidal est **réglé** par la réponse de Wan.
 2. La condition (4) au premier auxiliaire ℓ est-elle compatible avec la torsion par ν ? (Wan)
 3. L'insertion de la Prop. R′ dans CLW §5.6 est-elle compatible avec le reste de l'article ? (Castella)
-4. Le Lemme 6.5 de CH dans les cas E2 et E3, et la récupération via Diamond 1997b ? (Hsieh, Kim)
+4. Le Lemme 6.5 de CH dans les cas E2 et E3, et la récupération via Diamond 1997b ? Même question pour les ℓ ≥ 7 additifs (piste 2) et le Steinberg tordu. (Hsieh, Kim)
 5. La tordue g_K aux premiers de D_K ? (Burungale, Hsieh)
 
 ## 7. Documents

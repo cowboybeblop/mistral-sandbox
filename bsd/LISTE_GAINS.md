@@ -1,5 +1,11 @@
 # Liste des pistes pour gagner des pourcentages (27 novembre 2026)
 
+> **Mise à jour du 27/11 au soir (pistes 1, 2, 3 traitées).** Chiffres conditionnels, mêmes hypothèses que 78,61 % (`scripts/bound_v5.py`).
+> - **Piste 1 : faite.** 78,61 → **79,30 %** (prudent), 79,03 → 79,73 % (optimiste). Les signes locaux en 2 et 3 sont vérifiés par l'équation fonctionnelle. Constat en passant : plusieurs entrées des tables 3 et 4 de Bhargava–Shankar semblent fausses, sans conséquence pour eux (κ vrai ≈ 0,558 > 0,5501). Voir `lit/piste1_equirepartition.md`.
+> - **Piste 2 : faite (version prudente, ℓ ≢ ±1 mod 5).** +0,42 pt seule ; avec la piste 1, **79,75 %** (prudent) et 80,19 % (si la piste 3 aboutit). Voir `lit/piste2_additif_l7.md`.
+> - **Piste 3 : partielle, bloquée.** E1 est couvert par CH §6 tel quel (gain négligeable). E2 et E3 demandent Diamond 1997a et 1997b (non accessibles). Voir `lit/piste3_E1_E3.md`.
+> - **Piste 4 : bonus.** κ = 0,5579 avec les signes recalculés, soit ≈ +0,05 pt sur la base (non intégré).
+
 À traiter une par une, dans de nouvelles conversations, avec le skill `chercheur`.
 
 **Point de départ** : borne prudente 78,61 %, optimiste 79,03 % (`scripts/bound_v3.py`, formule `base + (19/24)·SS5·μ2·μ3·P7·(1−ε)`). Aujourd'hui, dans la littérature : 67,02 %.
@@ -8,9 +14,9 @@
 
 | # | Piste | Gain estimé | Difficulté | Type de travail |
 |---|---|---|---|---|
-| 1 | Équirépartition des signes dans la famille supersingulière | ≈ +0,70 pt | moyenne | calcul (PARI) + lecture |
-| 2 | Réduction additive en ℓ ≥ 7 | ≈ +0,63 pt max | moyenne | théorie (cas B) + calcul |
-| 3 | Récupérer les cas non minimaux E1-E3 en 2 et 3 | ≈ +0,42 pt | moyenne à élevée | théorie (Diamond 1997b) |
+| 1 | Équirépartition des signes dans la famille supersingulière (**faite : +0,69 pt**) | ≈ +0,70 pt | moyenne | calcul (PARI) + lecture |
+| 2 | Réduction additive en ℓ ≥ 7 (**faite, prudent : +0,42 pt**) | ≈ +0,63 pt max | moyenne | théorie (cas B) + calcul |
+| 3 | Récupérer les cas non minimaux E1-E3 en 2 et 3 (**E1 fait ; E2, E3 bloqués**) | ≈ +0,42 pt | moyenne à élevée | théorie (Diamond 1997b) |
 | 4 | Améliorer κ = 0,5501 (familles à signes équilibrés plus grandes) | ≈ +0,4 pt par +0,05 sur κ ; jusqu'à ≈ +3,6 pts si κ → 1 | élevée (κ → 1) ; abordable en partie | calcul (tables de signes) |
 | 5 | Le premier p = 3 pour les courbes additives en 5 | jusqu'à ≈ +2,5 pts | élevée | gros chantier |
 | 6 | Cellules indéterminées et troncature | ≈ +0,005 pt | facile | calcul |
