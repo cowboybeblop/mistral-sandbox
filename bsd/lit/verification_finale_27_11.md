@@ -35,7 +35,7 @@ Le chiffre prudent reste conditionnel à :
 
 1. **Amélioration de 66,48 % / 67,02 % déjà publiée ?** Aucune trouvée. Un article de janvier 2026 (arXiv 2601.16044) cite encore « at least 66% ». Les seules nouveautés pertinentes repérées (arXiv 2604.16978, 2512.16120) portent sur d'autres questions (corps globaux généraux, familles à torsion).
 2. **Version publiée ou erratum de BS (1312.7859) ?** Rien trouvé. Seule la v1 arXiv existe. La version publiée reste **non vérifiée** avant tout contact.
-3. **Moyennes jointes Sel₃ / Sel₅ (piste 5) ?** Rien trouvé. Seule existe la conjecture de Bhargava–Kane–Lenstra–Poonen–Rains (moyenne σ(n)). Les curbes « Sel₅ de rang ≥ 2 » ne sont donc pas récupérables par p = 3, comme supposé.
+3. **Moyennes jointes Sel₃ / Sel₅ (piste 5) ?** Rien trouvé. Seule existe la conjecture de Bhargava–Kane–Lenstra–Poonen–Rains (moyenne σ(n)). Les courbes « Sel₅ de rang ≥ 2 » ne sont donc pas récupérables par p = 3, comme supposé.
 4. **p = 3 supersingulier, conducteur non sans facteur carré ?** Rien trouvé. Castella–Wan (1506.02538) et Burungale–Kobayashi–Ota (2310.06813) supposent un conducteur sans facteur carré ou semistable. La piste 5 reste ouverte.
 5. **Non-annulation avec des facteurs premiers de D restreints (piste 8) ?**
    - Coates–Li–Tian–Zhai (arXiv 1312.3884, Th. 1.1) donnent, pour k ≥ 2, « infinitely many square free integers M having exactly k prime factors such that L(E^(M), s) does not vanish at s = 1 ». C'est sous l'hypothèse (1) f([0]) ∉ 2E(ℚ), qui échoue dès que E(ℚ) n'a pas de 2-torsion, c'est-à-dire typiquement dans notre famille. **Non applicable en général.**
