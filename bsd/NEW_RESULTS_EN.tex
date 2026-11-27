@@ -1,0 +1,480 @@
+\documentclass[11pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath,amsthm,mathtools}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=green!40!black,urlcolor=blue!50!black]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{question}{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\PGL}{\mathrm{PGL}}
+\newcommand{\cond}{\mathrm{cond}}
+\newcommand{\Vol}{\mathrm{Vol}}
+\newcommand{\vp}{\varpi}
+\newcommand{\nm}{n^{-}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\ad}{\mathrm{ad}}
+\newcommand{\status}[1]{\par\smallskip\noindent\textsc{Status.} #1\par\smallskip}
+
+\title[New results at split places and beyond square-free level]{What is new: local triple product integrals at split places and the supersingular $p=5$ converse beyond square-free conductor\\[4pt]\normalfont\small A focused report for specialists}
+\date{November 27, 2026 (draft)}
+
+\begin{document}
+
+\begin{abstract}
+This report isolates the parts of our work that are new and, we believe, useful to specialists. The contents are as follows.
+\begin{enumerate}
+\item The support statement of [Wan, Lemma 8.14] is false, with a three-line proof (Prop.~\ref{prop:814}).
+\item With the vectors of [Wan, Lemma 8.17], the local triple product integral at a split place vanishes identically, contrary to the value stated there (Prop.~\ref{prop:V}). [Wan, Remark 8.19] and [CLW, p.~72] state that these are the local vectors of the construction of [CLW]. If so, the non-vanishing used in [CLW, Prop.~7.11.3] fails at ramified split places, already for square-free level.
+\item A modified choice of local data gives a non-zero constant, independent of the family, for every generic $\pi_v$ (Prop.~\ref{prop:R}). This removes the obstruction that made [CLW] and [BSTW] assume square-free level at split places.
+\item On the side of $\mu$-invariants and periods: an exact description of the configurations at $2$ and $3$ where the minimal-level Taylor--Wiles argument of [CH] needs care (Def.~\ref{def:min}), and a point that [BSTW] leave open for the twist $g_K$.
+\item The resulting conditional count: at least $78.6\%$, and $79.0\%$ without the exclusions of (4).
+\end{enumerate}
+Everything is conditional on expert verification. Section~\ref{sec:context} explains why the question is open and current, and why none of this depends on the recent claims about the Riemann hypothesis.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%======================================================================
+\section{Context, novelty, and independence from other announcements}\label{sec:context}
+%======================================================================
+
+\subsection{Why the question is open and current}
+\begin{itemize}
+\item {[BSZ, \S4]} write: ``If Theorem 9 can be improved as indicated in Remark 10, \dots\ the lower bound on the proportion of elliptic curves satisfying the Birch and Swinnerton-Dyer rank conjecture increases to $79.7\%$.'' [BSZ, Remark 10] asks for $E$ to be allowed supersingular reduction at $p$.
+\item The supersingular $p$-converse of [BSTW, Thm.~1.6, 12.3] provides this, but only for square-free $N$. By [BSTW, footnote 20], the reason is the explicit computation of local triple product periods in [CLW].
+\item In August 2026 the same authors write, about the square-free hypothesis: ``The hypothesis that $N$ be squarefree is carried over from [CLW22], and it should be removable with some more work'' [CLW26, \S1.5, remark (3)].
+\item We searched the web on November 27, 2026 and found no erratum to [Wan, \S8D], no correction of [CLW] at split places, and no extension of the supersingular $p$-converse to non-square-free conductor. We could not consult the published versions of [CLW] (Forum Math.\ Sigma 10 (2022)) and [Wan] (ANT 14 (2020)) through our network. We did read the published [Wan] in a copy we were given: Lemma 8.14 has the same statement there.
+\end{itemize}
+
+\subsection{What is new here, and what is not}
+\begin{description}[font=\normalfont\itshape]
+\item[New] Propositions~\ref{prop:814}, \ref{prop:V}, \ref{prop:R}; Corollary~\ref{cor:gap}; Lemma~\ref{lem:types23} and Definition~\ref{def:min}; Remarks~\ref{rem:ell} and~\ref{rem:gK}; the count of \S\ref{sec:count}.
+\item[Not new] Each item is credited to its source:
+\begin{itemize}
+\item the target $79$--$80\%$ [BSZ, \S4];
+\item allowing arbitrary $N^+$ in the interpolation formula and in the $\mu=0$ argument [CH], [CV05];
+\item replacing the ordinary condition by the crystalline one in [CH, \S6] [KO, Rem.~6.6(1)], [Tay06, \S2];
+\item the existence of a recipe for supercuspidal $\pi_v$ with the newvector [FW, Prop.~7.27, Cor.~7.28], of which Proposition~\ref{prop:R} is a generalization with a different proof.
+\end{itemize}
+\end{description}
+
+\subsection{Independence from the announced proof of the Riemann hypothesis}
+On November 20, 2026 a proof of the Riemann hypothesis obtained with an AI system was announced. According to the reports we found, it covers RH and GRH for Dirichlet $L$-functions, but not automorphic $L$-functions, so not those of elliptic curves. We did not read the original note.
+\begin{itemize}
+\item Our results are statements in local representation theory (\S\S\ref{sec:wan}--\ref{sec:R}) and in $p$-adic Iwasawa theory (\S\ref{sec:B}). They do not use, and are not implied by, any Riemann hypothesis.
+\item Even GRH for elliptic curve $L$-functions would not make them redundant. Under GRH alone the average analytic rank is at most $25/14$, which gives only ``a positive proportion of curves [with] either rank $0$ or rank $1$'' [You, \S4.2]. A proportion of $100\%$ is known only under ECRH, plus a hypothesis on non-real zeros that is slightly stronger [Fio, Hyp.~1.12], plus equidistribution of root numbers [Fio, p.~6].
+\item Propositions~\ref{prop:814} and~\ref{prop:V} concern a published local computation, and they are relevant independently of BSD: [CLW] and [CLW26] rely on it.
+\end{itemize}
+
+\subsection{Status conventions}
+\emph{Proved here}: a complete argument with cited inputs. \emph{Deduction}: a complete outline with references, which needs expert checking. \emph{Open}: what remains. Numerical checks are listed in Appendix~\ref{app:num}.
+
+%======================================================================
+\section{Local notation}\label{sec:notation}
+%======================================================================
+Let $F=\Q_\ell$ with $\ell\neq p$, $\cO=\Z_\ell$, $\vp=\ell$, $q=\ell$, and $K=\GL_2(\cO)$. For $t\ge 0$ let
+\[ K_t=K_0(\vp^t)=\Big\{\begin{pmatrix}a&b\\c&d\end{pmatrix}\in K:\ c\equiv 0 \bmod \vp^t\Big\} \]
+(this is the group ``$K_t$'' of [Wan, \S 8D]). Put $n(b)=\begin{pmatrix}1&b\\0&1\end{pmatrix}$, $\nm(c)=\begin{pmatrix}1&0\\c&1\end{pmatrix}$, $\sigma_n=\diag(\vp^n,1)$. For characters $\chi_1,\chi_2$ of $F^\times$, $\pi(\chi_1,\chi_2)$ denotes the normalized induced representation, realized as in [Wan, p.~80] on functions on $K$. The pairing with $\pi(\chi_1^{-1},\chi_2^{-1})$ is $\langle v_1,v_2\rangle=\int_K v_1v_2\,dk$. The matrix coefficient is $\Phi_{f,\tilde f}(g)=\langle\pi(g)f,\tilde f\rangle$.
+
+Following [Wan, Lemma 8.13], when $\cond(\chi_1\chi_2^{-1})=\vp^t$ with $t\ge1$, let $f_\chi\in\pi(\chi_1,\chi_2)$ be the function supported on $K_t$ with $f_\chi(k)=\chi_1(a)\chi_2(d)$ for $k\in K_t$. For $k\in K_t$ one has $\chi_1(a_k)\chi_2(d_k)=\chi_1(\det k)\,(\chi_1^{-1}\chi_2)(d_k)$, and the second factor depends only on $d_k\bmod\vp^t$. Hence
+\begin{equation}\label{eq:fchi-eigen}
+\pi(k)f_\chi=\chi_1(a_k)\chi_2(d_k)\,f_\chi\qquad(k\in K_t).
+\end{equation}
+
+\emph{Kirillov model.} For a generic irreducible representation $\pi$ with unramified additive character $\psi$, we use the Kirillov model on functions of $F^\times$, with the action and unitary pairing of [Hu, (2.62)--(2.65)]:
+\[
+\pi\begin{pmatrix}a_1&m\\0&a_2\end{pmatrix}\phi(x)=\omega_\pi(a_2)\psi(ma_2^{-1}x)\phi(a_1a_2^{-1}x),\qquad \langle \phi_1,\phi_2\rangle=\int_{F^\times}\phi_1(x)\overline{\phi_2(x)}\,d^\times x .
+\]
+The pairing is the $G$-invariant unitary pairing for $\pi$ unitary; it is also the Whittaker pairing [Hu, (2.63)].
+
+\emph{Newforms.} We use the classical theory of newforms in the following form: if $\pi'$ has central character $\omega'$, then $\pi'$ contains a non-zero vector $v$ with $\pi'(k)v=\omega'(a_k)v$ for all $k\in K_0(\vp^n)$ if and only if $n\ge c(\pi')$, the exponent of the conductor. The variant with $\omega'(d_k)$ is equivalent, because the Atkin--Lehner element normalizes $K_0(\vp^n)$ and exchanges $a$ and $d$. This is [Cas73], which we did not consult directly; it is used in this form in [CH, \S 3] and [Hsi21]. In the case of Proposition~\ref{prop:814} we also checked it numerically (Appendix~\ref{app:num}). Finally, $c(\pi(\mu,\nu))=c(\mu)+c(\nu)$, and $c(\St\otimes\mu)=2c(\mu)$ when $\mu$ is ramified.
+
+%======================================================================
+\section{Wan's Lemmas 8.14 and 8.17}\label{sec:wan}
+%======================================================================
+
+\subsection{Lemma 8.14}
+We quote [Wan, Lemma~8.14] (arXiv v.\ of 1408.4044, p.~82; the published version [Wan20, p.~466--468] has the same statement). Suppose $\cond(\chi_1\chi_2^{-1})=(\vp^t)$, $t>0$, and let $\vartheta$ be a character of conductor $(\vp^s)$ with $s>t$. Define
+\[
+f=f_{\chi,\vartheta}(k)=\begin{cases}\chi_1(a)\chi_2(d)\vartheta(c/\vp^t), & a,d\in\cO^\times,\ b\in\cO,\ c\in \vp^t\cO^\times,\\ 0 & \text{otherwise},\end{cases}\qquad k=\begin{pmatrix}a&b\\&d\end{pmatrix}\begin{pmatrix}1&\\c&1\end{pmatrix},
+\]
+and $\tilde f=\tilde f_{\chi^{-1},\vartheta^{-1}}$ similarly. The lemma asserts: ``\emph{if $g\in K_{t+s}$ with $\Phi_{f,\tilde f}(g)\neq0$, then its upper right entry is divisible by $\vp^{s-t}$, and $\Phi_{f,\tilde f}(g)=(q-1)q^{-t}\Vol(K_1)$.}''
+
+\begin{proposition}\label{prop:814}
+With the notation above, let $b\in\cO$ with $v(b)=j$. Then
+\[
+\frac{\Phi_{f,\tilde f}(n(b))}{\Phi_{f,\tilde f}(1)}=\begin{cases}1,& j\ge s-t,\\ -\dfrac{1}{q-1},& j=s-t-1,\\ 0,& j<s-t-1.\end{cases}
+\]
+In particular $\Phi_{f,\tilde f}(n(\vp^{s-t-1}))\ne0$, while $n(\vp^{s-t-1})\in K_{t+s}$ has upper right entry not divisible by $\vp^{s-t}$. The support statement of [Wan, Lemma 8.14] is therefore false for every $s>t$.
+\end{proposition}
+
+\begin{proof}
+Write $k\in\operatorname{supp}\tilde f$ as $k=\beta\,\nm(c)$ with $\beta\in B(\cO)$ and $c\in\vp^t\cO^\times$. Then
+\[
+\nm(c)\,n(b)=\begin{pmatrix}(1+cb)^{-1}&b\\0&1+cb\end{pmatrix}\nm\!\big(c/(1+cb)\big),
+\]
+so $f(kn(b))\tilde f(k)=(\chi_1^{-1}\chi_2)(1+cb)\,\vartheta^{-1}(1+cb)$. Since $v(cb)\ge t=c(\chi_1^{-1}\chi_2)$, the first factor equals $1$. Up to a positive constant, $\Phi(n(b))=\int_{\cO^\times}\vartheta^{-1}(1+\vp^tbu)\,du$. As $u$ runs over $\cO^\times$, the element $1+\vp^tbu$ runs over $(1+\vp^{t+j}\cO)\smallsetminus(1+\vp^{t+j+1}\cO)$. The character $\vartheta$ is non-trivial on $1+\vp^m\cO$ if and only if $m<s$, and the formula follows from orthogonality of characters.
+\end{proof}
+
+\status{Proved here. Checked numerically for $q=3$ and $(t,s)=(1,2),(1,3),(2,3)$ by integration in the $\nm$-chart of $B\backslash G$, with exact agreement. For $(t,s)=(1,2)$ it was also checked by an exact finite sum over $\GL_2(\Z/27)$ (Appendix~\ref{app:num}).}
+
+\subsection{Lemma 8.17}
+[Wan, Lemma 8.17] evaluates Ichino's local integral
+\[ I_v=\int_{\PGL_2(F)}\Phi_{1}(g)\Phi_{2}(g)\Phi_{3}(g)\,dg \]
+for the vectors $f_{\chi_f,\vartheta}\in\pi(\chi_{f,1},\chi_{f,2})$, $f_{\chi_\theta}\in\pi(\chi_{\theta,1},\chi_{\theta,2})$ and $f_{\chi_h}\in\pi(\chi_{h,1},\chi_{h,2})$. The hypotheses are:
+\begin{itemize}
+\item $t_1<s<t_2$, with $t_1+s=t_2$ if $t_1\neq0$ and $s+1=t_2$ if $t_1=0$;
+\item $\cond(\chi_{f,1}\chi_{f,2}^{-1})=\vp^{t_1}$ and $\cond\vartheta=\vp^s$;
+\item $\cond(\chi_{\theta,1}\chi_{\theta,2}^{-1})=\cond(\chi_{h,1}\chi_{h,2}^{-1})=\vp^{t_2}$;
+\item $\chi_{f,1}\chi_{\theta,1}\chi_{h,1}\vartheta=1$ and $\chi_{f,2}\chi_{\theta,2}\chi_{h,2}\vartheta^{-1}=1$.
+\end{itemize}
+The exponent $-1$ in the last condition is forced: otherwise the central character of the triple would be $\vartheta^{-2}$ and no invariant trilinear form would exist. The lemma asserts that $I_v=(q-1)^2q^{-2s-1}\Vol(K_1)^2\Vol(K_{t_2})^2\neq0$.
+
+\begin{proposition}\label{prop:V}
+Under these hypotheses, $I_v=0$ whenever $t_1\neq0$, or $t_1=0$ and $s\ge2$. The vanishing holds for \emph{every} vector of $\pi(\chi_{f,1},\chi_{f,2})$ placed in the first slot, not only for $f_{\chi_f,\vartheta}$.
+\end{proposition}
+
+\begin{proof}
+By \eqref{eq:fchi-eigen}, the vector $f_{\chi_\theta}\otimes f_{\chi_h}$ is an eigenvector of $K_{t_2}$ (acting diagonally) with character
+\[\Xi(k)=(\chi_{\theta,1}\chi_{h,1})(a)(\chi_{\theta,2}\chi_{h,2})(d)=(\chi_{f,1}\vartheta)^{-1}(a)\,(\chi_{f,2}\vartheta^{-1})^{-1}(d).\]
+The integral $I_v$ is invariant under $(\phi_1,\phi_2,\phi_3)\mapsto(\pi_1(k)\phi_1,\pi_2(k)\phi_2,\pi_3(k)\phi_3)$, by the substitution $g\mapsto gk$. Averaging over $k\in K_{t_2}$ shows that $I_v(\phi\otimes f_{\chi_\theta}\otimes f_{\chi_h},\dots)=I_v(P\phi\otimes f_{\chi_\theta}\otimes f_{\chi_h},\dots)$, where $P$ is the projector onto the $\Xi^{-1}$-isotypic part for $K_{t_2}$.
+
+A vector $v$ with $\pi(k)v=\mu_1(a)\mu_2(d)v$ is, in $\pi'=\pi\otimes\mu_2^{-1}$, a vector with
+$\pi'(k)v=(\mu_1\mu_2^{-1})(a)v=\omega_{\pi'}(a)v$. By the newform theory recalled in \S\ref{sec:notation}, such vectors exist at level $\vp^{t_2}$ if and only if $c(\pi')\le t_2$. Here $\mu_1=\chi_{f,1}\vartheta$ and $\mu_2=\chi_{f,2}\vartheta^{-1}$, so
+\[ \pi'=\pi(\chi_{f,1}\chi_{f,2}^{-1}\vartheta,\ \vartheta). \]
+Since $c(\chi_{f,1}\chi_{f,2}^{-1})=t_1<s$, both characters have conductor exactly $s$, and $c(\pi')=2s$. Finally $2s>t_2$: if $t_1\neq0$ this is $t_1<s$, and if $t_1=0$ it is $s\ge2$. Hence $P=0$ and $I_v=0$.
+\end{proof}
+
+\begin{remark}
+The only non-vanishing case is $t_1=0$, $s=1$, $t_2=2$. The second sentence of Lemma~8.14 suggests that $f_{\chi,\vartheta}$ was treated as a $K_{t+s}$-eigenvector of type $(\chi_1\vartheta)(a)(\chi_2\vartheta^{-1})(d)$. The proof above shows that $\pi$ contains no such vector, since its level would be $2s>t+s$. Proposition~\ref{prop:814} is a trace of this failure.
+\end{remark}
+
+\status{Proved here (modulo the newform theory cited above). In the case $(q,t_1,s,t_2)=(3,1,2,3)$ the vanishing of the isotypic part was also checked by a character computation and by direct summation.}
+
+%======================================================================
+\section{Consequences for the local data of [CLW] at split places}\label{sec:clw}
+%======================================================================
+
+\subsection{What the sources say}
+We quote the following four passages.
+\begin{itemize}
+\item {[CLW, \S 5.6, condition (iv)]}: ``For $v=w\bar w\in\Sigma_s\cup\{\ell\}$, $\chi_{\theta,w}$ is unramified, and
+\[\mathrm{ord}_{\bar w}(\cond(\chi_{\theta,\bar w}))\ge 2\,\mathrm{ord}_v(\cond(\pi_v))+2\text{''}.\] Moreover $\mathrm{ord}_w\cond((\chi_h\chi_\theta^c)_w)$ equals $\mathrm{ord}_{\bar w}(\cond\chi_{\theta,\bar w})-\mathrm{ord}_v\cond(\pi_v)$ if $\pi_v$ is ramified, and $\mathrm{ord}_{\bar w}(\cond\chi_{\theta,\bar w})-1$ if $\pi_v$ is unramified.
+\item {[CLW, (5.6.10)]}: the vector $\phi_v$ at $v\in\Sigma_s\cup\{\ell\}$ is the twist
+\[\textstyle\sum_{n\in(\Z_v/q_v^{t_v})^\times}\chi_{h,\bar v}(-n)\,R\big(\begin{smallmatrix}1&\\n&1\end{smallmatrix}\big)\big(\begin{smallmatrix}q_v^{-t_v}&\\&1\end{smallmatrix}\big)f^{GU(2)},\]
+with $t_v=\mathrm{ord}\,\cond\chi_{h,\bar v}$. This is the sum of [Wan, Lemmas 8.16, 8.18], so $\phi_v=f_{\chi,\vartheta}$ with $\vartheta=\chi_{h,\bar v}$ and $s=t_v$.
+\item {[CLW, p.~72]}: for $v\in\Sigma_s\cup\{\ell\}$ the normalized local integral is ``a nonzero constant independent of $\tau$ \dots\ this is [Wan20, Lemmas 8.13--8.17]. Note that the twist at $v\in\Sigma_s\cup\{\ell\}$ in (5.6.10) guarantees that the local integrals are nonzero constants.''
+\item {[Wan, Remark 8.19]}: ``The reason why the local integrals at split primes showing up in the triple product formula later on are the ones considered in this subsection is a consequence of the computations in Subsection 6.7.''
+\end{itemize}
+
+\begin{corollary}\label{cor:gap}
+Suppose that at $v\in\Sigma_s$ the local vectors of the CM families $\theta$ and $h$ are the vectors $f_{\chi_\theta}$ and $f_{\chi_h}$ of [Wan, Lemma 8.13], with $t_2=a:=\mathrm{ord}\cond\chi_{\theta,\bar v}$, as asserted by [Wan, Rem.~8.19]. Then, with the data (iv), the normalized local integral at $v$ vanishes in each of the following cases:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+$\pi_v$ & data (iv) & reason\\ \midrule
+unramified & $s=a-1$ & $c(\pi')=2(a-1)>a$ when $a\ge3$\\
+Steinberg ($c=1$) & $s=a-1$, $a\ge4$ & $2(a-1)>a$\\
+ramified principal series ($c\ge2$) & $s=a-c$, $a\ge 2c+2$ & $2(a-c)>a$\\
+supercuspidal ($c\ge2$) & $s=a-c$, $a\ge 2c+2$ & $2(a-c)>a$\\ \bottomrule
+\end{tabular}
+\end{center}
+\end{corollary}
+
+\begin{proof}
+This is Proposition~\ref{prop:V}, in the form valid for an arbitrary vector of $\pi_v$, applied with $A$ the character of conductor $s$ determined by the type of $f_{\chi_\theta}\otimes f_{\chi_h}$; see also Remark~\ref{rem:typeA}. For supercuspidal $\pi_v$ and $c(A)>c/2$ one has $c(\pi_v\otimes A)=2c(A)$.
+\end{proof}
+
+\begin{remark}[Scope]
+In the proof of [BSTW, Thm.~10.1], all primes dividing $N/q$ are split in the auxiliary field. By [BSZ, Lemma 20], for $100\%$ of curves there are at least two primes $\ell\,\|\,N$ with $E[p]$ ramified at $\ell$, so split Steinberg places are present for almost all semistable curves. For the twist $g_K$ used in rank $1$, the primes dividing $D_K$ are split places with ramified principal series; this is exactly the case [BSTW, p.~85--86] refers to [Wan, \S 8D]. If the hypothesis of Corollary~\ref{cor:gap} holds, the proof of [CLW, Prop.~7.11.3] therefore has a gap at these places. The gap concerns a step of the proof, not the statements of the main theorems.
+\end{remark}
+
+\begin{remark}[The alternative reading]\label{rem:L2}
+We derived the hypothesis of Corollary~\ref{cor:gap} independently, from the Schwartz functions of [CLW, Prop.~7.7.1, 7.7.3]. Both $\theta$ and $h_0$ are obtained through the same map [CLW, (7.1.6)] from functions of the shape $1_{\cO}(y_1)1_{\cO^\times}(y_2)\xi(y_2)$, and $h=h_0\otimes(\chi_h\chi_\theta^c\circ\det)$. The Godement sections of such functions all have the same orientation (eigen for $K_0^{\mathsf T}$). We have not derived this from the local theta correspondence, however. If the two vectors had opposite orientations, the data (iv) would be consistent and the gap would disappear. Either way, (A) is resolved: by Proposition~\ref{prop:R} in the first case, and by (iv) as it stands in the second.
+\end{remark}
+
+\begin{remark}[The auxiliary prime $\ell$]\label{rem:ell}
+Condition (iv) is also imposed at the auxiliary split prime $\ell$. There, however, $\chi_\theta=\chi_{\theta,1}\nu$ and $\chi_h=\chi_{h,1}\nu$ with $\nu$ of $\ell$-power conductor. The constraint $\chi_h\chi_\theta|_{\mathbb A_\Q^\times}=1$ forces $\nu^2|_{\mathbb A_\Q^\times}=1$. A character $\nu$ that is highly ramified at $\bar w$ is then ramified at $w$ as well, and $\chi_{\theta,w}$ can no longer be unramified. We do not see how (iv) at $v=\ell$ survives the twist; see Question~\ref{q:ell}.
+\end{remark}
+
+%======================================================================
+\section{A uniform choice of local data}\label{sec:R}
+%======================================================================
+
+\begin{lemma}\label{lem:phiA}
+Let $\pi$ be generic irreducible with trivial central character, and let $A$ be any character of $\cO^\times$, extended to $F^\times$. Let $\phi_A\in\pi$ be the vector with Kirillov function $x\mapsto A^{-1}(x)1_{\cO^\times}(x)$. Then $\phi_A$ is an eigenvector of $K_0(\vp^n)$ with character $k\mapsto A^{-1}(a_k)A(d_k)$ for all $n\ge n_0(A)$, for some $n_0(A)\le c(\pi\otimes A)+\deg L(s,\pi\otimes A)$. If $L(s,\pi\otimes A)=1$, then $\phi_A$ is the newvector of $\pi\otimes A$, viewed in $\pi$, and $n_0=c(\pi\otimes A)$.
+\end{lemma}
+
+\begin{proof}
+In $\pi\otimes A$ the function $1_{\cO^\times}$ is fixed by $n(\cO)$ (as $\psi$ is unramified) and by $\diag(\cO^\times,1)$; the centre acts by $A^2$. By smoothness it is fixed by $\nm(\vp^n\cO)$ for $n$ large. The Iwahori factorization $K_0(\vp^n)=\nm(\vp^n\cO)\,T(\cO)\,n(\cO)$ then shows that it is an eigenvector of character $A^2(d)$. Viewed in $\pi=(\pi\otimes A)\otimes A^{-1}$, the character becomes $A^{-1}(\det)A^2(d)=A^{-1}(a)A(d)$. The newvector of $\pi\otimes A$ has Kirillov function $\sum_{m\ge0}c_m1_{\vp^m\cO^\times}$, whose coefficients are those of $L(s,\pi\otimes A)$. Applying the polynomial $L(s,\pi\otimes A)^{-1}$ in the operator $\pi(\diag(\vp^{-1},1))$ produces $1_{\cO^\times}$. Each translate $\pi(\diag(\vp^{-j},1))$ raises the level by at most $j$.
+\end{proof}
+
+\begin{proposition}[Proposition R$'$]\label{prop:R}
+Let $v$ be a split place, $\pi=\pi_v$ generic unitary with trivial central character, $A$ a character of $\cO^\times$, and $\phi_A$ as in Lemma~\ref{lem:phiA}. Let $t_1\ge\max(n_0(A),1)$, and let $f_\theta=f_{\chi_\theta}$ and $f_h=f_{\chi_h}$ be vectors as in [Wan, Lemma 8.13] with $\cond(\chi_{\theta,1}\chi_{\theta,2}^{-1})=\cond(\chi_{h,1}\chi_{h,2}^{-1})=\vp^{t_1}$. Assume that $f_\theta\otimes f_h$ has $K_{t_1}$-type $\Xi(k)=A(a_k)A^{-1}(d_k)$. Then
+\[ I_v(\phi_A\otimes f_\theta\otimes f_h,\ \bar\phi_A\otimes\tilde f_\theta\otimes\tilde f_h)=\Vol(K_{t_1})\,\langle\phi_A,\phi_A\rangle\,\Phi_\theta(1)\,\Phi_h(1)\neq0. \]
+The normalized integral equals $\Vol(K_{t_1})$. In particular it is unchanged when $\theta$ and $h$ are twisted by unramified characters, hence independent of $\tau$.
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Bi-invariance.} By Lemma~\ref{lem:phiA} and \eqref{eq:fchi-eigen}, $\Phi_{\phi_A}(k_1gk_2)=\Xi^{-1}(k_1)\Xi^{-1}(k_2)\Phi_{\phi_A}(g)$ and $\Phi_\theta\Phi_h(k_1gk_2)=\Xi(k_1)\Xi(k_2)\Phi_\theta\Phi_h(g)$ for $k_i\in K_{t_1}$. Hence the integrand $F=\Phi_{\phi_A}\Phi_\theta\Phi_h$ is bi-$K_{t_1}$-invariant, and
+\[ I_v=\sum_{x\in K_{t_1}\backslash\PGL_2(F)/K_{t_1}}\Vol(K_{t_1}xK_{t_1})\,F(x). \]
+\item \emph{Support.} By [Wan, Lemma 8.13], $\Phi_\theta$ vanishes on $\bigsqcup_n K_1w\sigma_nK_1\sqcup K_1\sigma_nwK_1$. On $\bigsqcup_n K_1\sigma_nK_1\sqcup K_1w\sigma_nwK_1$ it is supported on
+\[\textstyle\bigcup_n\diag(1,\vp^n)\nm(\vp^{t-n}\cO)K_t\ \cup\ \bigcup_n\diag(\vp^n,1)n(\vp^{-n}\cO)K_t .\]
+One checks the identities
+\begin{gather*}
+\diag(1,\vp^n)\nm(\vp^{t-n}\cO)K_t=K_t\diag(1,\vp^n)K_t,\\ \diag(\vp^n,1)n(\vp^{-n}\cO)K_t=K_t\diag(\vp^n,1)K_t,
+\end{gather*}
+using the relations $\diag(1,\vp^n)\nm(\vp^{t-n}y)=\nm(\vp^ty)\diag(1,\vp^n)$ and $\diag(\vp^n,1)n(\vp^{-n}y)=n(y)\diag(\vp^n,1)$, together with the Iwahori factorization of $K_t$. Hence $\Phi_\theta$ is supported on $\bigcup_{m\in\Z}K_{t_1}\diag(\vp^m,1)K_{t_1}$ modulo the centre.
+\item \emph{The torus.} With the pairing of [Hu, (2.65)],
+\[\Phi_{\phi_A}(\diag(\vp^m,1))=\int_{F^\times}A^{-1}(\vp^mx)1_{\cO^\times}(\vp^mx)\,A(x)1_{\cO^\times}(x)\,d^\times x,\]
+which vanishes for $m\neq0$ because the supports are disjoint.
+\item Only the double coset of $1$ contributes, so $I_v=\Vol(K_{t_1})F(1)$. Unramified twists of $\chi_\theta,\chi_h$ are trivial on $K_{t_1}$, so they do not change this value.\qedhere
+\end{enumerate}
+\end{proof}
+
+\begin{remark}[Dependence on {[Wan, Lemma 8.13]}]\label{rem:813}
+Only the support statement of Lemma~8.13 is used. We checked it numerically at $q=3$ ($t=2$) and $q=2$ ($t=3$) on random elements of all four Iwahori families with $n\le3$; the values on the two non-vanishing families also agree with Wan's formula. We also reproved part of it. $\Phi_\theta$ vanishes on the antidiagonal double cosets, because conjugation exchanges $a$ and $d$ while $\chi_1\chi_2^{-1}$ is ramified. It also vanishes on $K_tn(x)\sigma_mK_t$ with $v(x)=-r<0$ and $-r<m<t-r$: testing against $\nm(c)$ produces the non-trivial value $(\chi_1^{-1}\chi_2)(1+cx)$. On the remaining ``intermediate'' double cosets $K_t\nm(\vp^r)w\sigma K_t$ with $1\le r<t$ the types are compatible, and the vanishing is the character-sum computation in Wan's proof.
+\end{remark}
+
+\begin{remark}[Type of $f_\theta\otimes f_h$ in terms of the CM data]\label{rem:typeA}
+From the Schwartz functions of [CLW, Prop.~7.7.1, 7.7.3] and the relation $\chi_h\chi_\theta|_{\mathbb A_\Q^\times}=1$, the $K_0$-type of $f_\theta\otimes f_h$ has the form $\nu(\det)\xi(d)$, with
+\[\xi=\xi_\theta\xi_{h_0}=\big((\chi_h\chi_\theta^c)_w\big)^2\chi_{\theta,w}\]
+on units and $\nu=(\chi_h\chi_\theta^c)_w$ up to unramified characters. Hence $A=(\chi_h\chi_\theta^c)_w^{-1}$ on $\cO^\times$, up to a character of order $\le2$. Under (iv) one gets $c(A)=s$, which is the case of Corollary~\ref{cor:gap}. Proposition~\ref{prop:R} instead asks for $n_0(A)\le t_1=a$, which holds as soon as $2c(A)\le a$ and $c(A)>c(\pi_v)$, for instance.
+\end{remark}
+
+\subsection{Insertion into [CLW, \S 5.6]}\label{subsec:insert}
+We propose the following modifications at $v=w\bar w\in\Sigma_s$.
+\begin{enumerate}[label=(\roman*$'$)]
+\item Keep the first clause of (iv): $\chi_{\theta,w}$ is unramified and $a=\mathrm{ord}\cond\chi_{\theta,\bar w}\ge 2c(\pi_v)+2$.
+\item Replace the second clause by: $(\chi_h\chi_\theta^c)_w=A^{-1}\cdot(\text{unramified})$, where $A$ is a fixed character with $c(A)\le a/2$ and $L(s,\pi_v\otimes A^{\pm1})=1$. Such an $A$ exists because $a\ge 2c+2$: any $A$ with $c(\pi_v)<c(A)\le a/2$ works. With this choice, $n_0(A)=c(\pi_v\otimes A)=2c(A)\le a$.
+\item Replace the twisted vector (5.6.10) at $v$ by $\phi_{A}$. The space (5.6.12) is enlarged accordingly, allowing the group algebra of $GU(2)(\Q_v)$ at split places and a deeper level $K_v$. Here (5.6.6) only bounds $c_v$ from below.
+\end{enumerate}
+
+\begin{claim}\label{claim:insert}
+With (i$'$)--(iii$'$), the remaining arguments of [CLW] go through unchanged. More precisely:
+\begin{enumerate}[label=(\alph*)]
+\item Every use of $\phi$ in [CLW] has been re-read: the Klingen family (5.10.2)--(5.10.3), semi-ordinarity (Prop.~5.10.1, which uses only the trivial central character), the constant term (Thm.~6.1.1, via [Wan, Lemma 6.20] for any $\phi_v$ invariant under $Y_{c_v}$), (7.5.8), and Prop.~7.11.1--7.11.3. None of them constrains $\phi_v$ at split places beyond invariance under $K_v$.
+\item The non-vanishing modulo $p$ input [Hsi14b, Thm.~C] places no condition at split places. Its hypotheses are (ord), root numbers $+1$ at the places dividing $\mathfrak n^-$, $\mathfrak n^-$ square-free, and residual irreducibility. The local root number of $BC(\pi)\otimes\chi$ at a split place is $1$ whenever $\chi|_{\Q_v^\times}=1$.
+\item The local Euler factors at $v$ of the values (5.6.1)--(5.6.5) equal $1$, because all the characters involved are ramified at $v$ by the choice of $A$.
+\item For $\ell\in\{2,3\}$ and $p=5$, the constant $\Vol(K_{t_1})=((\ell+1)\ell^{t_1-1})^{-1}$ is a $5$-adic unit.
+\end{enumerate}
+\end{claim}
+\status{Deduction. Item (b) uses [Hsi14b], which we read. The analogous input [Hsi12], used for (5.6.3)--(5.6.4), has not been checked.}
+
+\subsection{Numerical verification}
+All checks are at $q=2$ or $q=3$, with exact or high-precision arithmetic; see Appendix~\ref{app:num}.
+\begin{center}
+{\small
+\begin{tabular}{p{3.6cm}p{3.6cm}p{4.2cm}p{1.9cm}}
+\toprule
+$\pi_v$ & $A$ & quantity & result\\ \midrule
+unramified, generic $\alpha$ & ramified ($q=3$: $c(A)=1$; $q=2$: $c(A)=2$) & $\max|\Phi_{\phi_A}|$ on the cells $n=1,2,3$ & $0$\\
+Steinberg & ramified, as above & same & $0$\\
+$\pi(\chi\nu_1,\chi\nu_2)$, $\chi$ quadratic ramified & $c(\chi A)=2$ ($q=3$), $3$ ($q=2$) & same & $\le 4\cdot10^{-14}$\\
+unramified, $\alpha=e^{0.7i},e^{2.1i}$ & trivial ($q=3$, level $2$) & $\Phi_{\phi}(\diag(3^m,1))/\Phi_\phi(1)$, $m=\pm1,\pm2$ & $\le1.4\cdot10^{-7}$\\
+Steinberg & trivial ($q=3$, level $2$) & same & $\le1.0\cdot10^{-7}$\\ \bottomrule
+\end{tabular}}
+\end{center}
+In the last two rows $\phi$ is built \emph{in the induced model}, as an explicit combination of translates of the spherical vector (respectively of the newvector). The matrix coefficient is computed by direct integration over $B\backslash G$, truncated at $|y|\le3^{14}$, so these rows are independent of the Kirillov model. The residuals are of the size of the truncation error. In every case the type on $K_{t_1}$ agrees with the prediction to within $10^{-13}$. The supercuspidal case has not been tested numerically, but the proof makes no case distinction.
+
+%======================================================================
+\section{The anticyclotomic $\mu$-invariant and periods for arbitrary $N^+$}\label{sec:B}
+%======================================================================
+\subsection{Setting}
+Let $E/\Q$ have $a_5(E)=0$, with $\bar\rho=E[5]$ surjective. Let $K$ be imaginary quadratic with $(D_K,10N)=1$ and $5$ split. Write $N=N^+N^-$, where $N^-$ is a square-free product of an odd number of inert primes, each multiplicative with $\bar\rho$ ramified (hypothesis (ram)), and $N^+$ is arbitrary. Let $B$ be the definite quaternion algebra of discriminant $N^-$, $R$ an Eichler order of level $N^+$, and $f$ the Jacquet--Langlands transfer of $E$, normalized to be primitive (not divisible by $\lambda$).
+
+\begin{claim}\label{claim:mu}
+The signed anticyclotomic $p$-adic $L$-functions $L^\pm_W$, built from the theta elements of $f$ (without $p$-stabilization), satisfy $\mu(L^\pm_W)=0$.
+\end{claim}
+\noindent\emph{Outline, with references.}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Interpolation.} [CH, Thm.~3.11] gives the interpolation formula, with \emph{no} local factor at primes dividing $N^+$, whatever their exponent. Indeed [CH] assume only that $N^-$ is square-free, and [CH, Prop.~3.8] computes the local toric period at every $q\mid N^+$ as $\chi_q(\mathfrak N^+)$, using only $\Psi(\tfrac12,W_\pi,\chi)=L(\tfrac12,\pi_E\otimes\chi)$ for the newvector. The ordinarity hypothesis of [CH] is used only from [CH, Cor.~4.5] onwards.
+\item \emph{Non-vanishing modulo $\lambda$ of $\theta_n$ for all $n\gg0$.} This is the proof of [CH, Thm.~5.7] with the operator $R_p$ removed. It uses:
+ \begin{itemize}
+ \item [CH, Lemma 5.6] ($f$ is not Eisenstein modulo $\lambda$);
+ \item the Ihara-type [CH, Lemma 5.4] at $q\mid D_K$, whose proof we redid (it uses neither $p$ nor ordinarity);
+ \item equidistribution [CV05, Cor.~2.10], which is stated for an arbitrary compact open subgroup $H$ (we take $H=\hat R^\times$);
+ \item [CH, Cor.~5.2].
+ \end{itemize}
+ The operator $R_p$ enters only through the $p$-stabilization [CH, Lemma 5.8], which is absent here.
+\item \emph{Signs.} By [PW, proof of Thm.~2.5], $L_n$ is divisible by $\omega_n^\varepsilon$ with $\varepsilon=\mathrm{sign}((-1)^{n-1})$. Each sign uses one parity of $n$, and $\mu(\omega_n^\pm)=0$. Step (2) holds for all $n>n_0$, so it covers both signs.
+\end{enumerate}
+\status{Deduction; each step is quoted from a source we read.}
+
+\begin{claim}\label{claim:period}
+Assume the minimality condition of Definition~\ref{def:min} at every $q\mid N^+$. Then $\Omega_{f,N^-}=u\cdot\Omega_f^{\mathrm{can}}$ with $u\in\cO^\times$. Consequently, $(L_p^{\circ,\mathrm{ac}}(g/K))=(u'\cdot L^\circ_W)$ with $u'\in\cO^\times$.
+\end{claim}
+\noindent\emph{Outline.} This is [CH, Prop.~6.1] with $\Sigma=\emptyset$, which reduces to [CH, Prop.~6.8] for $\Sigma=\emptyset$: ``Using the Taylor--Wiles system constructed in [Tay06, \S 2], we deduce that $S_\emptyset$ is a free $\mathbb T_\emptyset$-module of rank one.'' The system of [Tay06, \S 2] is crystalline: [Tay06, p.~18] says ``We will treat the low weight, crystalline case.'' [CH] replaced Taylor's Fontaine--Laffaille condition at $p$ by the ordinary condition (D3); we use Taylor's original condition. This is also the content of [KO, Rem.~6.6(1)]. The table below records which steps of [Tay06, \S2] involve the condition at $p$.
+\begin{center}
+\begin{tabular}{p{5.6cm}p{2.6cm}p{5.0cm}}
+\toprule
+Step of [Tay06, \S2] & uses the condition at $p$? & here\\ \midrule
+Deformation functor $D_\emptyset$ & yes & Fontaine--Laffaille (Taylor), $k=2<p-1$\\
+Lemma 2.1 (TW primes; $R_Q\twoheadrightarrow h(U_{1,Q})_{\mathfrak m}$) & (3): modular $\rho$ satisfy it & weight $2$, $p\nmid N$: crystalline\\
+Lemma 2.2, Lemma 2.3, Cor.~2.4 & no; needs $l\nmid\#(U\cap xD^\times x^{-1})/F^\times$ & unit groups of Eichler orders have order dividing $12$\\
+Local bound at $x\mid l$: $\#H^1_f\mid\#(\cO/\lambda^n)\#H^0$ & yes & Taylor's bound, p.~21\\
+Wiles' formula, Lemma 2.5 & no; needs $\bar\rho|_{G_{F(\sqrt{\pm l})}}$ irreducible, $l>3$ & $(\mathrm{CR}^+)(2)$, $l=5$\\
+Places $q\neq p$ (via [CH]): (D2), (D5) & no & $\#L_q=\#H^0(G_q,\ad^0\bar\rho)$\\ \bottomrule
+\end{tabular}
+\end{center}
+For $q\mid N^+$ with $p\nmid\#\bar\rho(I_q)$, minimal deformations are rigid on inertia. In that case $L_q=H^1(G_q/I_q,M)$ with $M=(\ad^0\bar\rho)^{I_q}$, and $\#H^1(\hat\Z,M)=\#M^{\mathrm{Frob}}=\#H^0(G_q,\ad^0\bar\rho)$.
+
+\begin{lemma}\label{lem:types23}
+Let $q\in\{2,3\}$ and $p=5$. Every two-dimensional Weil--Deligne representation of $G_q$ with finite inertial image has image of order prime to $5$. Two such representations that are congruent modulo $\lambda$ have the same inertial type. A representation of type $\chi\otimes\St$ can be congruent to one with finite inertial image only if both have inertial type $\chi\oplus\chi$ residually.
+\end{lemma}
+\begin{proof}
+The tame part of a two-dimensional inertial type has order dividing $q^2-1\in\{3,8\}$, and the wild part is a $q$-group. Characters of groups of order prime to $p$ are sums of roots of unity of order prime to $p$, and these remain distinct modulo $\lambda$; this gives the second assertion. There is no ramified character of order $5$ of $\Q_q^\times$, because $\Z_q^\times$ has no quotient of order $5$. Hence the character $\chi$ cannot change modulo $\lambda$.
+\end{proof}
+
+\begin{definition}\label{def:min}
+A prime $q\in\{2,3\}$ dividing $N^+$ is \emph{minimal} for $E$ if none of the following holds:
+\begin{description}[font=\normalfont]
+\item[(E1)] $E$ has multiplicative reduction at $q$ and $5\mid v_q(\Delta_{\min})$ (then $\bar\rho$ is unramified at $q$, and $m_q=1$ in [CH, \S 6]);
+\item[(E2)] $E$ has potentially multiplicative, non-semistable reduction at $q$ and $5\mid v_q(j)$ (then $\bar\rho|_{I_q}=\chi\oplus\chi$ while $\rho|_{I_q}$ is not of finite image);
+\item[(E3)] some quadratic twist $E^d$ has good reduction at $q$ and $a_q(E^d)\equiv\pm(q+1)\pmod 5$ (then forms of type $\chi_d\otimes\St$ congruent to $f$ may exist at the same level, by level raising for $E^d$).
+\end{description}
+A prime $q\ge7$ dividing $N^+$ is minimal if it is not of type (E1).
+\end{definition}
+
+\begin{remark}
+Under minimality, Lemma~\ref{lem:types23} shows that every eigenform in $\mathbb T(N_\emptyset)_{\mathfrak m}$ has the inertial type of $f$ at each $q\mid N^+$. The map $R_\emptyset\to\mathbb T_\emptyset$ of [CH, Lemma 6.5] is then surjective with the explicit local conditions above. Whether these local conditions coincide with ``minimally ramified in the sense of [Dia97a, Def.~3.1]'', as used in [CH, (D2)], has not been checked, because we did not consult [Dia97a]. The cases (E1)--(E3) correspond, after twisting by $\chi_d$ with $d\in\{-1,\pm2\}$ at $q=2$ and $d=-3$ at $q=3$, to the non-minimal cases $m_q\in\{1,2\}$ that [CH] treat via level raising and [Dia97b, Thm.~2.4]. They could be recovered by that route, together with an argument showing that the comparison of periods is invariant under twisting.
+\end{remark}
+
+%======================================================================
+\section{Assembly}\label{sec:assembly}
+%======================================================================
+For $f\in\{g,g_K\}$, where $K$ is the Heegner field of [BSTW, Thm.~12.3], we choose an auxiliary imaginary quadratic field $L''$ such that:
+\begin{itemize}
+\item $5$ splits, i.e.\ (2.15) holds;
+\item $(D_{L''},10ND_K)=1$;
+\item a fixed multiplicative prime $q$ with (ram) is inert;
+\item all other primes dividing $N(f)$ are split.
+\end{itemize}
+Such fields exist by the Chinese remainder theorem. The prime $q$ exists for $100\%$ of curves by [BSZ, Lemma 20], which replaces the sentence ``since $g$ is semistable, there exists a prime $q\mid N$ satisfying (ram)'' in the proof of [BSTW, Thm.~10.1].
+
+Problem (A) is then needed at the split places $2$ and $3$, for any type of $\pi_v$, and at the other split places. Problem (B) is needed with $N^-=q$. Rank $0$ uses $f=g$ only; rank $1$ also uses $f=g_K$.
+
+\begin{remark}[Inherited point: $g_K$ at $\ell\mid D_K$]\label{rem:gK}
+At $\ell\mid D_K$ we have $\bar\rho_{g_K}|_{I_\ell}=\chi_K\oplus\chi_K$, and the phenomenon of Definition~\ref{def:min} can occur: forms of type $\chi_K\otimes\St$ appear if $a_\ell(E)\equiv\pm(\ell+1)\pmod 5$, and other tame types if $\ell\equiv\pm1\pmod 5$. The primes $\ell\mid D_K$ cannot be controlled, since $K$ comes from the non-vanishing theorem [51] of [BSTW]. The same point arises in the published square-free case: [BSTW, Thm.~10.5] states ``the same holds for $g_K$'', and its proof applies [PW] (square-free level) without further comment to $g_K$, which has level $ND_K^2$. Our extension inherits this point and adds nothing to it.
+\end{remark}
+
+%======================================================================
+\section{The count}\label{sec:count}
+%======================================================================
+As in [BSZ, Thm.~25], in any large family the proportion of curves with $5$-Selmer rank $0$ or $1$ is at least $19/24$. This is pure counting from [BSZ, Thm.~13] and holds without equidistribution of root numbers. For the supersingular family $\{5\mid A,\ 5\nmid B\}$, intersected with local conditions at $2$, $3$ and $\ell\ge7$, the family is large in the sense of [BSZ, \S 2.3]: the conditions at $\ell\ge7$ exclude only curves with $v_\ell(\Delta)\ge5$.
+\begin{itemize}
+\item Selmer rank $0$ gives analytic rank $0$, by [BSTW, Thm.~1.6] extended by (A)+(B), and then rank $0$ by Kolyvagin.
+\item Selmer rank $1$ gives corank $1$ and finite $5^\infty$-part of the Tate--Shafarevich group, by $p$-parity; [BSTW, Thm.~12.3], extended, gives analytic rank $1$, and Gross--Zagier--Kolyvagin gives rank $1$.
+\end{itemize}
+The bound is
+\[ \text{bound}=\text{base}+\tfrac{19}{24}\,SS_5\,\mu_2\,\mu_3\,P_7\,(1-\varepsilon), \]
+with the same base ($0.669942$), $SS_5$ and $P_7$ as in the original computation. Here $\mu_\ell$ is the density of admitted local types at $\ell$, and $\varepsilon\approx5.3\cdot10^{-5}$ removes the primes $q\ge7$ of type (E1).
+
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$\ell$ & (E1) & (E2) & (E3) & undetermined cells\\ \midrule
+$2$ (cells mod $2^8$) & $0$ & $0$ & $3.177\%$ & $0.040\%$\\
+$3$ (cells mod $3^7$) & $0$ & $6\cdot10^{-7}$ & $0.274\%$ & $0.006\%$\\ \bottomrule
+\end{tabular}
+\end{center}
+In the normalization $y^2=x^3+Ax+B$ one has $c_4=-48A$, so (E1) does not occur at $2$ or $3$ in practice.
+
+\begin{center}
+\begin{tabular}{p{3.8cm}p{6.8cm}l}
+\toprule
+scenario & assumptions & bound\\ \midrule
+current (BSZ, BSTW, Castella) & & $67.02\%$\\
+cautious & (A) for all types; (B) excluding (E1)--(E3) and undetermined cells & $\mathbf{78.61\%}$\\
+optimistic & (A) and (B) for all types & $79.03\%$\\ \bottomrule
+\end{tabular}
+\end{center}
+
+%======================================================================
+\section{Open points and questions for specialists}\label{sec:open}
+%======================================================================
+The figures of \S\ref{sec:count} are conditional on:
+\begin{enumerate}[label=(H\arabic*)]
+\item the results of [BSTW] and [Cas] as stated; both are preprints;
+\item problem (A) at split places, via Proposition~\ref{prop:R} and Claim~\ref{claim:insert}, or via (iv) as it stands if the alternative reading of Remark~\ref{rem:L2} holds;
+\item problem (B), via Claims~\ref{claim:mu} and~\ref{claim:period}, under the minimality of Definition~\ref{def:min};
+\item the treatment of $g_K$ at $\ell\mid D_K$ (Remark~\ref{rem:gK}), which is inherited from [BSTW].
+\end{enumerate}
+
+\begin{question}[local vectors]\label{q:L1}
+Are the local vectors of $\theta$ and $h$ at split $v\in\Sigma_s$ in [CLW, \S 7.7] the vectors $f_{\chi_\theta}$ and $f_{\chi_h}$ of [Wan, Lemma 8.13], as [Wan, Rem.~8.19] states? If so, Proposition~\ref{prop:V} shows that the integral of [Wan, Lemma 8.17] vanishes, and the non-vanishing claimed on [CLW, p.~72] fails at ramified split places.
+\end{question}
+\begin{question}[the repair]
+Is the replacement (i$'$)--(iii$'$) of \S\ref{subsec:insert} compatible with the rest of [CLW], in particular with the use of [Hsi12] for (5.6.3)--(5.6.4)?
+\end{question}
+\begin{question}[auxiliary prime]\label{q:ell}
+How is condition (iv) at $v=\ell$ compatible with the twist by $\nu$ of $\ell$-power conductor (Remark~\ref{rem:ell})?
+\end{question}
+\begin{question}[minimality]
+In [CH, (D2)], does ``minimally ramified in the sense of [Dia97a, Def.~3.1]'' exclude the configurations (E1)--(E3)? Is [CH, Lemma 6.5] then correct as stated for $q^2\mid N_\emptyset$?
+\end{question}
+\begin{question}[twists]
+For $g_K$ at $\ell\mid D_K$ (Remark~\ref{rem:gK}), how should the freeness of [CH, Prop.~6.8] and the equality $\Omega_{N^-}\sim\Omega^{\mathrm{can}}$ be obtained? Is this already settled in the literature?
+\end{question}
+
+\noindent Finally, the following references were cited by the papers we read but were \emph{not} consulted directly: [Cas73], [Dia97a], [Dia97b], [Hsi12], Ichino's formula (used here in the form of [Wan, \S8]), and Friedberg--Hoffstein (the reference [51] of [BSTW]).
+
+\appendix
+%======================================================================
+\section{Numerical verifications}\label{app:num}
+%======================================================================
+All scripts are in \texttt{bsd/scripts/} of the accompanying repository, and their outputs are in \texttt{bsd/results/}. Characters of $\Z_3^\times$ are modelled modulo $3^7$, and characters of $\Z_2^\times=\{\pm1\}\times\langle5\rangle$ explicitly.
+\begin{itemize}
+\item \texttt{wan\_lemma813.py}, \texttt{p2\_tests.py}: support and values of [Wan, Lemma 8.13] ($q=3$, $t=2$; $q=2$, $t=3$).
+\item \texttt{wan\_lemma814.py}, \texttt{wan\_lemma814\_fini.py}, \texttt{verif\_27.py} (part a): Proposition~\ref{prop:814}, by integration in the $\nm$-chart and by an exact sum over $\GL_2(\Z/27)$.
+\item \texttt{k0\_isotypic.py}: dimension of $K_0(p^n)$-isotypic parts, by the character formula.
+\item \texttt{reparation\_ps.py}, \texttt{reparation\_ps2.py}, \texttt{p2\_tests.py}: Proposition~\ref{prop:R} with $A$ ramified ($q=2,3$).
+\item \texttt{verif\_27.py} (part b): Proposition~\ref{prop:R} with $A$ trivial, in the induced model.
+\item \texttt{local\_types\_v3.py}, \texttt{bound\_v3.py}: local types (PARI/GP via cypari) and the count.
+\end{itemize}
+
+\begin{thebibliography}{BSTW}
+\bibitem[BSZ]{BSZ} M.~Bhargava, C.~Skinner, W.~Zhang, \emph{A majority of elliptic curves over $\Q$ satisfy the Birch and Swinnerton-Dyer conjecture}, arXiv:1407.1826.
+\bibitem[BSTW]{BSTW} A.~Burungale, C.~Skinner, Y.~Tian, X.~Wan, \emph{Zeta elements for elliptic curves and applications}, arXiv:2409.01350v2 (2024).
+\bibitem[Cas]{Cas} F.~Castella, \emph{Exceptional zeros for Heegner points and $p$-converse to the theorem of Gross--Zagier and Kolyvagin}, arXiv:2409.01360.
+\bibitem[CLW]{CLW} F.~Castella, Z.~Liu, X.~Wan, \emph{Iwasawa--Greenberg main conjecture for non-ordinary modular forms and Eisenstein congruences on $GU(3,1)$}, arXiv:2109.08375v1 (2021).
+\bibitem[CH]{CH} M.~Chida, M.-L.~Hsieh, \emph{Special values of anticyclotomic $L$-functions for modular forms}, J.\ reine angew.\ Math.\ 741 (2018); arXiv:1204.2427.
+\bibitem[CV05]{CV} C.~Cornut, V.~Vatsal, \emph{CM points and quaternion algebras}, Doc.\ Math.\ 10 (2005), 263--309.
+\bibitem[FW]{FW} O.~Fouquet, X.~Wan, \emph{The Iwasawa main conjecture for universal families of modular motives}, arXiv:2107.13726v3.
+\bibitem[Hsi14b]{Hsi14b} M.-L.~Hsieh, \emph{Special values of anticyclotomic Rankin--Selberg $L$-functions}, Doc.\ Math.\ 19 (2014), 709--767; arXiv:1112.1580.
+\bibitem[Hsi21]{Hsi21} M.-L.~Hsieh, \emph{Hida families and $p$-adic triple product $L$-functions}, Amer.\ J.\ Math.\ 143 (2021), 411--532; arXiv:1705.02717.
+\bibitem[Hu]{Hu} Y.~Hu, \emph{Triple product formula and mass equidistribution on modular curves of level $N$}, Int.\ Math.\ Res.\ Not.\ IMRN 2018, no.~9, 2899--2943.
+\bibitem[KO]{KO} C.-H.~Kim, K.~Ota, \emph{On the quantitative variation of congruence ideals and integral periods of modular forms}, arXiv:1905.02926v4.
+\bibitem[KPW]{KPW} C.-H.~Kim, R.~Pollack, T.~Weston, \emph{On the freeness of anticyclotomic Selmer groups of modular forms}, Int.\ J.\ Number Theory (2017).
+\bibitem[PW]{PW} R.~Pollack, T.~Weston, \emph{On anticyclotomic $\mu$-invariants of modular forms}, Compos.\ Math.\ 147 (2011); arXiv:math/0610694.
+\bibitem[Tay06]{Tay06} R.~Taylor, \emph{On the meromorphic continuation of degree two $L$-functions}, Doc.\ Math.\ Extra Vol.\ (2006), 729--779.
+\bibitem[Ter03]{Ter03} L.~Terracini, \emph{A Taylor--Wiles system for quaternionic Hecke algebras}, Compos.\ Math.\ 137 (2003), 23--47.
+\bibitem[Wan]{Wan} X.~Wan, \emph{Iwasawa main conjecture for Rankin--Selberg $p$-adic $L$-functions}, arXiv:1408.4044; published as [Wan20], Algebra Number Theory 14 (2020), no.~2.
+\bibitem[CLW26]{CLW26} F.~Castella, Z.~Liu, X.~Wan, \emph{Kato's main conjecture for nonordinary modular forms}, arXiv:2608.29470v1 (2026).
+\bibitem[Fio]{Fio} D.~Fiorilli, \emph{A conditional determination of the average rank of elliptic curves}, arXiv:1403.7108.
+\bibitem[You]{You} M.~P.~Young, \emph{On the nonvanishing of elliptic curve $L$-functions at the central point}, arXiv:math/0412464v3.
+\end{thebibliography}
+
+\end{document}
