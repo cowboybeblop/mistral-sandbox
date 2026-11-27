@@ -1,0 +1,46 @@
+{
+ "kappa_BS_reproduit": 0.5501053110683184,
+ "kappa_toutes_courbes_signes_corriges": 0.5578946879918755,
+ "C_D": {
+  "2_opt": [
+   0.999075940860215,
+   0.24733473851417398
+  ],
+  "3_opt": [
+   0.999759141338873,
+   0.8471638892652306
+  ],
+  "2_pru": [
+   0.9987258282116623,
+   0.28884251552280493
+  ],
+  "3_pru": [
+   0.9998018591275007,
+   0.8468672984529915
+  ],
+  "l>=7_ss": [
+   0.9999937161163185,
+   0.9399671881253598
+  ]
+ },
+ "entrees": [
+  "local_signs_l2_k9.json",
+  "local_signs_l3_k6.json"
+ ],
+ "scenarios": [
+  {
+   "scenario": "S4_prudent : S3_prudent + équirépartition (kappa_ss prudent)",
+   "kappa_ss": 0.5682388059245832,
+   "gain": 0.12306174341230099,
+   "borne": 0.7930038209772379,
+   "borne_v3": 0.786058370091582
+  },
+  {
+   "scenario": "S4_optimiste : S3_optimiste + équirépartition (kappa_ss optimiste)",
+   "kappa_ss": 0.5585007741956705,
+   "gain": 0.12738561628944195,
+   "borne": 0.7973276938543788,
+   "borne_v3": 0.7902545756117911
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "entrees": [
+  "local_signs_l2_k8.json",
+  "local_signs_l3_k6.json"
+ ],
+ "scenarios": [
+  {
+   "scenario": "2,3 : prudent ; l>=7 additif : none ; équirépartition : non",
+   "facteur_l7": 1.0,
+   "kappa_ss": 0.567730085331652,
+   "borne": 0.786058370091582
+  },
+  {
+   "scenario": "2,3 : prudent ; l>=7 additif : none ; équirépartition : oui",
+   "facteur_l7": 1.0,
+   "kappa_ss": 0.567730085331652,
+   "borne": 0.7929976030036396
+  },
+  {
+   "scenario": "2,3 : prudent ; l>=7 additif : pru ; équirépartition : non",
+   "facteur_l7": 1.0362084271997776,
+   "kappa_ss": 0.5674041068132509,
+   "borne": 0.7902627584162412
+  },
+  {
+   "scenario": "2,3 : prudent ; l>=7 additif : pru ; équirépartition : oui",
+   "facteur_l7": 1.0362084271997776,
+   "kappa_ss": 0.5674041068132509,
+   "borne": 0.7974491214109355
+  },
+  {
+   "scenario": "2,3 : prudent ; l>=7 additif : max ; équirépartition : non",
+   "facteur_l7": 1.0527198025189066,
+   "kappa_ss": 0.5672929309525192,
+   "borne": 0.7921799981028144
+  },
+  {
+   "scenario": "2,3 : prudent ; l>=7 additif : max ; équirépartition : oui",
+   "facteur_l7": 1.0527198025189066,
+   "kappa_ss": 0.5672929309525192,
+   "borne": 0.7994794410728642
+  },
+  {
+   "scenario": "2,3 : optimiste ; l>=7 additif : none ; équirépartition : non",
+   "facteur_l7": 1.0,
+   "kappa_ss": 0.5578810238028946,
+   "borne": 0.7902545756117911
+  },
+  {
+   "scenario": "2,3 : optimiste ; l>=7 additif : none ; équirépartition : oui",
+   "facteur_l7": 1.0,
+   "kappa_ss": 0.5578810238028946,
+   "borne": 0.7973198450419662
+  },
+  {
+   "scenario": "2,3 : optimiste ; l>=7 additif : pru ; équirépartition : non",
+   "facteur_l7": 1.0362084271997776,
+   "kappa_ss": 0.5576018621696555,
+   "borne": 0.794610901938544
+  },
+  {
+   "scenario": "2,3 : optimiste ; l>=7 additif : pru ; équirépartition : oui",
+   "facteur_l7": 1.0362084271997776,
+   "kappa_ss": 0.5576018621696555,
+   "borne": 0.8019283302148835
+  },
+  {
+   "scenario": "2,3 : optimiste ; l>=7 additif : max ; équirépartition : non",
+   "facteur_l7": 1.0527198025189066,
+   "kappa_ss": 0.5575066470304046,
+   "borne": 0.7965974267493776
+  },
+  {
+   "scenario": "2,3 : optimiste ; l>=7 additif : max ; équirépartition : oui",
+   "facteur_l7": 1.0527198025189066,
+   "kappa_ss": 0.5575066470304046,
+   "borne": 0.8040301845443547
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+== l=3 : v3(A)=1, v3(B)=0, v3(D)=3 | BS : P(d3=+1)=5/6
+  (A,B)=(-24,4) N=4572,18288 w=+1,-1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(-24,20) N=11124,44496 w=-1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(-24,28) N=34128,8532 w=-1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(-24,44) N=3024,756 w=-1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(48,4) N=7380,29520 w=-1,-1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(48,20) N=113292,453168 w=+1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+== l=3 : v3(A)=1, v3(B)=0, v3(D)=5 | BS : P(d3=+1)=1/2
+  (A,B)=(24,20) N=1836,7344 w=+1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(-48,52) N=10260,41040 w=-1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(-48,92) N=23760,5940 w=-1,-1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(24,92) N=31536,7884 w=-1,+1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(96,20) N=98604,394416 w=-1,+1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(96,52) N=100332,401328 w=-1,+1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+== l=3 : v3(A)=2, v3(B)>=3 | BS : d3=-1
+  (A,B)=(-72,108) N=14544,3636 w=-1,-1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(72,108) N=22320,5580 w=+1,-1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(-144,108) N=143568,35892 w=-1,-1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(144,108) N=151344,37836 w=-1,+1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(-288,108) N=1175760,293940 w=-1,-1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+  (A,B)=(288,108) N=1183536,295884 w=-1,+1  d_3 déduit=+1  d_3 PARI=+1  Delta'_2 mod 4=1  OK
+== l=3 : v3(A)>=4, v3(B)=3 | BS : P(d3=+1)=1/3
+  (A,B)=(0,108) N=432,108 w=-1,+1  d_3 déduit=-1  d_3 PARI=-1  Delta'_2 mod 4=1  OK
+== l=2 : v2(A)=1, v2(B)=2 | BS : Delta'_2 = 1 mod 4, P(d2=+1)=1/2
+  (A,B)=(-2,4) N=640,640 w=-1,+1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=3  OK
+  (A,B)=(2,4) N=3712,3712 w=+1,+1  d_2 déduit=+1  d_2 PARI=+1  Delta'_2 mod 4=3  OK
+  (A,B)=(-10,4) N=28544,28544 w=+1,+1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=3  OK
+  (A,B)=(10,4) N=35456,35456 w=-1,-1  d_2 déduit=+1  d_2 PARI=+1  Delta'_2 mod 4=3  OK
+  (A,B)=(-10,12) N=896,896 w=-1,-1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=3  OK
+  (A,B)=(-2,12) N=30848,30848 w=-1,+1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=3  OK
+== l=2 : v2(A)=2, v2(B)=4, v2(16D)=13 | BS : d2 = +1 (Delta'=1) ou -1 (Delta'=3)
+  (A,B)=(-4,16) N=1664,1664 w=+1,+1  d_2 déduit=+1  d_2 PARI=+1  Delta'_2 mod 4=3  OK
+  (A,B)=(-20,16) N=896,896 w=-1,-1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(28,16) N=23680,23680 w=+1,+1  d_2 déduit=+1  d_2 PARI=+1  Delta'_2 mod 4=3  OK
+  (A,B)=(44,16) N=86912,86912 w=+1,+1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(-20,48) N=7552,7552 w=+1,+1  d_2 déduit=-1  d_2 PARI=-1  Delta'_2 mod 4=1  OK
+  (A,B)=(-4,48) N=1408,1408 w=+1,-1  d_2 déduit=+1  d_2 PARI=+1  Delta'_2 mod 4=3  OK
+désaccords PARI / équation fonctionnelle : 0
