@@ -1,0 +1,11 @@
+p = 3 : signe inconnu 0.6250 ; signes équirépartis 0.7500 ; tous de signe -1 0.9583
+p = 5 : signe inconnu 0.7917 ; signes équirépartis 0.8750 ; tous de signe -1 0.9917
+p = 7 : signe inconnu 0.8542 ; signes équirépartis 0.9167 ; tous de signe -1 0.9970
+Aujourd'hui (prudent, bound_v6)                                79.81 %
+p = 5 parfait (aucune exclusion, N6 réglé), kappa = 0,5587     80.47 %
++ p = 3 sur U (supersingulier a_3 = 0)                         81.70 %
+p = 5 parfait, kappa = 1 (conjecture mu_equi = mu de BSZ)      84.00 %
+  + p = 3 sur U, kappa = 1                                     85.33 %
+Si moyenne Sel_7 = 8 (ouvert), kappa = 0,5587, p = 7 seul      87.09 %
+Si moyenne Sel_7 = 8 et kappa = 1                              89.80 %
+kappa minimal pour 85 % (p = 5 parfait + p = 3 sur U) : 0.960
