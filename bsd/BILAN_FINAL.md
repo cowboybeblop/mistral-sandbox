@@ -32,7 +32,7 @@ Faire passer la proportion de courbes elliptiques vérifiant BSD (partie rang, r
 - **79,75 %** en ajoutant la réduction additive en ℓ ≥ 7, ℓ ≢ ±1 (mod 5) (piste 2) ;
 - **80,19 %** si E2 et E3 sont récupérés en plus (piste 3, bloquée par Diamond 1997a et 1997b).
 
-**Mise à jour finale (nuit du 27/11)** (`scripts/bound_v6.py`, `lit/verification_finale_27_11.md`) : **79,81 %** en version prudente (pistes 1, 2, 4, 6, 7) ; 80,25 % si E2 et E3 sont récupérés ; plafond ≈ 81,3 % avec p = 3 (hors de portée aujourd'hui). Conditionnel à A, B, N6 (ouvert), BSTW et CLW. Relecture adverse n° 3 (`lit/relecture_adverse_3.md`) : κ confirmé par un test global indépendant (0,5587 ± 0,0008) ; deux erreurs corrigées dans la note sur N6 ; chiffre inchangé.
+**Mise à jour finale (nuit du 27/11)** (`scripts/bound_v6.py`, `lit/verification_finale_27_11.md`) : **79,81 %** en version prudente (pistes 1, 2, 4, 6, 7) ; 80,25 % si E2 et E3 sont récupérés ; plafond ≈ 81,3 % avec p = 3 (hors de portée aujourd'hui). Conditionnel à A, B, N6 (ouvert), BSTW et CLW. Relecture adverse n° 3 (`lit/relecture_adverse_3.md`) : κ confirmé par un test global indépendant (0,5587 ± 0,0008) ; deux erreurs corrigées dans la note sur N6 ; chiffre inchangé. Relecture n° 4 (`lit/relecture_adverse_4.md`) : κ prudent confirmé globalement (0,5709 ± 0,0029) ; Steinberg tordu réglé au niveau DÉDUCTION ; aucune nouvelle erreur.
 
 Constat en passant : des coquilles probables dans les tables 3 et 4 de Bhargava–Shankar (arXiv 1312.7859), sans effet sur leurs théorèmes (κ ≈ 0,558 ≥ 0,5501).
 

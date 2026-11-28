@@ -1,0 +1,1 @@
+famille prudente, n = 30000 : P(F') = 0.5709 ± 0.0029 ; prévu 0,5687 (écart +0.8 σ)

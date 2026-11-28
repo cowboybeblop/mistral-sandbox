@@ -74,7 +74,7 @@ Le facteur multiplie la partie supersingulière ; le facteur maximal 1,0527 vaut
 
 ## 4. Relecture adverse
 
-1. **I — Steinberg tordu (I_n*, 5 ∤ n) et la Déf. 3.5 (2) de Kim–Ota prise à la lettre.** Le quotient de rang 1 de ρ\|I_ℓ est χ, ramifié. La même question se pose déjà pour « steinberg_tordu » en 2 et 3, admis dans S3 prudent. **Héritée**, à poser à Hsieh et Kim avec E2 et E3. Effet si on exclut les I_n* : moins de 10⁻⁶.
+1. **I — Steinberg tordu (I_n*, 5 ∤ n) et la Déf. 3.5 (2) de Kim–Ota prise à la lettre.** Le quotient de rang 1 de ρ\|I_ℓ est χ, ramifié. La même question se pose déjà pour « steinberg_tordu » en 2 et 3, admis dans S3 prudent. **Héritée**, à poser à Hsieh et Kim avec E2 et E3. *Mise à jour (relecture 4) : réglée au niveau DÉDUCTION, puisque la lecture littérale est vide (aucun relèvement ne la vérifie) et que Kim–Ota travaillent à torsion près (Rem. 2.2).* Effet si on exclut les I_n* : moins de 10⁻⁶.
 2. **I — Le Lemme 8.13 (support) en ℓ ≥ 7.** C'est un lemme publié de Wan, valable pour tout p. Nous ne l'avons vérifié numériquement qu'en 2 et 3. **Héritée.**
 3. **M — Conditions (c) et S1 de BSZ, Th. 9.** Elles portent sur les ℓ ‖ N avec ℓ ≡ ±1 (mod 5), qui ne sont pas concernés ici. **Réglée.**
 4. **M — (CR⁺)(5) de CH.** cond(ρ̄) = cond(ρ) en ℓ, puisque l'inertie est d'ordre premier à 5 ou que l'on a χ ⊗ St avec 5 ∤ n. **Réglée.**

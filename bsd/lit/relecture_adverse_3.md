@@ -101,4 +101,4 @@ Le critère « 3 relèvements » rate les sous-ensembles rares. Le Monte-Carlo i
 
 **Chiffre inchangé : 79,81 %** (prudent), conditionnel à A, B, N6, BSTW et CLW. Aucune objection critique propre aux pistes ne subsiste.
 
-**Point qui mériterait un 4ᵉ tour.** Le Steinberg tordu (Kim–Ota (2)) est déjà présent dans 78,61 %. Si un spécialiste le jugeait non minimal, il faudrait retirer ≈ 0,05 pt et le traiter comme E2.
+**Point qui mériterait un 4ᵉ tour** (traité dans `relecture_adverse_4.md` §1 : réglé au niveau DÉDUCTION). Le Steinberg tordu (Kim–Ota (2)) est déjà présent dans 78,61 %. Si un spécialiste le jugeait non minimal, il faudrait retirer ≈ 0,05 pt et le traiter comme E2.
