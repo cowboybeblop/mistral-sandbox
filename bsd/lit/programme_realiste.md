@@ -70,8 +70,19 @@ y compris aux premiers « E2, E3, N6 » de N⁺. C'est précisément ce que CH d
 - Statut : DÉDUCTION pour la réduction ; vérification numérique courbe par courbe. Les constantes de la formule de Gross en q | N⁺ (CH Prop. 3.8 : χ_q(N⁺), une unité) et en q₀ ≢ ±1 (mod 5) sont supposées être des unités en 5.
 
 **Conséquence possible.** Si la multiplicité un en 5 était démontrée en général aux premiers E3 (par exemple par l'idée de torsion du §2, ou par un calcul de défaut de Wiles nul à la Böckle–Khare–Manning), E3 serait récupéré (+0,4 pt). Les tests numériques vont dans ce sens. Ce qui reste à faire :
-- tester E2, et I₀* en ℓ = 7 (même situation locale que N6), en cours (`test_multiplicite_un_construit.py`) ;
-- puis chercher une preuve. Piste : le défaut de Wiles local de BKM est nul quand ρ̄ n'est pas scalaire (à vérifier dans 2108.09729).
+- tester E2, et I₀* en ℓ = 7 (même situation locale que N6) ;
+- puis chercher une preuve.
+
+**Mise à jour (fin du 28/11).**
+- **I₀* en ℓ = 7** (type E3, même situation locale que N6, `test_multiplicite_un_construit.py`) : **3 courbes sur 3** OK. Au total, **9 courbes E3 sur 9** et 6 témoins sur 6 sans défaut de multiplicité un.
+- **E2 en 3** : aucun candidat trouvé en 200 000 essais. Le cas est très rare (densité ≈ 10⁻⁵) et non testé. Constat en passant : le modèle court n'est jamais multiplicatif en 3 si 3 ∤ A ; un premier essai mal construit bouclait sans fin.
+- **Appui théorique (ÉTABLI, lu).** Böckle–Khare–Manning, arXiv 2108.09729, Prop. 6.2 : les anneaux locaux R_v^{τ_v} sont « Cohen–Macaulay, and [are] a complete intersection whenever τ_v = min [...] or whenever ρ̄|G_v is not a scalar ». Ils montrent aussi que le défaut de Wiles global est une **somme de défauts locaux** (introduction et Th. 1.1, où le défaut vient des q avec ρ̄(Frob_q) ≡ ±Id).
+- **DÉDUCTION (à faire valider).** En E3, après torsion par χ (d'ordre 2, premier à 5, ce qui ne change pas l'anneau local), le type en q est « unipotent » (non ramifié ou Steinberg). ρ̄(Frob_q) a des valeurs propres {±1, ±q}, distinctes mod 5 puisque q ≢ 1 (mod 5) : **ρ̄|G_q n'est pas scalaire**. L'anneau local est donc d'intersection complète, le défaut local est nul, et le module de Brandt est libre (critère de Diamond / IKM Th. 9.6). C'est la multiplicité un, donc la comparaison des périodes : **E3 serait récupéré**.
+- **Points à vérifier pour une preuve** :
+  - (i) le cadre de BKM : algèbre de quaternions **définie** (H⁰, prévu dans leur §6), N⁻ = q₀, condition plate en p = 5 supersingulier (Fontaine–Laffaille, prévu), et un type tordu de conducteur q² en N⁺ ;
+  - (ii) que « défaut nul » entraîne bien ξ_B = η_B dans la normalisation de BSTW ;
+  - (iii) le cas q = 2 (anneaux locaux en 2, p = 5 ≠ 2 : sans problème a priori).
+- **Statut.** Fort appui : théorie (BKM) et numérique (9/9). Le scénario « optimiste » (≈ 80,25 %) devient plausible, mais **n'est pas démontré**.
 
 ## 3. Questions à ajouter pour les spécialistes (brouillon, non envoyé)
 - (Hsieh, Kim) « For f = g ⊗ χ with χ quadratic ramified at q and g unramified at q, can one run [CH, §6] with the χ∘det-spherical test vector at q, i.e. in the space of g twisted by χ∘Nrd, thereby avoiding the non-minimal configuration at q? Is μ = 0 known for the tame branch of conductor q? »

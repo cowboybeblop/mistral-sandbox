@@ -34,6 +34,8 @@ Faire passer la proportion de courbes elliptiques vérifiant BSD (partie rang, r
 
 **Mise à jour finale (nuit du 27/11)** (`scripts/bound_v6.py`, `lit/verification_finale_27_11.md`) : **79,81 %** en version prudente (pistes 1, 2, 4, 6, 7) ; 80,25 % si E2 et E3 sont récupérés ; plafond ≈ 81,3 % avec p = 3 (hors de portée aujourd'hui). Conditionnel à A, B, N6 (ouvert), BSTW et CLW. Relecture adverse n° 3 (`lit/relecture_adverse_3.md`) : κ confirmé par un test global indépendant (0,5587 ± 0,0008) ; deux erreurs corrigées dans la note sur N6 ; chiffre inchangé. Relecture n° 4 (`lit/relecture_adverse_4.md`) : κ prudent confirmé globalement (0,5709 ± 0,0029) ; Steinberg tordu réglé au niveau DÉDUCTION ; aucune nouvelle erreur.
 
+**E3 (28/11)** : la comparaison des périodes se réduit à la multiplicité un (Vatsal 2003, Pollack–Weston). Tests numériques : 9 courbes E3 sur 9 OK. Appui théorique : Böckle–Khare–Manning, Prop. 6.2 (ρ̄ non scalaire, donc intersection complète). E3 est plausiblement récupérable (+0,4 pt), mais ce n'est pas démontré. Voir `lit/programme_realiste.md` §4.
+
 **Horizons (28/11)** : 85 % est inaccessible avec les outils connus (plafond 81,7 %) ; 83,3 % si les signes sont équirépartis (conjecture de BSZ). Voir `HORIZONS_85.md`.
 
 Constat en passant : des coquilles probables dans les tables 3 et 4 de Bhargava–Shankar (arXiv 1312.7859), sans effet sur leurs théorèmes (κ ≈ 0,558 ≥ 0,5501).
