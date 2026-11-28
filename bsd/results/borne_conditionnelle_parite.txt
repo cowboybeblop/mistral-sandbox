@@ -1,0 +1,2 @@
+pru: actuel 79.81 %  ->  si signes équirépartis dans toute famille large (kappa = 1) : 83.30 %
+opt: actuel 80.25 %  ->  si signes équirépartis dans toute famille large (kappa = 1) : 83.77 %

@@ -1,0 +1,16 @@
+p=2 parité inconnue  m=1: 0.3333  m=2: 0.3333  m=3: 0.3333  m=4: 0.3333   (loi extrémale m=4 : {0: 0.3333, 2: 0.6667})
+p=2 équirépartis     m=1: 0.5000  m=2: 0.5000  m=3: 0.5000  m=4: 0.5000   (loi extrémale m=4 : {1: 0.5, 2: 0.5})
+p=3 parité inconnue  m=1: 0.6250  m=2: 0.6250  m=3: 0.6250  m=4: 0.6250   (loi extrémale m=4 : {0: 0.625, 2: 0.375})
+p=3 équirépartis     m=1: 0.7500  m=2: 0.7500  m=3: 0.7500  m=4: 0.7500   (loi extrémale m=4 : {0: 0.25, 1: 0.5, 2: 0.25})
+p=5 parité inconnue  m=1: 0.7917  m=2: 0.7917  m=3: 0.7917  m=4: 0.7917   (loi extrémale m=4 : {0: 0.7917, 2: 0.2083})
+p=5 équirépartis     m=1: 0.8750  m=2: 0.8750  m=3: 0.8750  m=4: 0.8750   (loi extrémale m=4 : {0: 0.375, 1: 0.5, 2: 0.125})
+p=7 parité inconnue  m=1: 0.8542  m=2: 0.8542  m=3: 0.8542  m=4: 0.8542   (loi extrémale m=4 : {0: 0.8542, 2: 0.1458})
+p=7 équirépartis     m=1: 0.9167  m=2: 0.9167  m=3: 0.9167  m=4: 0.9167   (loi extrémale m=4 : {0: 0.4167, 1: 0.5, 2: 0.0833})
+
+--- variante : moments connus EXACTEMENT (égalités), S = 8 ---
+p=2 parité inconnue  m=1: 0.3333  m=2: 0.3386  m=3: 0.4165
+p=2 équirépartis     m=1: 0.5000  m=2: 0.5065  m=3: 0.6190
+p=3 parité inconnue  m=1: 0.6250  m=2: 0.6252  m=3: 0.6389
+p=3 équirépartis     m=1: 0.7500  m=2: 0.7503  m=3: 0.7945
+p=5 parité inconnue  m=1: 0.7917  m=2: 0.7917  m=3: 0.7933
+p=5 équirépartis     m=1: 0.8750  m=2: 0.8750  m=3: 0.8918

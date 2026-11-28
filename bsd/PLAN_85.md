@@ -1,5 +1,7 @@
 # Plan : explorer de nouveaux horizons pour dépasser 85 % (28 novembre 2026)
 
+> **Exécuté le 28/11** : voir `HORIZONS_85.md`. Verdict : 85 % est inaccessible avec les outils connus (plafond 81,7 %) ; 83,3 % sous la conjecture d'équirépartition des signes ; au-delà, il faut le problème de parité pour λ(4A³ + 27B²) ou la moyenne de Sel₇.
+
 ## 0. Carte des plafonds (FAIT : `scripts/plafonds.py`, `results/plafonds.txt`)
 
 | Ingrédients supposés | Borne |
