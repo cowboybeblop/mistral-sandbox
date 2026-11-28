@@ -1,0 +1,4 @@
+(a) w_p = -(-c6/p) en réduction multiplicative : 3003/3003 cas conformes
+(b) |A| <= 1e4 : moyenne de r(E) = +0.0002 ± 0.0050 ; moyenne de mu(4A^3+27B^2) = +0.0008 ± 0.0050
+(b) |A| <= 1e6 : moyenne de r(E) = +0.0014 ± 0.0050 ; moyenne de mu(4A^3+27B^2) = -0.0016 ± 0.0050
+(b) |A| <= 1e8 : moyenne de r(E) = +0.0062 ± 0.0050 ; moyenne de mu(4A^3+27B^2) = +0.0002 ± 0.0050

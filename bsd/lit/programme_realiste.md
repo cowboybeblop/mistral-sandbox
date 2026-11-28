@@ -44,5 +44,34 @@ Pour d ∈ {−1, ±2} en q = 2 et d = −3 en q = 3, le caractère χ_d est **g
   - L'idée de torsion (§2) revient à calculer ces congruences pour g plutôt que pour f.
 - Le cas d'une branche modérée de conducteur q n'est pas traité dans les passages lus. C'est **toujours à chercher** (Vatsal 2003, Duke, non accessible depuis arXiv).
 
+
+## 4. Avancée du 28/11 (Vatsal 2003 fourni par l'utilisateur) : le problème B se réduit à « multiplicité un », testable
+
+**Sources lues.**
+- Vatsal, *Special values of anticyclotomic L-functions* (2003) : §1, §2.1-2.5, §4.3 ;
+- Pollack–Weston, Rem. 2.4 ;
+- Agashe (0810.5176), qui cite [ARS12, Th. 3.6].
+
+**ÉTABLI (lu).**
+- Vatsal, Lemme 2.5 : la période de la formule de Gross est Ω = (g, g)/η_B, d'où Ω = Ω_can · C_csp, avec C_csp = η₀/η_B.
+- Vatsal, §4.3 : « since q divides the minimal level N̄, and divides N to precisely the first power, [...] any modular form g′ on Γ₀(N) congruent to g modulo λ is necessarily special at q. In particular, g′ occurs in the definite quaternion algebra B [...] It then follows that the number C_csp is also a λ-adic unit ».
+- PW, Rem. 2.4 : dans Vatsal, le dénominateur ξ_f(N⁺, N⁻) (module de congruence du module de Brandt) est remplacé à tort par η_f(N⁺, N⁻) (celui de l'algèbre). « These two quantities are equal if M is a free T₀(N⁺, N⁻)-module ».
+- [ARS12, Th. 3.6] (cité par Agashe) : « if p is a prime such that p² ∤ N, then ord_p(ñ_{A_f}) = ord_p(r̃_{A_f}) ». Le degré modulaire et le nombre de congruence ont donc la même valuation en 5, puisque 5 ∤ N.
+
+**Réduction (DÉDUCTION).** Avec (ram) au premier q₀ = N⁻, toute forme congrue de niveau N est spéciale en q₀, donc vit sur B. Les algèbres de Hecke localisées coïncident, et η₀ = η_B. Le problème B (comparaison des périodes de BSTW, Th. 10.5) se réduit **exactement** à :
+
+  **ξ_B = η_B en 5, c'est-à-dire que le module de Brandt M_𝔪 est libre sur T_B,𝔪 (multiplicité un),**
+
+y compris aux premiers « E2, E3, N6 » de N⁺. C'est précisément ce que CH démontrent par Taylor–Wiles dans le cas minimal, et ce qui pourrait échouer dans les cas non minimaux (signal de Böckle–Khare–Manning).
+
+**Test numérique** (`scripts/test_multiplicite_un.py`, `results/test_multiplicite_un.txt`).
+- Par la formule de Gross et ARS : L_alg(E)·L_alg(E^D) = |θ_D|²·η₀/ξ_B (à des unités en 5 près), pour D < 0 avec q₀ inerte et les autres premiers de N décomposés. Si un tel D donne un produit **non divisible par 5**, alors η₀/ξ_B est une unité, et la multiplicité un tient en 5 pour cette courbe.
+- **Résultats :** **6 courbes sur 6 de type E3** (5 en q = 3, 1 en q = 2) et 6 témoins sur 6 : pour chacune, plusieurs D donnent un produit unité en 5. **Pas de défaut de multiplicité un observé en E3.**
+- Statut : DÉDUCTION pour la réduction ; vérification numérique courbe par courbe. Les constantes de la formule de Gross en q | N⁺ (CH Prop. 3.8 : χ_q(N⁺), une unité) et en q₀ ≢ ±1 (mod 5) sont supposées être des unités en 5.
+
+**Conséquence possible.** Si la multiplicité un en 5 était démontrée en général aux premiers E3 (par exemple par l'idée de torsion du §2, ou par un calcul de défaut de Wiles nul à la Böckle–Khare–Manning), E3 serait récupéré (+0,4 pt). Les tests numériques vont dans ce sens. Ce qui reste à faire :
+- tester E2, et I₀* en ℓ = 7 (même situation locale que N6), en cours (`test_multiplicite_un_construit.py`) ;
+- puis chercher une preuve. Piste : le défaut de Wiles local de BKM est nul quand ρ̄ n'est pas scalaire (à vérifier dans 2108.09729).
+
 ## 3. Questions à ajouter pour les spécialistes (brouillon, non envoyé)
 - (Hsieh, Kim) « For f = g ⊗ χ with χ quadratic ramified at q and g unramified at q, can one run [CH, §6] with the χ∘det-spherical test vector at q, i.e. in the space of g twisted by χ∘Nrd, thereby avoiding the non-minimal configuration at q? Is μ = 0 known for the tame branch of conductor q? »
