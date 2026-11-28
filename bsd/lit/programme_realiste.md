@@ -37,5 +37,12 @@ Pour d ∈ {−1, ±2} en q = 2 et d = −3 en q = 3, le caractère χ_d est **g
 
 **Statut.** SPÉCULATION étayée. Les étapes 1 à 3 sont du travail technique sur des objets connus (éléments thêta à conducteur modéré, périodes toriques locales). C'est le chantier le plus prometteur du programme réaliste. **Prochaine action** : lire les énoncés exacts sur μ = 0 avec conducteur modéré (Vatsal 2003, Hsieh 1112.1574, Pollack–Weston §2), puis écrire l'étape 2.
 
+## 2 bis. Lecture de Pollack–Weston (math/0610694, §2.3-2.4, lu le 28/11)
+- **ÉTABLI.** Th. 2.3 (Vatsal) : « µ(L_p(K∞, f)) = 0 » pour la normalisation quaternionique, et « µ(L_p(K∞, f)) = ord_p(η_f(N)/ξ_f(N⁺, N⁻)) » pour la période canonique. Th. 2.5 : idem dans le cas supersingulier ± (« The results of [32] extend easily to the supersingular case »).
+- **Conséquence (DÉDUCTION).** Le problème B se réduit **exactement** à ord₅ η_f(N) = ord₅ ξ_f(N⁺, N⁻), au facteur ∏_{q|N⁻} c_q près. Les cas E2, E3 et N6 sont des premiers de N⁺ où cette égalité pourrait échouer.
+  - PW conjecturent (formule (2)) ord_p η_f(aℓ, b) = t_f(ℓ) + ord_p η_f(a, ℓb), où t_f(ℓ) est un terme de Tamagawa. C'est le genre de formule qu'il faudrait démontrer en q.
+  - L'idée de torsion (§2) revient à calculer ces congruences pour g plutôt que pour f.
+- Le cas d'une branche modérée de conducteur q n'est pas traité dans les passages lus. C'est **toujours à chercher** (Vatsal 2003, Duke, non accessible depuis arXiv).
+
 ## 3. Questions à ajouter pour les spécialistes (brouillon, non envoyé)
 - (Hsieh, Kim) « For f = g ⊗ χ with χ quadratic ramified at q and g unramified at q, can one run [CH, §6] with the χ∘det-spherical test vector at q, i.e. in the space of g twisted by χ∘Nrd, thereby avoiding the non-minimal configuration at q? Is μ = 0 known for the tame branch of conductor q? »
