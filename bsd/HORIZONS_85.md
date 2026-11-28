@@ -75,7 +75,7 @@ Exécution de `PLAN_85.md`, étapes E0 à E6.
 
 ## 6. Relecture adverse de cette synthèse
 
-1. **I — « La loi extrémale respecte tous les moments de Poonen–Rains. »** C'est vérifié numériquement jusqu'à j = 4. Pour tout j : 19/24 + (5/24)·p^{2j} ≤ ∏_{i≤j}(p^i + 1), puisque p^{2j} ≤ p^{j(j+1)/2}·(…) pour j ≥ 3, et c'est vérifié à la main pour j = 1, 2. **Réglée.**
+1. **I — « La loi extrémale respecte tous les moments de Poonen–Rains. »** C'est vérifié numériquement jusqu'à j = 4. Preuve pour tout j (p = 5) : j = 1 donne 19/24 + (5/24)·25 = 6 (égalité) ; j = 2 donne 131 ≤ 156 ; pour j ≥ 3, j(j+1)/2 ≥ 2j, donc ∏_{i≤j}(p^i + 1) > p^{j(j+1)/2} ≥ p^{2j} ≥ 19/24 + (5/24)·p^{2j}. **PROUVÉ, réglée.**
 2. **I — La borne conditionnelle de 83,3 % suppose κ = 1 dans la base et dans la famille supersingulière avec leurs conditions locales.** C'est la forme de la conjecture de BSZ (« for any large family F »). **Assumé, étiqueté CONJECTURE.**
 3. **M — Le lien λ(a² − b³) ↔ λ(4A³ + 27B²).** Il passe par c₄, c₆, un sous-réseau ; c'est le même problème à changement de variables près. Formulé comme « même problème », sans affirmer d'équivalence exacte. **Réglée.**
 4. **M — Le résultat de BSS n'a été vu que dans le résumé.** Il n'est utilisé que pour dire « n'aide pas », ce que le programme linéaire montre de toute façon. **Assumé.**
